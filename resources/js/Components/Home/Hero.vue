@@ -1,14 +1,14 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import "swiper/css";
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import SliderItem from "@/Components/Home/SliderItem.vue";
 import { ref } from "vue";
 
-const modules = ref([Autoplay, Pagination, Navigation])
+const modules = ref([Autoplay, Pagination, Navigation]);
 const onSwiper = (swiper) => {
     console.log(swiper);
 };
@@ -33,7 +33,7 @@ const onSlideChange = () => {
             </div>
         </div>
 
-        <swiper :spaceBetween="30" :centeredSlides="true" :autoplay="{
+        <swiper :spaceBetween="0" :centeredSlides="true" :autoplay="{
             delay: 2500,
             disableOnInteraction: false,
         }" :pagination="{
