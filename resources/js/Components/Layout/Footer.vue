@@ -1,6 +1,6 @@
 <template>
-  <footer class="group relative text-muted-600 body-font overflow-hidden bg-muted-900 dark:bg-muted-1000">
-    <div class="absolute -top-12 -left-12 w-56 h-56 z-10 text-muted-400/20 group-hover:animate-wheel">
+  <footer class="group relative text-gray-100 body-font overflow-hidden bg-gray-800 dark:bg-muted-1000">
+    <div class="absolute top-2 left-2 w-56 h-56 z-10 text-gray-300 animate-wheel">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 280.9 280.9" style="enable-background: new 0 0 280.9 280.9" xml:space="preserve">
         <g>
           <path class="fill-current" d="M140.4,234.5c51.9,0,94.1-42.2,94.1-94.1c0-51.9-42.2-94.1-94.1-94.1c-51.9,0-94.1,42.2-94.1,94.1
@@ -209,169 +209,114 @@
     </div>
 
     <div class="relative w-full max-w-7xl mx-auto px-5 py-24 z-20">
-      <div class="flex flex-wrap md:text-left text-center">
-        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-          <h2 class="font-sans font-medium text-muted-100 tracking-widest text-sm uppercase mb-4">
+      <div class="grid grid-cols-5 justify-center">
+        <div class="col-start-2 w-full px-4">
+          <h2 class="font-sans font-medium text-gray-100 tracking-widest text-sm uppercase mb-4">
             Buy vehicles
           </h2>
           <ul class="font-sans space-y-2 mb-10">
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Inventory
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 New vehicles
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Used vehicles
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 All models
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Buying online
               </a>
             </li>
           </ul>
         </div>
-        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-          <h2 class="font-sans font-medium text-muted-100 tracking-widest text-sm uppercase mb-4">
+        <div class="w-full px-4">
+          <h2 class="font-sans font-medium text-gray-100 tracking-widest text-sm uppercase mb-4">
             Service
           </h2>
           <ul class="font-sans space-y-2 mb-10">
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Test drive
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Store network
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Rate calculator
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Book appointment
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Technology
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 FAQs
               </a>
             </li>
           </ul>
         </div>
-        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-          <h2 class="font-sans font-medium text-muted-100 tracking-widest text-sm uppercase mb-4">
+        <div class="w-full px-4">
+          <h2 class="font-sans font-medium text-gray-100 tracking-widest text-sm uppercase mb-4">
             Company
           </h2>
           <ul class="font-sans space-y-2 mb-10">
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 About us
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Contact
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Customer center
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Events
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-muted-300/60 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-muted-100">
+              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Terms Of Service
               </a>
             </li>
           </ul>
         </div>
-        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-          <h2 class="font-sans font-medium text-muted-100 tracking-widest text-sm uppercase mb-4">
-            SUBSCRIBE
-          </h2>
-          <div class="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
-            <div class="relative w-full flex flex-col gap-2">
-              <input type="text" placeholder="Enter your email..." class="w-full h-10 bg-muted-800/50 border border-muted-700 text-sm outline-none py-2 px-3 leading-8 placeholder:text-muted-600 text-muted-100 transition-colors duration-300 tw-accessibility" />
-              <button class="w-full h-10 flex items-center justify-center font-sans text-sm text-white bg-primary-500 border-0 py-2 px-6 focus:outline-none hover:bg-primary-600">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <div class="relative bg-muted-1000 dark:bg-muted-900 z-20">
       <div class="w-full max-w-7xl mx-auto px-5 py-6 flex items-center sm:flex-row flex-col">
-        <a class="flex font-sans font-light items-center gap-2 md:justify-start justify-center text-muted-900">
-          <div class="h-14 w-14 text-muted-100">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 500" style="enable-background: new 0 0 500 500" xml:space="preserve">
-              <path class="fill-current" d="M393.5,360.6c0.1,0,0.3,0,0.4,0c1.3-0.1,2.6-0.2,3.9-0.3c0.2,0,0.4,0,0.6-0.1c1.2-0.1,2.4-0.3,3.7-0.4
-    	c0.1,0,0.1,0,0.2,0c56-7.8,97.7-53.1,97.7-109.7c0-62.2-50.4-110.8-114.8-110.8c-25,0-46.1,6-65.6,16.5l0,0l0,0l0,0
-    	c-1.1,0.6-2.2,1.2-3.3,1.8l0,0c0,0-0.1,0-0.1,0.1l0,0c-1,0.6-2.1,1.2-3.1,1.8l0,0c-0.1,0-0.1,0.1-0.2,0.1c-1,0.6-2.1,1.2-3.1,1.9
-    	c-0.1,0.1-0.2,0.1-0.3,0.2l0,0c-1,0.6-2,1.2-2.9,1.9l0,0l-0.1,0.1c-1,0.7-2.1,1.4-3.1,2.1l0,0c-0.1,0-0.1,0.1-0.2,0.1
-    	c-1,0.7-2,1.4-3,2.1l0,0c-0.1,0.1-0.2,0.1-0.2,0.2c-1.1,0.8-2.3,1.6-3.4,2.5c-0.1,0-0.1,0.1-0.2,0.1l0,0c-0.9,0.6-1.7,1.3-2.6,1.9
-    	l0,0c-0.2,0.2-0.5,0.4-0.7,0.5l0,0c-3,2.3-5.9,4.7-8.9,7.1l0,0c-0.4,0.3-0.7,0.6-1,0.9l0,0c-0.7,0.6-1.4,1.2-2.1,1.8l0,0
-    	c-0.2,0.2-0.4,0.3-0.6,0.5c-1.2,1-2.4,2.1-3.7,3.2c-0.1,0.1-0.3,0.3-0.4,0.4l0,0c-0.6,0.5-1.1,1-1.7,1.5l0,0
-    	c-0.6,0.6-1.2,1.1-1.8,1.7l0,0c-0.5,0.4-0.9,0.8-1.4,1.2l0,0c-1.1,1-2.2,2-3.3,3l-7.4,6.9l21,21c4.8,4.8,11.2,7.4,18,7.4
-    	c6.1,0,11.9-2.2,16.6-6.1c25.4-21.7,45.4-30.6,69-30.6c3.2,0,6.4,0.2,9.4,0.6c12.3,1.7,23.6,6.6,32.4,14.4c0.7,0.6,1.5,1.3,2.2,2
-    	s1.3,1.3,2,2c0.2,0.2,0.3,0.4,0.5,0.6c0.5,0.5,0.9,1,1.3,1.5c0.3,0.3,0.5,0.7,0.8,1c0.3,0.4,0.6,0.8,0.9,1.2c0.3,0.5,0.7,0.9,1,1.4
-    	c0.2,0.3,0.4,0.6,0.6,0.8c0.4,0.6,0.8,1.1,1.1,1.7c0.1,0.2,0.3,0.4,0.4,0.6c0.4,0.6,0.8,1.3,1.1,2c0.1,0.1,0.2,0.3,0.2,0.4
-    	c0.4,0.7,0.8,1.4,1.1,2.2c0,0.1,0.1,0.2,0.1,0.3c0.4,0.8,0.7,1.6,1.1,2.3c0,0.1,0,0.1,0.1,0.2c0.4,0.8,0.7,1.7,1,2.5l0,0
-    	c2.2,6,3.3,12.4,3.4,19.1c0,0.1,0,0.1,0,0.2c0,15.2-6,29.4-16.9,40c-11.3,11-27,17-44.1,17c-35.7,0-60.9-21.2-96.3-56.2l0,0l-32-32
-    	c-39.1-39.1-79.6-79.6-142-79.6c-1.3,0-2.6,0-3.9,0.1c-0.3,0-0.7,0-1,0c-1.2,0-2.3,0.1-3.5,0.2c-0.1,0-0.3,0-0.4,0
-    	c-1.3,0.1-2.6,0.2-3.9,0.3c-0.2,0-0.4,0-0.6,0.1c-1.2,0.1-2.5,0.3-3.7,0.4c-0.1,0-0.1,0-0.2,0C41.7,148.1,0,193.5,0,250
-    	c0,39.3,20.2,73.2,51.3,92.9l0,0c0.7,0.5,1.5,0.9,2.2,1.4c0,0,0.1,0,0.1,0.1c0.7,0.4,1.4,0.8,2.2,1.3c0.1,0,0.1,0.1,0.2,0.1
-    	c0.7,0.4,1.4,0.8,2.1,1.2c0.1,0.1,0.2,0.1,0.3,0.2c0.7,0.4,1.4,0.7,2,1.1c0.1,0.1,0.3,0.1,0.4,0.2c0.7,0.3,1.3,0.7,2,1
-    	c0.2,0.1,0.3,0.2,0.5,0.2c0.6,0.3,1.3,0.6,1.9,0.9c0.2,0.1,0.4,0.2,0.6,0.3c0.6,0.3,1.3,0.6,1.9,0.8c0.2,0.1,0.4,0.2,0.7,0.3
-    	c0.6,0.3,1.2,0.5,1.8,0.8c0.2,0.1,0.5,0.2,0.7,0.3c0.6,0.2,1.2,0.5,1.8,0.7c0.3,0.1,0.6,0.2,0.8,0.3c0.6,0.2,1.2,0.4,1.8,0.6
-    	c0.3,0.1,0.6,0.2,0.9,0.3c0.6,0.2,1.1,0.4,1.7,0.6c0.3,0.1,0.7,0.2,1,0.3c0.6,0.2,1.1,0.3,1.7,0.5c0.3,0.1,0.7,0.2,1,0.3
-    	c0.5,0.2,1.1,0.3,1.6,0.5c0.4,0.1,0.7,0.2,1.1,0.3c0.5,0.1,1.1,0.3,1.6,0.4c0.4,0.1,0.8,0.2,1.2,0.3c0.5,0.1,1,0.2,1.6,0.4
-    	c0.4,0.1,0.8,0.2,1.2,0.3c0.5,0.1,1,0.2,1.5,0.3c0.4,0.1,0.9,0.2,1.3,0.2c0.5,0.1,1,0.2,1.5,0.3c0.5,0.1,0.9,0.1,1.4,0.2
-    	s1,0.2,1.5,0.2c0.5,0.1,1,0.1,1.4,0.2c0.5,0.1,0.9,0.1,1.4,0.2s1,0.1,1.5,0.2c0.5,0,0.9,0.1,1.4,0.1c0.5,0.1,1.1,0.1,1.6,0.1
-    	c0.4,0,0.9,0.1,1.3,0.1c0.6,0,1.2,0.1,1.7,0.1c0.4,0,0.8,0.1,1.2,0.1c0.6,0,1.3,0,1.9,0.1c0.3,0,0.7,0,1,0c1,0,2,0,3,0
-    	c5.9,0,12.1-0.3,18.6-1.1c19.2-2.4,41.8-9.8,69.3-29.8c0.4-0.3,0.9-0.6,1.3-0.9c0.7-0.5,1.3-1,2-1.5c0.6-0.4,1.2-0.9,1.8-1.4
-    	c0.6-0.4,1.1-0.9,1.7-1.3c1.1-0.9,2.3-1.8,3.4-2.7c0.1-0.1,0.3-0.2,0.4-0.3c0.3-0.2,0.6-0.5,0.9-0.7c0.9-0.7,1.8-1.5,2.7-2.2
-    	c0.4-0.3,0.8-0.7,1.2-1c1.3-1.1,2.6-2.2,3.8-3.3c4.6-4,7.3-9.8,7.5-15.8c0.2-6.1-2.2-12-6.5-16.3l-44.1-44.1
-    	c-6.7-6.7-15.6-10.4-25.1-10.4H92.3v28.1c0,14.2,11.6,25.8,25.8,25.8h28.1l7.8,7.8l0,0l5,5c-14.6,8.5-28.6,12.4-44.1,12.4
-    	c-17.1,0-32.7-6-44.1-17c-0.7-0.6-1.3-1.3-1.9-1.9c-0.2-0.2-0.4-0.5-0.6-0.7c-0.4-0.4-0.8-0.9-1.2-1.3c-0.3-0.3-0.5-0.6-0.7-0.9
-    	c-0.3-0.4-0.6-0.8-0.9-1.2c-0.3-0.3-0.5-0.7-0.8-1c-0.3-0.4-0.5-0.7-0.8-1.1s-0.5-0.8-0.8-1.2c-0.2-0.3-0.4-0.7-0.7-1
-    	c-0.3-0.4-0.5-0.8-0.8-1.3c-0.2-0.3-0.4-0.6-0.6-0.9c-0.3-0.5-0.5-0.9-0.8-1.4c-0.1-0.3-0.3-0.6-0.4-0.9c-0.3-0.5-0.5-1-0.8-1.5
-    	c-0.1-0.2-0.2-0.5-0.3-0.7c-0.3-0.6-0.5-1.2-0.8-1.7c-0.1-0.1-0.1-0.3-0.2-0.5c-2.1-5.4-3.4-11.1-3.8-17l0,0
-    	c-0.1-1.2-0.1-2.5-0.1-3.7c0-15.2,6-29.4,16.9-40c11.3-11,27-17,44.1-17c35.9,0,61.2,21.5,97.1,57l0,0l0,0l0,0l12.5,12.5l18.7,18.7
-    	c25.7,25.7,51.9,51.9,84.6,66.9c4.7,2.1,9.5,4.1,14.4,5.7c1.6,0.6,3.3,1.1,5,1.6c0.8,0.2,1.7,0.5,2.5,0.7c1.7,0.5,3.4,0.9,5.1,1.3
-    	c9.5,2.2,19.6,3.4,30.4,3.4c1.3,0,2.6,0,3.9-0.1c0.3,0,0.7,0,1,0C391.2,360.7,392.4,360.6,393.5,360.6z" />
-            </svg>
-          </div>
-          <span class="text-xl text-muted-100">Finity</span>
-        </a>
         <p class="text-sm text-muted-400 sm:ml-6 sm:mt-0 mt-4">
-          © 2022-2023 Css Ninja — All Rights Reserved.
+          © {{new Date().getYear()}} Xtreme Motors Inc — All Rights Reserved.
         </p>
         <span class="inline-flex gap-3 sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
           <a href="home.html#" class="text-muted-400 hover:text-primary-500">
@@ -391,3 +336,23 @@
     </div>
   </footer>
 </template>
+
+<style>
+.animate-wheel {    
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}
+</style>
