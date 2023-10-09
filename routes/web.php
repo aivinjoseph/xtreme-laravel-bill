@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -23,6 +24,10 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
+Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
+Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
 
 Route::middleware([
     'auth:sanctum',
