@@ -14,17 +14,17 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('technical_condition_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('ext_color_id')->constrained('colors')->cascadeOnDelete();
-            $table->foreignId('int_color_id')->constrained('colors')->cascadeOnDelete();
-            $table->foreignId('manufacturer_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('transmission_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('car_model_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('body_type_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('drive_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('door_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('fuel_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('trim_id')->constrained()->cascadeOnDelete();
+            $table->string('technical_condition');
+            $table->string('ext_color');
+            $table->string('int_color');
+            $table->string('make');
+            $table->string('transmission');
+            $table->string('model');
+            $table->string('body_type');
+            $table->string('drive');
+            $table->string('door');
+            $table->string('fuel');
+            $table->string('trim');
             $table->longText('description');
             $table->string('availability');
             $table->integer('mileage');

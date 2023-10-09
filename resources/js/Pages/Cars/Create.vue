@@ -22,18 +22,18 @@ defineProps({
 });
 
 const form = useForm({
-    technical_condition_id: '',
-    manufacturer_id: '',
-    transmission_id: '',
-    car_model_id: '',
-    int_color_id: '',
-    ext_color_id: '',
-    body_type_id: '',
+    technical_condition: '',
+    make: '',
+    transmission: '',
+    model: '',
+    int_color: '',
+    ext_color: '',
+    body_type: '',
     description: '',
-    drive_id: '',
-    trim_id: '',
-    fuel_id: '',
-    door_id: '',
+    drive: '',
+    trim: '',
+    fuel: '',
+    door: '',
     mileage: '',
     images: [],
     name: '',
@@ -71,21 +71,21 @@ const submit = () => {
 
                 <div class="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div>
-                        <InputLabel for="manufacturer_id" value="Make" />
-                        <select v-model="form.manufacturer_id" class="rounded border-gray-300 w-full mt-1">
+                        <InputLabel for="make" value="Make" />
+                        <select v-model="form.make" class="rounded border-gray-300 w-full mt-1">
                             <option value="">Select Make</option>
-                            <option v-for="make in makes" :key="make.id" :value="make.id">{{ make.name }}</option>
+                            <option v-for="make in makes" :key="make.id" :value="make.name">{{ make.name }}</option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.manufacturer_id" />
+                        <InputError class="mt-2" :message="form.errors.make" />
                     </div>
     
                     <div>
-                        <InputLabel for="car_model_id" value="Model" />
-                        <select v-model="form.car_model_id" class="rounded border-gray-300 w-full mt-1">
+                        <InputLabel for="model" value="Model" />
+                        <select v-model="form.model" class="rounded border-gray-300 w-full mt-1">
                             <option value="">Select Model</option>
-                            <option v-for="model in models" :key="model.id" :value="model.id">{{ model.name }}</option>
+                            <option v-for="model in models" :key="model.id" :value="model.name">{{ model.name }}</option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.car_model_id" />
+                        <InputError class="mt-2" :message="form.errors.model" />
                     </div>
     
                     <div>
@@ -96,75 +96,75 @@ const submit = () => {
                 
 
                     <div>
-                        <InputLabel for="body_type_id" value="Body Type" />
-                        <select v-model="form.body_type_id" class="rounded border-gray-300 w-full mt-1">
+                        <InputLabel for="body_type" value="Body Type" />
+                        <select v-model="form.body_type" class="rounded border-gray-300 w-full mt-1">
                             <option value="">Select Body Type</option>
-                            <option v-for="bodyType in bodyTypes" :key="bodyType.id" :value="bodyType.id">{{ bodyType.name }}</option>
+                            <option v-for="bodyType in bodyTypes" :key="bodyType.id" :value="bodyType.name">{{ bodyType.name }}</option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.body_type_id" />
+                        <InputError class="mt-2" :message="form.errors.body_type" />
                     </div>
 
                     <div>
-                        <InputLabel for="transmission_id" value="Transmission" />
-                        <select v-model="form.transmission_id" class="rounded border-gray-300 w-full mt-1">
+                        <InputLabel for="transmission" value="Transmission" />
+                        <select v-model="form.transmission" class="rounded border-gray-300 w-full mt-1">
                             <option value="">Select Transmission</option>
-                            <option v-for="transmission in transmissions" :key="transmission.id" :value="transmission.id">{{ transmission.name }}</option>
+                            <option v-for="transmission in transmissions" :key="transmission.id" :value="transmission.name">{{ transmission.name }}</option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.transmission_id" />
+                        <InputError class="mt-2" :message="form.errors.transmission" />
                     </div>
 
                     <div>
-                        <InputLabel for="door_id" value="Door" />
-                        <select v-model="form.door_id" class="rounded border-gray-300 w-full mt-1">
+                        <InputLabel for="door" value="Door" />
+                        <select v-model="form.door" class="rounded border-gray-300 w-full mt-1">
                             <option value="">Select Door</option>
-                            <option v-for="door in doors" :key="door.id" :value="door.id">{{ door.name }}</option>
+                            <option v-for="door in doors" :key="door.id" :value="door.name">{{ door.name }}</option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.door_id" />
+                        <InputError class="mt-2" :message="form.errors.door" />
                     </div>
 
                     <div>
-                        <InputLabel for="fuel_id" value="Fuel" />
-                        <select v-model="form.fuel_id" class="rounded border-gray-300 w-full mt-1">
+                        <InputLabel for="fuel" value="Fuel" />
+                        <select v-model="form.fuel" class="rounded border-gray-300 w-full mt-1">
                             <option value="">Select Fuel</option>
-                            <option v-for="fuel in fuels" :key="fuel.id" :value="fuel.id">{{ fuel.name }}</option>
+                            <option v-for="fuel in fuels" :key="fuel.id" :value="fuel.name">{{ fuel.name }}</option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.fuel_id" />
+                        <InputError class="mt-2" :message="form.errors.fuel" />
                     </div>
 
                     <div>
-                        <InputLabel for="technical_condition_id" value="Technical Condition" />
-                        <select v-model="form.technical_condition_id" class="rounded border-gray-300 w-full mt-1">
+                        <InputLabel for="technical_condition" value="Technical Condition" />
+                        <select v-model="form.technical_condition" class="rounded border-gray-300 w-full mt-1">
                             <option value="">Select Technical Condition</option>
-                            <option v-for="condition in conditions" :key="condition.id" :value="condition.id">{{ condition.name }}</option>
+                            <option v-for="condition in conditions" :key="condition.id" :value="condition.name">{{ condition.name }}</option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.technical_condition_id" />
+                        <InputError class="mt-2" :message="form.errors.technical_condition" />
                     </div>
 
                     <div>
-                        <InputLabel for="drive_id" value="Drive" />
-                        <select v-model="form.drive_id" class="rounded border-gray-300 w-full mt-1">
+                        <InputLabel for="drive" value="Drive" />
+                        <select v-model="form.drive" class="rounded border-gray-300 w-full mt-1">
                             <option value="">Select Drive</option>
-                            <option v-for="drive in drives" :key="drive.id" :value="drive.id">{{ drive.name }}</option>
+                            <option v-for="drive in drives" :key="drive.id" :value="drive.name">{{ drive.name }}</option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.drive_id" />
+                        <InputError class="mt-2" :message="form.errors.drive" />
                     </div>
 
                     <div>
-                        <InputLabel for="ext_color_id" value="Ext Color" />
-                        <select v-model="form.ext_color_id" class="rounded border-gray-300 w-full mt-1">
+                        <InputLabel for="ext_color" value="Ext Color" />
+                        <select v-model="form.ext_color" class="rounded border-gray-300 w-full mt-1">
                             <option value="">Select Color</option>
-                            <option v-for="color in colors" :key="color.id" :value="color.id">{{ color.name }}</option>
+                            <option v-for="color in colors" :key="color.id" :value="color.name">{{ color.name }}</option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.ext_color_id" />
+                        <InputError class="mt-2" :message="form.errors.ext_color" />
                     </div>
 
                     <div>
-                        <InputLabel for="int_color_id" value="Int Color" />
-                        <select v-model="form.int_color_id" class="rounded border-gray-300 w-full mt-1">
+                        <InputLabel for="int_color" value="Int Color" />
+                        <select v-model="form.int_color" class="rounded border-gray-300 w-full mt-1">
                             <option value="">Select Color</option>
-                            <option v-for="color in colors" :key="color.id" :value="color.id">{{ color.name }}</option>
+                            <option v-for="color in colors" :key="color.id" :value="color.name">{{ color.name }}</option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.int_color_id" />
+                        <InputError class="mt-2" :message="form.errors.int_color" />
                     </div>
 
                     <div>
@@ -206,7 +206,7 @@ const submit = () => {
                     <div class="flex gap-4">
                         <div class="w-full">
                             <InputLabel for="name" value="Engine" />
-                            <TextInput id="name" v-model="form.engine" type="number" class="mt-1 block w-full" required autofocus autocomplete="engine" />
+                            <TextInput id="name" v-model="form.engine" type="text" class="mt-1 block w-full" required autofocus autocomplete="engine" />
                             <InputError class="mt-2" :message="form.errors.engine" />
                         </div>
                     </div>
@@ -220,12 +220,12 @@ const submit = () => {
                     </div>
 
                     <div>
-                        <InputLabel for="trim_id" value="Trim" />
-                        <select v-model="form.trim_id" class="rounded border-gray-300 w-full mt-1">
+                        <InputLabel for="trim" value="Trim" />
+                        <select v-model="form.trim" class="rounded border-gray-300 w-full mt-1">
                             <option value="">Select Trim</option>
-                            <option v-for="trim in trims" :key="trim.id" :value="trim.id">{{ trim.name }}</option>
+                            <option v-for="trim in trims" :key="trim.id" :value="trim.name">{{ trim.name }}</option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.trim_id" />
+                        <InputError class="mt-2" :message="form.errors.trim" />
                     </div>
 
                     <div class="lg:col-span-3">
