@@ -16,6 +16,7 @@ use App\Models\Manufacturer;
 use App\Models\TechnicalCondition;
 use App\Models\Transmission;
 use App\Models\Trim;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class CarController extends Controller
@@ -26,6 +27,28 @@ class CarController extends Controller
     public function index()
     {
         //
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function inventory(Request $request)
+    {
+        return Inertia::render('Cars/Inventory', [
+            'cars' => Car::search($request->except('page'))->paginate(24)->withQueryString(),
+            'models' => CarModel::all(),
+            'makes' => Manufacturer::all(),
+            'colors' => Color::all(),
+            'trims' => Trim::all(),
+            'drives' => Drive::all(),
+            'fuels' => Fuel::all(),
+            'bodyTypes' => BodyType::all(),
+            'doors' => Door::all(),
+            'conditions' => TechnicalCondition::all(),
+            'transmissions' => Transmission::all(),
+            'features' => Feature::all(),
+            'filters' => $request->all()
+        ]);
     }
 
     /**

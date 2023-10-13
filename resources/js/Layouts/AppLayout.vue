@@ -19,11 +19,11 @@ const logout = () => {
 
         <Banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div>
             <Navbar />
 
             <!-- Page Content -->
-            <main class="relative w-full overflow-hidden transition-all duration-300 z-10">
+            <main>
                 <slot />
             </main>
 

@@ -20,6 +20,7 @@ use Inertia\Inertia;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
+Route::get('/inventory', [CarController::class, 'inventory'])->name('cars.inventory');
 Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
 Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
 
