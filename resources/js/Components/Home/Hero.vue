@@ -21,13 +21,13 @@ const onSlideChange = () => {
     <div class="relative">
         <div class="absolute top-0 left-0 w-full h-full flex items-center z-30 pointer-events-none">
             <div class="w-full max-w-7xl mx-auto grid grid-cols-12 px-4">
-                <div class="col-span-12 text-center ltablet:text-left lg:text-left ltablet:col-span-5 lg:col-span-5 space-y-4">
-                    <h1 class="font-sans font-semibold text-5xl ltablet:text-6xl lg:text-7xl leading-none text-white">
-                        Premium cars and vehicles
+                <div class="col-span-12 text-center lg:text-left lg:col-span-6 space-y-4">
+                    <h1 class="font-sans font-semibold text-4xl leading-none text-white">
+                        Buy a Pre-Owned Luxury Vehicle
                     </h1>
                     <p class="font-sans text-lg text-white max-w-md mx-auto ltablet:mx-0 lg:mx-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Ex ea difficultate illae fallaciloquae, ut ait.
+                        We fulfill your desire of owning a car with financing
+                        options available at a reasonable cost.
                     </p>
                 </div>
             </div>
