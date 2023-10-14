@@ -9,7 +9,7 @@
 </script>
 
 <template>
-    <div class="container max-w-7xl mx-auto px-4 lg:px-16">
+    <div class="container">
         <div class="w-full text-left space-y-4 py-6">
             <h2 class="font-heading font-light text-4xl md:text-5xl text-muted-800 dark:text-white">
                 Upcoming Vehicles

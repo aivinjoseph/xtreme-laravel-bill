@@ -14,66 +14,71 @@ const props = defineProps({
         type: Array,
         required: true,
     },
+    upcomingCars: {
+        type: Array,
+        required: true,
+    },
+    brands: {
+        type: Array,
+        required: true,
+    },
 });
-console.log(props.featuredCars);
+
 </script>
 
 <template>
     <AppLayout title="Home">
         <div class="w-full min-h-screen mx-auto bg-white dark:bg-muted-900">
             <!--Hero-->
-            <Hero />        
-
-            <div class="mt-8"></div>
-
-            <!--Featured-->
-            <Featured :cars="featuredCars" />
-
-            <div class="mt-8"></div>
-            <UpcomingCars :cars="featuredCars" />
-
-            <div class="w-full flex justify-center py-4 mt-4">
-                <Link href="/inventory" class="
-                      relative
-                      font-sans font-normal
-                      inline-flex
-                      items-center
-                      justify-center
-                      leading-5
-                      no-underline
-                      min-w-[240px]
-                      space-x-1
-                      text-white
-                      bg-gray-800
-                      dark:bg-gray-900
-                      h-14
-                      px-5
-                      py-3
-                      text-base
-                      hover:bg-gray-700
-                      dark:hover:bg-gray-1000
-                      tw-accessibility
-                      transition-all
-                      duration-300
-                      rounded
-                    ">
-                    Explore Inventory
-                </Link>
-            </div>
-
-            <!--Brands-->
-            <OurBrands />
-
-            <!--Highlight-->
-            <Highlights />
-
-            <!--Testimonials-->
-            <Testimonials />
-
-            <!--CTA-->
-            <TestBooking />
-
-            <!--End Layout-->
+            <Hero />
+            <div class="container mt-8 max-w-7xl mx-auto px-8 lg:px-12">
+                <!--Featured-->
+                <Featured :cars="featuredCars" />
+    
+                <div class="mt-8"></div>
+                <UpcomingCars :cars="upcomingCars" />
+    
+                <div class="w-full flex justify-center py-4 mt-4">
+                    <Link href="/inventory" class="
+                          relative
+                          font-sans font-normal
+                          inline-flex
+                          items-center
+                          justify-center
+                          leading-5
+                          no-underline
+                          min-w-[240px]
+                          space-x-1
+                          text-white
+                          bg-gray-800
+                          dark:bg-gray-900
+                          h-14
+                          px-5
+                          py-3
+                          text-base
+                          hover:bg-gray-700
+                          dark:hover:bg-gray-1000
+                          tw-accessibility
+                          transition-all
+                          duration-300
+                          rounded
+                        ">
+                        Explore Inventory
+                    </Link>
+                </div>
+    
+                <!--Brands-->
+                <OurBrands :brands="brands"/>
+    
+                <!--Highlight-->
+                <Highlights />
+    
+                <!--Testimonials-->
+                <Testimonials />
+    
+                <!--CTA-->
+                <TestBooking />
+            </div>  
         </div>
     </AppLayout>
 </template>

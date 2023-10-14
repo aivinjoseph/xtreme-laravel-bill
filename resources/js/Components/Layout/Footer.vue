@@ -104,7 +104,7 @@
       </svg>
     </div>
 
-    <div class="absolute bottom-4 -right-20 w-56 h-56 z-10 text-muted-400/20 group-hover:animate-wheel">
+    <div class="absolute bottom-4 -right-20 w-56 h-56 z-10 text-muted-400/20 animate-wheel">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 280.9 280.9" style="enable-background: new 0 0 280.9 280.9" xml:space="preserve">
         <g>
           <path class="fill-current" d="M140.4,234.5c51.9,0,94.1-42.2,94.1-94.1c0-51.9-42.2-94.1-94.1-94.1c-51.9,0-94.1,42.2-94.1,94.1
@@ -208,7 +208,7 @@
       </svg>
     </div>
 
-    <div class="relative w-full max-w-7xl mx-auto px-5 py-24 z-20">
+    <div class="relative w-full max-w-7xl mx-auto px-5 py-8 pt-16 z-20">
       <div class="grid grid-cols-5 justify-center">
         <div class="col-start-2 w-full px-4">
           <h2 class="font-sans font-medium text-gray-100 tracking-widest text-sm uppercase mb-4">
@@ -313,23 +313,17 @@
         </div>
       </div>
     </div>
-    <div class="relative bg-muted-1000 dark:bg-muted-900 z-20">
-      <div class="w-full max-w-7xl mx-auto px-5 py-6 flex items-center sm:flex-row flex-col">
+    <div class="bg-muted-1000 dark:bg-muted-900 z-20">
+      <div class="w-full max-w-7xl mx-auto px-5 py-6 flex justify-around items-center sm:flex-row flex-col">
         <p class="text-sm text-muted-400 sm:ml-6 sm:mt-0 mt-4">
           © {{new Date().getYear()}} Xtreme Motors Inc — All Rights Reserved.
         </p>
-        <span class="inline-flex gap-3 sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <a href="home.html#" class="text-muted-400 hover:text-primary-500">
-            <i class="iconify w-4 h-4" data-icon="fa6-brands:facebook-f"></i>
+        <span class="flex gap-3 sm:mt-0 mt-4 justify-center">
+          <a href="/terms" class="text-muted-400 hover:text-primary-500">
+            Terms of Use & Disclaimer
           </a>
-          <a href="home.html#" class="text-muted-400 hover:text-primary-500">
-            <i class="iconify w-4 h-4" data-icon="fa6-brands:twitter"></i>
-          </a>
-          <a href="home.html#" class="text-muted-400 hover:text-primary-500">
-            <i class="iconify w-4 h-4" data-icon="fa6-brands:instagram"></i>
-          </a>
-          <a href="home.html#" class="text-muted-400 hover:text-primary-500">
-            <i class="iconify w-4 h-4" data-icon="fa6-brands:linkedin-in"></i>
+          <a href="/privacy" class="text-muted-400 hover:text-primary-500">
+            Privacy Policy
           </a>
         </span>
       </div>
