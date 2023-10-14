@@ -12,8 +12,8 @@ class HomeController extends Controller
     public function index()
     {
         return Inertia::render('Welcome', [
-            'featuredCars' => Car::limit(3)->get(),
-            'upcomingCars' => Car::limit(3)->get(),
+            'featuredCars' => Car::featured()->latest()->limit(3)->get(),
+            'upcomingCars' => Car::upcoming()->latest()->limit(3)->get(),
             'brands' => Manufacturer::withCount('cars')->orderBy('cars_count', 'desc')->get(),
         ]);
     }

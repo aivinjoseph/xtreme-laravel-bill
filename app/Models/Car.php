@@ -15,6 +15,12 @@ class Car extends Model
         'features' => 'array',
     ];
 
+    protected $availability = [
+        'available' => 'available',
+        'sold' => 'sold',
+        'upcoming' => 'upcoming',
+    ];
+
     public function scopeSearch($query, $params)
     {
         $query->when($params['price'] ?? null, function($query, $price) {
@@ -75,7 +81,30 @@ class Car extends Model
         $query->when($params['availability'] ?? null, function($query, $availability) {
             $query->where('availability', $availability);
         });
+    }
 
+    public function scopeFeatured($query)
+    {
+        $query->where('featured', true);
+    }
 
+    public function scopeAvailable($query)
+    {
+        $query->where('availability', $this->availability['available']);
+    }
+
+    public function scopeSold($query)
+    {
+        $query->where('availability', $this->availability['sold']);
+    }
+
+    public function scopeUpcoming($query)
+    {
+        $query->where('availability', $this->availability['upcoming']);
+    }
+
+    public function setAsFeatured()
+    {
+        $this->update(['featured' => true]);
     }
 }

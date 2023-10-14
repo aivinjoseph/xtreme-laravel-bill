@@ -35,7 +35,7 @@ class CarController extends Controller
     public function inventory(Request $request)
     {
         return Inertia::render('Cars/Inventory', [
-            'cars' => Car::search($request->except('page'))->paginate(24)->withQueryString(),
+            'cars' => Car::search($request->except('page'))->latest()->paginate(24)->withQueryString(),
             'models' => CarModel::all(),
             'makes' => Manufacturer::all(),
             'colors' => Color::all(),
@@ -122,5 +122,12 @@ class CarController extends Controller
     public function destroy(Car $car)
     {
         //
+    }
+
+    public function setAsFeatured(Car $car)
+    {
+        $car->setAsFeatured();
+
+        return redirect()->route('cars.inventory');
     }
 }

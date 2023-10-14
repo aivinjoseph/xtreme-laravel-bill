@@ -34,7 +34,9 @@ return new class extends Migration
             $table->json('features');
             $table->integer('year');
             $table->json('images');
-
+            $table->integer('featured_image_index')->default(0);
+            $table->boolean('featured')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

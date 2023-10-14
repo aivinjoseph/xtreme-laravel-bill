@@ -1,5 +1,6 @@
 <script setup>
     import { Link } from '@inertiajs/vue3';
+    import CarActions from '@/Components/Cars/CarActions.vue';
 
     defineProps({
         car: {
@@ -11,7 +12,10 @@
 
 <template>
     <div>
-        <div>
+        <div class="relative">
+            <div v-if="$page.props.auth.user" class="absolute right-2 top-2">
+                <CarActions :car="car" />
+            </div>
             <img class="object-cover object-center w-full rounded h-32 lg:h-36" :src="car.images[0]" alt="Vehicle image" />
         </div>
         <div class="mt-2 flex items-center gap-4">
