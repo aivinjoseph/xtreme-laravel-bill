@@ -10,7 +10,7 @@
 <template>
     <div>
         <div>
-            <img class="object-cover object-center w-full rounded h-32" :src="car.images[0]" alt="Vehicle image" />
+            <img class="object-cover object-center w-full rounded h-32 lg:h-36" :src="car.images[0]" alt="Vehicle image" />
         </div>
         <div class="mt-2 flex items-center gap-4">
             <div class="leading-tight">
