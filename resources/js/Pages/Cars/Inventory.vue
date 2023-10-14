@@ -61,11 +61,11 @@ const submit = () => {
                 <div class="w-full">
                     <TopFilters :models="models" :makes="makes" :form="form" @submit="submit"/>
                 </div>
-                <div class="py-4 flex items-center gap-2">
+                <div class="py-4 mt-4 flex items-center gap-2">
                     <h2 class="text-2xl font-bold">{{ cars.total }}</h2>
                     <p class="text-gray-500">Cars Available</p>
                 </div>
-                <div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
                     <FeaturedItem v-for="car in cars.data" :key="car.id" :car="car" />
                 </div>
                 <div class="mt-8">
