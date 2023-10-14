@@ -57,7 +57,7 @@ const submit = () => {
     <AppLayout title="Inventory">
         <div class="flex p-8">
             <SideFilters :form="form" :colors="colors" :trims="trims" :drives="drives" :fuels="fuels" :body-types="bodyTypes" :doors="doors" :conditions="conditions" :features="features" :transmissions="transmissions" @submit="submit"/>
-            <div class="max-w-7xl mx-auto col-span-2">
+            <div class="max-w-7xl mx-auto col-span-2 px-4">
                 <div class="w-full">
                     <TopFilters :models="models" :makes="makes" :form="form" @submit="submit"/>
                 </div>

@@ -1,4 +1,6 @@
 <script setup>
+    import { Link } from '@inertiajs/vue3';
+
     defineProps({
         car: {
             type: Object,
@@ -59,8 +61,8 @@
                 </div>
             </div>
         </div>
-        <a href="/vehicle.html" class="rounded font-sans font-normal inline-flex items-center justify-center leading-5 no-underline w-full space-x-1 bg-gray-100 hover:bg-gray-800 text-gray-500 hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 h-10 px-5 py-3 text-sm tw-accessibility transition-all duration-300">
+        <Link :href="`/inventory/${car.id}`" class="rounded font-sans font-normal inline-flex items-center justify-center leading-5 no-underline w-full space-x-1 bg-gray-100 hover:bg-gray-800 text-gray-500 hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 h-10 px-5 py-3 text-sm tw-accessibility transition-all duration-300">
             View Details
-        </a>
+        </Link>
     </div>
 </template>
