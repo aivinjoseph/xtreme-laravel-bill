@@ -55,7 +55,7 @@ const submit = () => {
 
 <template>
     <AppLayout title="Create Car">
-        <div class="w-full lg:max-w-7xl mx-auto px-4 lg:px-16 py-8 mt-16">
+        <div class="w-full lg:max-w-7xl mx-auto px-4 lg:px-16 py-8 mt-4">
             <form @submit.prevent="submit" class="lg:w-1/2 mx-auto">
                 <div>
                     <InputLabel for="name" value="Title" />
