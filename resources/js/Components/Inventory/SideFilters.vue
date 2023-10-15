@@ -29,10 +29,10 @@
 </script>
 
 <template>
-    <div class="p-4 bg-gray-100 rounded shadow-sm flex flex-col gap-4 md:w-3/5">
+    <div class="p-4 bg-gray-100 rounded shadow-sm flex flex-col gap-4">
         <div class="mt-2 space-y-2">
             <InputLabel for="name" value="Year" />
-            <Slider v-model="form.year" :merge="yearMerge" :min="1970" :step="1" :max="currentYear"/>
+            <Slider class="slider-red" v-model="form.year" :merge="yearMerge" :min="1970" :step="1" :max="currentYear"/>
         </div>
         <div class="mt-4 space-y-2">
             <InputLabel for="name" value="Mileage" />
@@ -145,4 +145,15 @@
     </div>
 </template>
 
-<style src="@vueform/slider/themes/default.css"></style>
+<style src="@vueform/slider/themes/default.css" lang="scss">
+    :root {
+    --slider-connect-bg: #3B82F6;
+    --slider-tooltip-bg: #3B82F6;
+    --slider-handle-ring-color: #3B82F630;
+    }
+    // .slider-red {
+    //     --slider-connect-bg: #EF4444;
+    //     --slider-tooltip-bg: #EF4444;
+    //     --slider-handle-ring-color: #EF444430;
+    // }
+</style>
