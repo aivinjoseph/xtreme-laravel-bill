@@ -29,7 +29,7 @@
 </script>
 
 <template>
-    <div class="p-4 bg-gray-100 rounded shadow-sm flex flex-col gap-4">
+    <div class="p-4 bg-gray-100 rounded shadow-sm flex flex-col gap-4 md:w-3/5">
         <div class="mt-2 space-y-2">
             <InputLabel for="name" value="Year" />
             <Slider v-model="form.year" :merge="yearMerge" :min="1970" :step="1" :max="currentYear"/>

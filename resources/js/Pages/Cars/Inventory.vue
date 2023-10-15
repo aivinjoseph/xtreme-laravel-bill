@@ -55,17 +55,17 @@ const submit = () => {
 
 <template>
     <AppLayout title="Inventory">
-        <div class="flex p-8">
+        <div class="flex flex-col md:flex-row p-8">
             <SideFilters :form="form" :colors="colors" :trims="trims" :drives="drives" :fuels="fuels" :body-types="bodyTypes" :doors="doors" :conditions="conditions" :features="features" :transmissions="transmissions" @submit="submit"/>
-            <div class="max-w-7xl mx-auto col-span-2 px-4">
-                <div class="w-full">
+            <div class="max-w-7xl mx-auto md:px-4">
+                <div class="w-full mt-4 md:mt-0">
                     <TopFilters :models="models" :makes="makes" :form="form" @submit="submit"/>
                 </div>
                 <div class="py-4 mt-4 flex items-center gap-2">
                     <h2 class="text-2xl font-bold">{{ cars.total }}</h2>
                     <p class="text-gray-500">Cars Available</p>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <FeaturedItem v-for="car in cars.data" :key="car.id" :car="car" />
                 </div>
                 <div class="mt-8">

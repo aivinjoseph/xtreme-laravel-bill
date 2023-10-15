@@ -14,7 +14,7 @@
 </script>
 
 <template>
-    <div class="w-full grid grid-cols-3 gap-4 py-4 bg-gray-100 p-4 rounded">
+    <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4 bg-gray-100 p-4 rounded">
         <div>
             <InputLabel for="make" value="Make" />
             <select v-model="form.make" class="rounded border-gray-300 w-full mt-1">
@@ -30,7 +30,7 @@
             </select>
         </div>
         <div class="flex items-end">
-            <primary-button class="h-10 text-center" :processing="form.processing" @click="submit">
+            <primary-button class="h-10 w-full text-center" :processing="form.processing" @click="submit">
                 Search
             </primary-button>
         </div>
