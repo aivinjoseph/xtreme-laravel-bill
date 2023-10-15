@@ -23,6 +23,8 @@ Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 Route::get('/inventory', [CarController::class, 'inventory'])->name('cars.inventory');
 Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
 Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
+Route::get('/cars/{car}/edit', [CarController::class, 'edit'])->name('cars.edit');
+Route::put('/cars/{car}/update', [CarController::class, 'update'])->name('cars.update');
 Route::patch('/cars/{car}/featured', [CarController::class, 'setAsFeatured'])->name('cars.featured');
 
 Route::middleware([

@@ -6,8 +6,8 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import RichTextEditor from '@/Components/RichTextEditor.vue';
-
-defineProps({
+import FileUpload from '@/Components/FileUpload.vue';
+const props = defineProps({
     models: Array,
     makes: Array,
     colors: Array,
@@ -18,7 +18,11 @@ defineProps({
     doors: Array,
     conditions: Array,
     transmissions: Array,
-    features: Array
+    features: Array,
+    car: {
+        type: Object,
+        default: {}
+    }
 });
 
 const form = useForm({
@@ -36,6 +40,7 @@ const form = useForm({
     door: '',
     mileage: '',
     images: [],
+    files: [],
     name: '',
     year: '',
     unit: '',
@@ -44,13 +49,23 @@ const form = useForm({
     seats: '',
     features: [],
     availability: '',
+    ...props.car,
+    _method: props.car.id ? 'put' : 'post'
 });
 
 const submit = () => {
-    form.post(route('cars.store'), {
-        onFinish: () => form.reset('name', 'images'),
-    });
+    if (props.car && props.car.id) {
+        form.post(route('cars.update', props.car.id));
+        return;
+    }
+
+    form.post(route('cars.store'));
 };
+
+const onImageUpdate = (images) => {
+    form.images = images;
+}
+
 </script>
 
 <template>
@@ -239,18 +254,15 @@ const submit = () => {
                         <InputError class="mt-2" :message="form.errors.features" />
                     </div>
 
-                    <div>
-                        <InputLabel for="images" value="Images" />
-                        <label class="mt-1 flex items-center px-4 py-2 bg-white text-gray-800 rounded-lg border border-gray-300 cursor-pointer">
-                            <input id="images" @input="form.images = $event.target.files" accept="image/jpeg,image/jpg,image/png" type="file" class="hidden" multiple required/>
-                            <span>Upload Images</span>
-                        </label>
-                        <InputError class="mt-2" :message="form.errors.images" />
-                    </div>
+                </div>
+                <div class="mt-4">
+                    <InputLabel for="images" value="Images" />
+                    <FileUpload v-model="form.files" :images="form.images" @on-image-update="onImageUpdate"/>
+                    <InputError class="mt-2" :message="form.errors.files" />
                 </div>
                 <div class="flex items-center justify-end mt-4">
                     <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                        Create
+                        {{ car && car.id ? 'Update' : 'Create' }}
                     </PrimaryButton>
                 </div>
             </form>

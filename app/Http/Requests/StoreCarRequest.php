@@ -40,8 +40,10 @@ class StoreCarRequest extends FormRequest
             'features' => 'required|array',
             'price' => 'required|integer',
             'seats' => 'required|integer',
-            'engine' => 'required|string',
-            'year' => 'required|integer',
+            'engine' => 'required',
+            'year' => 'required|integer|min:1970|max:' . (date('Y') + 1),
+            'files' => 'array',
+            'files.*' => 'required|image|max:10240',
         ];
     }
 }

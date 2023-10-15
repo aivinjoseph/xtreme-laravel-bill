@@ -76,20 +76,9 @@ class CarController extends Controller
      */
     public function store(StoreCarRequest $request)
     {
-        $images = [];
+        Car::create($this->getValidatedData($request));
 
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $images[] = '/storage/' . $image->store('/images', 'public');
-            }
-        }
-
-        Car::create([
-            ...$request->validated(),
-            'images' => $images
-        ]);
-
-        return redirect()->route('cars.index');
+        return redirect()->route('cars.inventory');
     }
 
     /**
@@ -105,15 +94,30 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        //
+        return Inertia::render('Cars/Create', [
+            'car' => $car,
+            'models' => CarModel::all(),
+            'makes' => Manufacturer::all(),
+            'colors' => Color::all(),
+            'trims' => Trim::all(),
+            'drives' => Drive::all(),
+            'fuels' => Fuel::all(),
+            'bodyTypes' => BodyType::all(),
+            'doors' => Door::all(),
+            'conditions' => TechnicalCondition::all(),
+            'transmissions' => Transmission::all(),
+            'features' => Feature::all()
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCarRequest $request, Car $car)
+    public function update(StoreCarRequest $request, Car $car)
     {
-        //
+        $car->update($this->getValidatedData($request));
+
+        return redirect()->route('cars.inventory');
     }
 
     /**
@@ -129,5 +133,26 @@ class CarController extends Controller
         $car->setAsFeatured();
 
         return redirect()->route('cars.inventory');
+    }
+
+    public function getValidatedData(StoreCarRequest $request) {
+        $images = [];
+
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $image) {
+                $images[] = '/storage/' . $image->store('/images', 'public');
+            }
+        }
+
+        $validated = collect($request->validated())
+            ->forget('files')
+            ->toArray();
+        $validated['images'] = $images;
+
+        if ($request->method() != 'POST') {
+            $validated['images'] = array_merge($request->get('images', []), $images);
+        }
+        
+        return $validated;
     }
 }
