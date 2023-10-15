@@ -43,7 +43,7 @@ const form = useForm({
     files: [],
     name: '',
     year: '',
-    unit: '',
+    mileage_unit: '',
     price: '',
     engine: '',
     seats: '',
@@ -200,10 +200,10 @@ const onImageUpdate = (images) => {
                             <InputError class="mt-2" :message="form.errors.mileage" />
                         </div>
                         <div>
-                            <InputLabel for="unit" value="Unit" />
-                            <select v-model="form.unit" class="rounded border-gray-300 w-full mt-1">
+                            <InputLabel for="mileage_unit" value="Unit" />
+                            <select v-model="form.mileage_unit" class="rounded border-gray-300 w-full mt-1">
                                 <option value="">Select Unit</option>
-                                <option value="miles">Miles</option>
+                                <option value="mi">Miles</option>
                                 <option value="km">Km</option>
                             </select>
                             <InputError class="mt-2" :message="form.errors.availability" />

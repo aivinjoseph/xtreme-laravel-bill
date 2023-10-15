@@ -37,6 +37,7 @@ class StoreCarRequest extends FormRequest
             'availability' => 'required|string',
             'description' => 'required|string',
             'mileage' => 'required|integer',
+            'mileage_unit' => 'required|string|in:km,mi',
             'features' => 'required|array',
             'price' => 'required|integer',
             'seats' => 'required|integer',

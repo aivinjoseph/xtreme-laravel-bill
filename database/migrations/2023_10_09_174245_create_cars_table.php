@@ -28,8 +28,9 @@ return new class extends Migration
             $table->longText('description');
             $table->string('availability');
             $table->integer('mileage');
+            $table->string('mileage_unit');
             $table->integer('price');
-            $table->integer('engine');
+            $table->string('engine');
             $table->integer('seats');
             $table->json('features');
             $table->integer('year');
