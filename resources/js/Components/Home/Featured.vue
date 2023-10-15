@@ -14,7 +14,7 @@
             <h2 class="font-heading font-light text-2xl md:text-3xl text-gray-800 dark:text-white">
                 Featured Vehicles
             </h2>
-            <p class="w-1/2 font-sans font-light text-lg text-gray-500 dark:text-gray-400">
+            <p class="md:w-1/2 font-sans font-light text-lg text-gray-500 dark:text-gray-400">
                 These are our featured vehicles. Treat deals that we feel deserve a little more attention than the rest.
             </p>
         </div>

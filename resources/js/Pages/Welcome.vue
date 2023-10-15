@@ -31,7 +31,7 @@ const props = defineProps({
         <div class="w-full min-h-screen mx-auto bg-white dark:bg-muted-900">
             <!--Hero-->
             <Hero />
-            <div class="container mt-8 max-w-7xl mx-auto px-8 lg:px-12">
+            <div class="container mt-8 max-w-7xl mx-auto px-4 lg:px-12">
                 <!--Featured-->
                 <Featured :cars="featuredCars" />
     

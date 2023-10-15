@@ -1,6 +1,6 @@
 <template>
   <footer class="group relative text-gray-100 body-font overflow-hidden bg-gray-800 dark:bg-muted-1000">
-    <div class="absolute top-2 left-2 w-56 h-56 z-10 text-gray-300 animate-wheel">
+    <div class="absolute top-2 left-2 w-16 h-16 md:w-56 md:h-56 z-10 text-gray-300 animate-wheel">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 280.9 280.9" style="enable-background: new 0 0 280.9 280.9" xml:space="preserve">
         <g>
           <path class="fill-current" d="M140.4,234.5c51.9,0,94.1-42.2,94.1-94.1c0-51.9-42.2-94.1-94.1-94.1c-51.9,0-94.1,42.2-94.1,94.1
@@ -104,7 +104,7 @@
       </svg>
     </div>
 
-    <div class="absolute bottom-4 -right-20 w-56 h-56 z-10 text-muted-400/20 animate-wheel">
+    <div class="absolute bottom-4 -right-20 w-16 h-16 md:w-56 md:h-56 z-10 text-muted-400/20 animate-wheel">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 280.9 280.9" style="enable-background: new 0 0 280.9 280.9" xml:space="preserve">
         <g>
           <path class="fill-current" d="M140.4,234.5c51.9,0,94.1-42.2,94.1-94.1c0-51.9-42.2-94.1-94.1-94.1c-51.9,0-94.1,42.2-94.1,94.1
@@ -209,8 +209,8 @@
     </div>
 
     <div class="relative w-full max-w-7xl mx-auto px-5 py-8 pt-16 z-20">
-      <div class="grid grid-cols-5 justify-center">
-        <div class="col-start-2 w-full px-4">
+      <div class="grid grid-cols-2 md:grid-cols-5 justify-center">
+        <div class="md:col-start-2 w-full px-4">
           <h2 class="font-sans font-medium text-gray-100 tracking-widest text-sm uppercase mb-4">
             Buy vehicles
           </h2>
