@@ -95,8 +95,11 @@
         </Modal>
         <div class="py-12 max-w-7xl mx-auto ">
             <div class="flex px-4 lg:px-8">
-                <div class="w-1/4 flex flex-col gap-2 text-left">
-                    <button class="w-full py-2 rounded hover:bg-gray-100" :class="{'bg-gray-100 font-bold': table.name == selectedTable.name}" v-for="table in tables" :key="table.name" @click="changeTable(table)">{{ table.label }}</button>
+                <div class="w-2/4 md:w-1/4 shadow rounded flex flex-col">
+                    <div class="bg-gray-800 p-4 border-b text-gray-100 rounded-t border-gray-100">
+                        <h3 class="text-xl font-semibold">Master Data</h3>
+                    </div>
+                    <button class="w-full py-2 px-4 rounded hover:bg-gray-100 border-b border-gray-100 text-left" :class="{'bg-gray-100 font-bold': table.name == selectedTable.name}" v-for="table in tables" :key="table.name" @click="changeTable(table)">{{ table.label }}</button>
                 </div>
                 <div class="px-4 w-full">
                     <div class="flex justify-between">
@@ -104,7 +107,7 @@
                         <PrimaryButton @click="showModal = true">Add New</PrimaryButton>
                     </div>
                     <div class="flex gap-4 flex-wrap mt-4">
-                        <div v-for="data in selectedTable.data" :key="data.id" class="border border-gray-100 rounded p-4">
+                        <div v-for="data in selectedTable.data" :key="data.id" class="border border-gray-100 bg-gray-50 shadow-sm rounded p-4">
                             <div class="font-bold text-gray-800 text-center">{{ data.name }}</div>
                             <div class="mt-4 flex gap-8">
                                 <button @click="edit(data)" class="text-sm text-green-700 font-semibold">
