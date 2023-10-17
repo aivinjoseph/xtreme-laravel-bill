@@ -31,6 +31,8 @@ Route::patch('/cars/{car}/featured', [CarController::class, 'setAsFeatured'])->n
 
 Route::get('/master-data', [DashboardController::class, 'masterData'])->name('master-data');
 Route::post('/master-data', [DashboardController::class, 'store'])->name('master-data.store');
+Route::put('/master-data/{id}', [DashboardController::class, 'update'])->name('master-data.update');
+Route::delete('/master-data/{id}', [DashboardController::class, 'destroy'])->name('master-data.destroy');
 
 Route::middleware([
     'auth:sanctum',

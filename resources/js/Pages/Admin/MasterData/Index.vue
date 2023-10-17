@@ -17,26 +17,52 @@
 
     const selectedTable = ref(props.tables[0]);
     const showModal = ref(false);
-    const form = useForm({ name: '', manufacturer_id: ''});
+    const form = useForm({ name: '', manufacturer_id: '', table: selectedTable.value.name});
     const makes = ref(props.tables.find(table => table.name == 'Manufacturer').data);
+    const selectedItem = ref(null);
 
     const changeTable = (table) => {
-        selectedTable.value = table
+        selectedTable.value = table;
+        form.table = table.name;
     }
 
     const closeModal = () => {
         showModal.value = false;
+        selectedItem.value = null;
+        form.reset();
+    }
+
+    const edit = (item) => {
+        showModal.value = true;
+        form.name = item.name;
+        form.manufacturer_id = item.manufacturer_id;
+        selectedItem.value = item;
     }
 
     const submit = () => {
-        form.post(route('master-data.store', { name: selectedTable.value.name, table: selectedTable.value.name }), {
+        if (selectedItem.value) {
+            form.put(route('master-data.update', selectedItem.value.id), {
+                preserveScroll: true,
+                onSuccess: () => location.reload(),
+            });
+            return;
+        }
+
+        form.post(route('master-data.store'), {
             preserveScroll: true,
-            onSuccess: () => {
-                closeModal();
-                form.reset();
-            }
+            onSuccess: () => location.reload(),
         });
     }
+
+    const deleteItem = (item) => {
+        if (confirm('Are you sure you want to delete this item?')) {
+            form.delete(route('master-data.destroy', item.id, {table: selectedTable.name}), {
+                preserveScroll: true,
+                onSuccess: () => location.reload(),
+            });
+        }
+    }
+
 </script>
 
 <template>
@@ -62,7 +88,7 @@
                         <InputError class="mt-2" :message="form.errors.name" />
                     </div>
                 </div>
-                <div>
+                <div class="flex justify-end">
                     <PrimaryButton @click="submit">Save</PrimaryButton>
                 </div>
             </div>
@@ -81,10 +107,10 @@
                         <div v-for="data in selectedTable.data" :key="data.id" class="border border-gray-100 rounded p-4">
                             <div class="font-bold text-gray-800 text-center">{{ data.name }}</div>
                             <div class="mt-4 flex gap-8">
-                                <button class="text-sm text-green-700 font-semibold">
+                                <button @click="edit(data)" class="text-sm text-green-700 font-semibold">
                                     Edit
                                 </button>
-                                <button class="text-sm text-red-700 font-semibold">
+                                <button @click="deleteItem(data)" class="text-sm text-red-700 font-semibold">
                                     Delete
                                 </button>
                             </div>

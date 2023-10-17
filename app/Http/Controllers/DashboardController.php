@@ -39,12 +39,43 @@ class DashboardController extends Controller
 
     public function store() 
     {
+        $data = $this->getValidatedData();
+        $model = 'App\\Models\\' . request()->get('table');
+
+        $model::create($data);
+
+        return redirect(route('master-data'));
+    }
+
+    public function update($id) 
+    {
+        $data = $this->getValidatedData();
+
+        $model = 'App\\Models\\' . request()->get('table');
+        $model = $model::find($id);
+
+        $model->update($data);
+
+        return redirect(route('master-data'));
+    }
+
+    public function destroy($id) 
+    {
+        $model = 'App\\Models\\' . request()->get('table');
+        $model = $model::find($id);
+
+        $model->delete();
+
+        return redirect(route('master-data'));
+    }
+
+    public function getValidatedData() 
+    {
         $validated = request()->validate([
             'table' => 'required',
             'name' => 'required'
         ]);
 
-        $model = 'App\\Models\\' . $validated['table'];
         $data = [
             'name' => $validated['name']
         ];
@@ -57,8 +88,7 @@ class DashboardController extends Controller
             $data['manufacturer_id'] = request()->get('manufacturer_id');
         }
 
-        $model::create($data);
 
-        return redirect()->back();
+        return $data;
     }
 }
