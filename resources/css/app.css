@@ -6,10 +6,8 @@
     display: none;
 }
 
-@layer base {
-    :root {
-        --slider-connect-bg: rgb(81, 85, 92);
-        --slider-tooltip-bg: rgb(81, 85, 92);
-        --slider-handle-ring-color: rgb(81, 85, 92);
-    }
+:root {
+    --slider-connect-bg: rgb(81, 85, 92);
+    --slider-tooltip-bg: rgb(81, 85, 92);
+    --slider-handle-ring-color: rgb(81, 85, 92);
 }
