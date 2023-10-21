@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FinanceApplicationController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,9 @@ Route::get('/master-data', [DashboardController::class, 'masterData'])->name('ma
 Route::post('/master-data', [DashboardController::class, 'store'])->name('master-data.store');
 Route::put('/master-data/{id}', [DashboardController::class, 'update'])->name('master-data.update');
 Route::delete('/master-data/{id}', [DashboardController::class, 'destroy'])->name('master-data.destroy');
+
+Route::get('/finance-application', [FinanceApplicationController::class, 'create']);
+Route::post('/finance-application', [FinanceApplicationController::class, 'store'])->name('finance-application.store');
 
 Route::middleware([
     'auth:sanctum',
