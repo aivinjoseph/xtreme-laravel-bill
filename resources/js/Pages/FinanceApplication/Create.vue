@@ -27,7 +27,6 @@ const submit = () => {
             <h1 class="text-2xl font-bold text-gray-800">Finance Application</h1>
             <p class="text-gray-500">Please fill out the information below and one of our representatives will contact you regarding your credit application request.</p>
             <form @submit.prevent="submit" class="mt-4">
-                {{ form.errors }}
                <ApplicantInfo :form="form" />
                <div class="mt-8"></div>
 
