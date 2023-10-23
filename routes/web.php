@@ -38,6 +38,10 @@ Route::delete('/master-data/{id}', [DashboardController::class, 'destroy'])->nam
 Route::get('/finance-application', [FinanceApplicationController::class, 'create']);
 Route::post('/finance-application', [FinanceApplicationController::class, 'store'])->name('finance-application.store');
 
+Route::get('/payment-calculator', function () {
+    return Inertia::render('PaymentCalculator/Index');
+})->name('payment-calculator');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

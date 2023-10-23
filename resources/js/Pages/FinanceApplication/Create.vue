@@ -23,7 +23,7 @@ const submit = () => {
 
 <template>
     <AppLayout title="Apply for Finance">
-        <div class="max-w-7px mx-auto p-4 md:px-8">
+        <div class="max-w-7xl mx-auto p-4 md:px-8 mt-4">
             <h1 class="text-2xl font-bold text-gray-800">Finance Application</h1>
             <p class="text-gray-500">Please fill out the information below and one of our representatives will contact you regarding your credit application request.</p>
             <form @submit.prevent="submit" class="mt-4">

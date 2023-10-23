@@ -19,7 +19,7 @@ const logout = () => {
 </script>
 
 <template>
-  <nav class="bg-gray-900 mx-auto flex w-full items-center justify-between p-6 lg:px-8" aria-label="Global">
+  <nav class="bg-gray-50 mx-auto flex w-full items-center justify-between p-6 lg:px-8" aria-label="Global">
     <div class="flex lg:flex-1">
       <a href="/" class="-m-1.5 p-1.5">
         <span class="sr-only">Xtreme Motors Inc</span>
@@ -37,17 +37,24 @@ const logout = () => {
         </svg>
       </button>
     </div>
-    <div class="hidden lg:flex lg:gap-x-12">
-      <Link href="/" class="text-sm font-semibold leading-6 text-gray-100">Home</Link>
-      <Link href="/inventory" class="text-sm font-semibold leading-6 text-gray-100">Inventory</Link>
-      <Link href="/brands" class="text-sm font-semibold leading-6 text-gray-100">Brands</Link>
-      <Link href="/finance-application" class="text-sm font-semibold leading-6 text-gray-100">Finance Application</Link>
+    <div class="hidden lg:flex lg:gap-x-6">
+      <Link href="/" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Home</Link>
+      <Link href="/inventory" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Inventory</Link>
+      <div class="relative group hover:cursor-pointer">
+        <span class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Financing</span>
+        <div class="absolute top-6 w-40 bg-gray-50 shadow p-2 gap-2 z-50 hidden group-hover:flex flex-col">
+          <Link href="/finance-application" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Finance Application</Link>
+          <Link href="/payment-calculator" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Payment Calculator</Link>
+        </div>
+      </div>
+      <Link href="/contact-us" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Contact Us</Link>
+      <Link href="/about-us" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">About Us</Link>
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <form v-if="$page.props.auth.user" @submit.prevent="logout">
         <button type="submit">Logout</button>
       </form>
-      <Link v-else href="/login" class="text-sm font-semibold leading-6 text-gray-100">Log in <span aria-hidden="true">&rarr;</span></Link>
+      <Link v-else href="/login" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Log in <span aria-hidden="true">&rarr;</span></Link>
     </div>
   </nav>
   <!-- Mobile menu, show/hide based on menu open state. -->
@@ -71,13 +78,15 @@ const logout = () => {
       <div class="mt-6 flow-root">
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6">
-            <Link @click="showMobileMenu = false" href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-50">Home</Link>
-            <Link @click="showMobileMenu = false" href="/Inventory" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-50">Inventory</Link>
-            <Link @click="showMobileMenu = false" href="/Brands" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-50">Brands</Link>
-            <Link @click="showMobileMenu = false" href="/cities" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-50">Cities</Link>
+            <Link @click="showMobileMenu = false" href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Home</Link>
+            <Link @click="showMobileMenu = false" href="/Inventory" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Inventory</Link>
+            <Link @click="showMobileMenu = false" href="/finance-application" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Finance Application</Link>
+            <Link @click="showMobileMenu = false" href="/payment-calculator" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Payment Calculator</Link>
+            <Link @click="showMobileMenu = false" href="/contact-us" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Contact Us</Link>
+            <Link @click="showMobileMenu = false" href="/about-us" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">About Us</Link>
           </div>
           <div class="py-6">
-            <Link @click="showMobileMenu = false" href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-50">Log in</Link>
+            <Link @click="showMobileMenu = false" href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Log in</Link>
           </div>
         </div>
       </div>
