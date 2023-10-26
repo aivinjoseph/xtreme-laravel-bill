@@ -54,6 +54,10 @@ Route::get('/contact-us', function () {
     return Inertia::render('Contacts/Create');
 })->name('contact-us');
 
+Route::get('/privacy', function () {
+    return Inertia::render('PrivacyPolicy');
+})->name('privacy-policy');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
