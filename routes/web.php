@@ -42,6 +42,14 @@ Route::get('/payment-calculator', function () {
     return Inertia::render('PaymentCalculator/Index');
 })->name('payment-calculator');
 
+Route::get('/about-us', function () {
+    return Inertia::render('About/Index');
+})->name('about-us');
+
+Route::get('/contact-us', function () {
+    return Inertia::render('Contact/Index');
+})->name('contact-us');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
