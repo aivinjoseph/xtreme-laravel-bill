@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FinanceApplicationController;
 use App\Http\Controllers\HomeController;
@@ -38,6 +39,9 @@ Route::delete('/master-data/{id}', [DashboardController::class, 'destroy'])->nam
 Route::get('/finance-application', [FinanceApplicationController::class, 'create']);
 Route::post('/finance-application', [FinanceApplicationController::class, 'store'])->name('finance-application.store');
 
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
+
 Route::get('/payment-calculator', function () {
     return Inertia::render('PaymentCalculator/Index');
 })->name('payment-calculator');
@@ -47,7 +51,7 @@ Route::get('/about-us', function () {
 })->name('about-us');
 
 Route::get('/contact-us', function () {
-    return Inertia::render('Contact/Index');
+    return Inertia::render('Contacts/Create');
 })->name('contact-us');
 
 Route::middleware([
