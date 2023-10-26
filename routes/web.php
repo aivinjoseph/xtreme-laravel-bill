@@ -47,7 +47,7 @@ Route::get('/payment-calculator', function () {
 })->name('payment-calculator');
 
 Route::get('/about-us', function () {
-    return Inertia::render('About/Index');
+    return Inertia::render('About');
 })->name('about-us');
 
 Route::get('/contact-us', function () {
