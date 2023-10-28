@@ -107,8 +107,8 @@ class Car extends Model
         $query->where('availability', $this->availability['upcoming']);
     }
 
-    public function setAsFeatured()
+    public function toggleFeatured()
     {
-        $this->update(['featured' => true]);
+        $this->update(['featured' => !$this->featured]);        
     }
 }

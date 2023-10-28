@@ -25,7 +25,8 @@
         <template #content>
             <div class="flex flex-col text-left gap-2">
                 <Link class="flex p-2 hover:bg-gray-100" :href="`/inventory/${car.id}/edit`">Edit</Link>
-                <button class="flex p-2 hover:bg-gray-100 text-left" @click="setAsFeautered">Set as Featured</button>
+                <button v-if="!car.featured" class="flex p-2 hover:bg-gray-100 text-left" @click="setAsFeautered">Set as Featured</button>
+                <button v-if="car.featured" class="flex p-2 hover:bg-gray-100 text-left" @click="setAsFeautered">Remove from Featured</button>
             </div>
         </template>
     </Dropdown>

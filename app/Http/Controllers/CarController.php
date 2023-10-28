@@ -130,9 +130,9 @@ class CarController extends Controller
         //
     }
 
-    public function setAsFeatured(Car $car)
+    public function toggleFeatured(Car $car)
     {
-        $car->setAsFeatured();
+        $car->toggleFeatured();
 
         return redirect()->route('cars.inventory');
     }

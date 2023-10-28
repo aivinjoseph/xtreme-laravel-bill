@@ -30,7 +30,7 @@ Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create'
 Route::get('/inventory/{car}', [CarController::class, 'show'])->name('cars.show');
 Route::get('/cars/{car}/edit', [CarController::class, 'edit'])->name('cars.edit');
 Route::put('/cars/{car}/update', [CarController::class, 'update'])->name('cars.update');
-Route::patch('/cars/{car}/featured', [CarController::class, 'setAsFeatured'])->name('cars.featured');
+Route::patch('/cars/{car}/featured', [CarController::class, 'toggleFeatured'])->name('cars.featured');
 
 Route::get('/master-data', [DashboardController::class, 'masterData'])->name('master-data');
 Route::post('/master-data', [DashboardController::class, 'store'])->name('master-data.store');
