@@ -11,14 +11,14 @@
 </script>
 
 <template>
-    <div>
+    <div class="rounded shadow-sm border border-gray-100">
         <div class="relative">
             <div v-if="$page.props.auth.user" class="absolute right-2 top-2">
                 <CarActions :car="car" />
             </div>
-            <img class="object-cover object-center w-full rounded h-32 lg:h-36" :src="car.images[0]" alt="Vehicle image" />
+            <img class="object-cover object-center w-full rounded-t h-32 lg:h-36" :src="car.images[0]" alt="Vehicle image" />
         </div>
-        <div class="mt-2 flex items-center gap-4">
+        <div class="mt-2 flex items-center gap-4 px-2">
             <div class="leading-tight">
                 <h3 class="font-sans font-semibold text-lg text-muted-800 dark:text-muted-50">
                     {{ car.name }}
@@ -65,8 +65,10 @@
                 </div>
             </div>
         </div>
-        <Link :href="`/inventory/${car.id}`" class="rounded font-sans font-normal inline-flex items-center justify-center leading-5 no-underline w-full space-x-1 bg-gray-100 hover:bg-gray-800 text-gray-500 hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 h-10 px-5 py-3 text-sm tw-accessibility transition-all duration-300">
-            View Details
-        </Link>
+        <div class="p-1">
+            <Link :href="`/inventory/${car.id}`" class="rounded font-sans font-normal inline-flex items-center justify-center leading-5 no-underline w-full space-x-1 bg-gray-100 hover:bg-gray-800 text-gray-500 hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 h-10 px-5 py-3 text-sm tw-accessibility transition-all duration-300">
+                View Details
+            </Link>
+        </div>
     </div>
 </template>
