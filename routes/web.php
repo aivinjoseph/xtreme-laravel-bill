@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FinanceApplicationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TestBookingController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -61,6 +62,9 @@ Route::get('/privacy', function () {
 Route::get('/terms', function () {
     return Inertia::render('TermsOfService');
 })->name('terms-of-service');
+
+Route::get('/test-booking/create', [TestBookingController::class, 'create'])->name('test-booking.create');
+Route::post('/test-booking', [TestBookingController::class, 'store'])->name('test-booking.store');
 
 Route::middleware([
     'auth:sanctum',
