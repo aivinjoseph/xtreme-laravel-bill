@@ -11,9 +11,12 @@
 <template>
     <div class="container">
         <div class="w-full text-left space-y-2">
-            <h2 class="font-heading font-light text-2xl md:text-3xl text-gray-800 dark:text-white">
-                Upcoming Vehicles
-            </h2>
+            <div class="flex justify-between items-end">
+                <h2 class="font-heading font-light text-2xl md:text-3xl text-gray-800 dark:text-white">
+                    Upcoming Vehicles
+                </h2>
+                <a href="/inventory?availability=upcoming" class="text-blue-500">View All</a>
+            </div>
             <p class="font-sans font-light text-lg text-gray-500 dark:text-gray-400">
                 No matter, which vehicle model you are looking for, we have almost all of them. 
             </p>

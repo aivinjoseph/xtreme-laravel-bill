@@ -11,9 +11,12 @@
 <template>
     <div class="container">
         <div class="w-full text-left space-y-2">
-            <h2 class="font-heading font-light text-2xl md:text-3xl text-gray-800 dark:text-white">
-                Featured Vehicles
-            </h2>
+            <div class="flex justify-between items-end">
+                <h2 class="font-heading font-light text-2xl md:text-3xl text-gray-800 dark:text-white">
+                    Featured Vehicles
+                </h2>
+                <a href="/inventory?featured=1" class="text-blue-500">View All</a>
+            </div>
             <p class="md:w-1/2 font-sans font-light text-lg text-gray-500 dark:text-gray-400">
                 These are our featured vehicles. Treat deals that we feel deserve a little more attention than the rest.
             </p>

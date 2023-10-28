@@ -1,15 +1,15 @@
 <script setup>
-	import Wheel from '@/Components/Footer/Wheel.vue';
-	import { info } from '../../info.js';
+import Wheel from '@/Components/Footer/Wheel.vue';
+import { info } from '../../info.js';
 </script>
 <template>
   <footer class="group relative text-gray-100 body-font overflow-hidden bg-gray-800 dark:bg-muted-1000">
     <div class="absolute top-2 left-2 w-16 h-16 md:w-56 md:h-56 z-10 text-gray-300 animate-wheel">
-		<Wheel />
+      <Wheel />
     </div>
 
     <div class="absolute bottom-4 -right-20 w-16 h-16 md:w-56 md:h-56 z-10 text-muted-400/20 animate-wheel">
-		<Wheel />
+      <Wheel />
     </div>
 
     <div class="relative w-full max-w-7xl mx-auto px-5 py-8 pt-16 z-20">
@@ -24,15 +24,15 @@
                 Inventory
               </a>
             </li>
-			<li>
-			  <a href="/inventory?featured=1" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
-				Featured Cars
-			  </a>
-			</li>
-			<li>
-			  <a href="/inventory?upcoming=1" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
-				Upcoming Cars
-			  </a>
+            <li>
+              <a href="/inventory?featured=1" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
+                Featured Cars
+              </a>
+            </li>
+            <li>
+              <a href="/inventory?availability=upcoming" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
+                Upcoming Cars
+              </a>
             <li>
               <a href="/finance-application" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Finance Application
@@ -57,11 +57,6 @@
               </a>
             </li>
             <li>
-              <a href="home.html#" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
-                Store network
-              </a>
-            </li>
-            <li>
               <a href="/payment-calculator" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Payment calculator
               </a>
@@ -83,14 +78,14 @@
             Company
           </h2>
           <ul class="font-sans space-y-2 mb-10">
-			<li class="text-sm">
-				{{ info.address }}
-			</li>
+            <li class="text-sm">
+              {{ info.address }}
+            </li>
             <li>
               <a :href="`tel:${info.phone}`" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 {{ info.phone }}
               </a>
-			</li>
+            </li>
             <li>
               <a href="/about-us" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 About us
@@ -125,21 +120,27 @@
 </template>
 
 <style>
-.animate-wheel {    
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
+.animate-wheel {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
 }
-@-moz-keyframes spin { 
-    100% { -moz-transform: rotate(360deg); } 
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
 }
-@-webkit-keyframes spin { 
-    100% { -webkit-transform: rotate(360deg); } 
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
-@keyframes spin { 
-    100% { 
-        -webkit-transform: rotate(360deg); 
-        transform:rotate(360deg); 
-    } 
-}
-</style>
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}</style>

@@ -81,6 +81,10 @@ class Car extends Model
         $query->when($params['availability'] ?? null, function($query, $availability) {
             $query->where('availability', $availability);
         });
+
+        $query->when($params['featured'] ?? null, function($query) {
+            $query->featured();
+        });
     }
 
     public function scopeFeatured($query)
