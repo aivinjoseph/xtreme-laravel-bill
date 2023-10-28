@@ -6,7 +6,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import TextArea from '@/Components/TextArea.vue';
-
+import { info } from '../../info.js';
 const form = useForm({
     name: '',
     email: '',
@@ -92,10 +92,10 @@ const submit = () => {
                     XTREME MOTORS INC.
                 </div>
                 <div class="mt-2">
-                    <span class="text-gray-600">Mississauga Rd, Mississauga, ON-L5N 1A7</span> 
+                    <span class="text-gray-600">{{ info.address }}</span> 
                 </div>
                 <div class="mt-2">
-                    Call Us: <a class="text-gray-500" href="tel:+1647-521-7186">647-521-7186</a>
+                    Call Us: <a class="text-gray-500" href="tel:+1647-521-7186">{{ info.phone }}</a>
                 </div>
                 <div class="mt-4">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5779.165658066755!2d-79.729798!3d43.59440500000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b41d2960ca5ad%3A0xa1fd012669732f04!2s6295%20Mississauga%20Rd%2C%20Mississauga%2C%20ON%20L5N%201A7%2C%20Canada!5e0!3m2!1sen!2sin!4v1698284453410!5m2!1sen!2sin" style="border:0;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
