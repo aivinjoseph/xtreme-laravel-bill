@@ -1,10 +1,11 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import FeaturedItem from "@/Components/Cars/FeaturedItem.vue";
-import { useForm } from '@inertiajs/vue3';
+import { useForm, Link } from '@inertiajs/vue3';
 import SideFilters from '@/Components/Inventory/SideFilters.vue';
 import TopFilters from '@/Components/Inventory/TopFilters.vue';
 import Pagination from '@/Components/Pagination.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 
 const props = defineProps({
     cars: {
@@ -63,9 +64,12 @@ const submit = () => {
                 <div class="w-full mt-4 md:mt-0">
                     <TopFilters :models="models" :makes="makes" :form="form" @submit="submit"/>
                 </div>
-                <div class="py-4 mt-4 flex items-center gap-2">
-                    <h2 class="text-2xl font-bold">{{ cars.total }}</h2>
-                    <p class="text-gray-500">Cars Available</p>
+                <div class="flex justify-between items-center">
+                    <div class="py-4 mt-4 flex items-center gap-2">
+                        <h2 class="text-2xl font-bold">{{ cars.total }}</h2>
+                        <p class="text-gray-500">Cars Available</p>
+                    </div>
+                    <PrimaryButton><Link href="/cars/create">Add new car</Link></PrimaryButton>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <FeaturedItem v-for="car in cars.data" :key="car.id" :car="car" />
