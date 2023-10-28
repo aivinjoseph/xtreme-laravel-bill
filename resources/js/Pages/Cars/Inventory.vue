@@ -1,11 +1,12 @@
 <script setup>
 import AppLayout from "@/Layouts/AppLayout.vue";
 import FeaturedItem from "@/Components/Cars/FeaturedItem.vue";
-import { useForm, Link } from '@inertiajs/vue3';
+import { router, Link } from '@inertiajs/vue3';
 import SideFilters from '@/Components/Inventory/SideFilters.vue';
 import TopFilters from '@/Components/Inventory/TopFilters.vue';
 import Pagination from '@/Components/Pagination.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import { ref, watch } from "vue";
 
 const props = defineProps({
     cars: {
@@ -26,7 +27,7 @@ const props = defineProps({
     filters: Object,
 });
 
-const form = useForm({
+const filters = {
     technical_condition: '',
     make: '',
     transmission: '',
@@ -46,11 +47,21 @@ const form = useForm({
     seats: '',
     features: [],
     availability: '',
-    ...props.filters,
-});
+};
+
+const form = ref({ ...filters, ...props.filters });
 
 const submit = () => {
-    form.get(route('cars.inventory'));
+    router.get(route('cars.inventory'), form.value);
+};
+
+watch(form.value, () => {
+    submit();
+}, { deep: true });
+
+const reset = () => {
+    form.value = { ...filters };
+    submit();
 };
 </script>
 
@@ -62,7 +73,7 @@ const submit = () => {
             </div>
             <div class="w-3/4 max-w-7xl md:px-4">
                 <div class="w-full mt-4 md:mt-0">
-                    <TopFilters :models="models" :makes="makes" :form="form" @submit="submit"/>
+                    <TopFilters :models="models" :makes="makes" :form="form" @submit="submit" @reset="reset"/>
                 </div>
                 <div class="flex justify-between items-center">
                     <div class="py-4 mt-4 flex items-center gap-2">

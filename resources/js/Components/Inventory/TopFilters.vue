@@ -1,7 +1,7 @@
 <script setup>
     import InputLabel from '@/Components/InputLabel.vue';
-    import TextInput from '@/Components/TextInput.vue';
-    import PrimaryButton from '@/Components/PrimaryButton.vue';
+    import ResetIcon from '@/Components/Icons/reset.vue';
+    import SecondaryButton from '@/Components/SecondaryButton.vue';
 
     defineProps({
         form: Object,
@@ -9,7 +9,7 @@
         models: Array,
     });
 
-    const emit = defineEmits(['submit']);
+    const emit = defineEmits(['submit', 'reset']);
     const submit = () => emit('submit');
 </script>
 
@@ -29,10 +29,8 @@
                 <option v-for="model in models" :key="model.id" :value="model.name">{{ model.name }}</option>
             </select>
         </div>
-        <div class="flex items-end">
-            <primary-button class="h-10 w-full text-center" :processing="form.processing" @click="submit">
-                Search
-            </primary-button>
+        <div class="flex items-end justify-end gap-2">
+            <SecondaryButton @click="$emit('reset')"><ResetIcon class="h-4 w-6"/> Reset Filters</SecondaryButton>
         </div>
     </div>
 </template>
