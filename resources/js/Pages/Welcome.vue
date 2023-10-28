@@ -22,6 +22,7 @@ const props = defineProps({
         type: Array,
         required: true,
     },
+    stats: Object
 });
 
 </script>
@@ -32,6 +33,9 @@ const props = defineProps({
             <!--Hero-->
             <Hero />
             <div class="container mt-8 max-w-7xl mx-auto px-4 lg:px-12">
+                <Highlights :stats="stats" />
+                <div class="mt-8"></div>
+
                 <!--Featured-->
                 <Featured :cars="featuredCars" />
     
@@ -71,7 +75,6 @@ const props = defineProps({
                 <OurBrands :brands="brands"/>
     
                 <!--Highlight-->
-                <Highlights />
     
                 <!--Testimonials-->
                 <Testimonials />

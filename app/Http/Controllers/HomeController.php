@@ -15,6 +15,11 @@ class HomeController extends Controller
             'featuredCars' => Car::featured()->latest()->limit(3)->get(),
             'upcomingCars' => Car::upcoming()->latest()->limit(3)->get(),
             'brands' => Manufacturer::withCount('cars')->orderBy('cars_count', 'desc')->get(),
+            'stats' => [
+                'cars' => Car::count(),
+                'sold' => Car::sold()->count(),
+                'upcoming' => Car::upcoming()->count(),
+            ]
         ]);
     }
 }
