@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <div class="flex justify-end">
-                    <PrimaryButton @click="submit">Save</PrimaryButton>
+                    <PrimaryButton @click="submit" :disabled="form.processing">Save</PrimaryButton>
                 </div>
             </div>
         </Modal>
