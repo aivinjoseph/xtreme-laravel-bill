@@ -1,12 +1,16 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
+import Highlights from "@/Components/Home/Highlights.vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import SliderItem from "@/Components/Home/SliderItem.vue";
 import { ref } from "vue";
+
+const props = defineProps({
+    stats: Object
+});
 
 const modules = ref([Autoplay, Pagination, Navigation]);
 const onSwiper = (swiper) => {
@@ -21,16 +25,20 @@ const onSlideChange = () => {
     <div class="relative">
         <div class="absolute top-0 left-0 w-full h-full flex items-center z-30 pointer-events-none">
             <div class="w-full max-w-7xl mx-auto grid grid-cols-12 px-4">
-                <div class="col-span-12 text-center lg:text-left lg:col-span-6 space-y-4">
-                    <h1 class="font-sans font-semibold text-4xl leading-none text-white">
+                <div class="col-span-12 text-center lg:text-left lg:col-span-10 space-y-8">
+                    <h1 class="font-sans text-4xl lg:font-extrabold lg:text-6xl leading-none text-white">
                         Buy a Pre-Owned Luxury Vehicle
                     </h1>
-                    <p class="font-sans text-lg text-white max-w-md mx-auto ltablet:mx-0 lg:mx-0">
+                    <div class="font-sans font-semibold text-xl lg:text-3xl text-white max-w-2xl mx-auto md:mx-0 lg:mx-0">
                         We fulfill your desire of owning a car with financing
                         options available at a reasonable cost.
-                    </p>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <div class="absolute bottom-10 right-10 left-10 text-white z-30">
+            <Highlights :stats="stats" />
         </div>
 
         <swiper :spaceBetween="0" :centeredSlides="true" :autoplay="{
@@ -43,10 +51,10 @@ const onSlideChange = () => {
                 <SliderItem :index="0" image="/img/bg/2.png" />
             </swiper-slide>
             <swiper-slide>
-                <SliderItem :index="0" image="/img/bg/4.png" />
+                <SliderItem :index="1" image="/img/bg/4.png" />
             </swiper-slide>
             <swiper-slide>
-                <SliderItem :index="0" image="/img/bg/1.jpeg" />
+                <SliderItem :index="2" image="/img/bg/1.jpeg" />
             </swiper-slide>
         </swiper>
         <!--Slider-->

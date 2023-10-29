@@ -5,11 +5,11 @@ const props = defineProps({
 
 const data = [
     {
-        title: 'Inventory',
+        title: 'Vehicles Available',
         value: props.stats.cars
     },
     {
-        title: 'Cars Sold',
+        title: 'Vehicles Sold',
         value: props.stats.sold
     },
     {
@@ -19,11 +19,11 @@ const data = [
 ]
 </script>
 <template>
-    <section>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="flex flex-col items-center justify-between gap-y-8 py-6 bg-gray-800 shadow rounded" v-for="stat in data" :key="stat.value">
-                <h2 class="text-xl text-gray-200 font-bold">{{ stat.title }}</h2>
-                <h3 class="text-3xl font-bold text-gray-200">{{ stat.value }}</h3>
+    <section class="flex justify-center">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="flex flex-col items-center justify-between p-2 md:gap-y-6 md:px-8 md:py-4 bg-gray-900 text-gray-100 opacity-80 shadow rounded" v-for="stat in data" :key="stat.value">
+                <h2 class="text-sm md:text-xl md:font-bold">{{ stat.title }}</h2>
+                <h3 class="text-sm md:text-3xl font-bold">{{ stat.value }}</h3>
             </div>
         </div>
     </section>

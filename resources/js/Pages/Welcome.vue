@@ -4,7 +4,6 @@ import Hero from "@/Components/Home/Hero.vue";
 import Featured from "@/Components/Home/Featured.vue";
 import UpcomingCars from "@/Components/Home/UpcomingCars.vue";
 import OurBrands from "@/Components/Home/OurBrands.vue";
-import Highlights from "@/Components/Home/Highlights.vue";
 import Testimonials from "@/Components/Home/Testimonials.vue";
 import TestBooking from "@/Components/Home/TestBooking.vue";
 import { Link } from "@inertiajs/vue3";
@@ -31,9 +30,8 @@ const props = defineProps({
     <AppLayout title="Home">
         <div class="w-full min-h-screen mx-auto bg-white dark:bg-muted-900">
             <!--Hero-->
-            <Hero />
+            <Hero :stats="stats"/>
             <div class="container mt-8 max-w-7xl mx-auto px-4 lg:px-12">
-                <Highlights :stats="stats" />
                 <div class="mt-8"></div>
 
                 <!--Featured-->
