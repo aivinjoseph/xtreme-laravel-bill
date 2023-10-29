@@ -34,7 +34,7 @@ class FinanceApplicationController extends Controller
     {
         $financeApplication = FinanceApplication::create($request->validated());
 
-        return redirect()->back()->with('success', 'Your application has been submitted!');
+        return redirect()->route('home')->banner('Your application has been submitted. We will get in touch with you as soon as possible.');
     }
 
     /**

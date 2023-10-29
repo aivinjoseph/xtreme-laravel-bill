@@ -20,6 +20,6 @@ class TestBookingController extends Controller
 
         $testBooking = TestBooking::create($validated);
 
-        return redirect()->to(route('home'))->with('success', 'Your test drive has been booked!');
+        return redirect()->route('home')->banner('Your request has been sent successfully. We will contact you as soon as possible');
     }
 }

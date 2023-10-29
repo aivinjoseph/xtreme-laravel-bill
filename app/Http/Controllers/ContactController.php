@@ -33,7 +33,7 @@ class ContactController extends Controller
     {
         Contact::create($request->validated());
 
-        return redirect()->back()->with('success', 'Your message has been sent successfully.');
+        return redirect()->route('home')->banner('Your message has been sent successfully.');
     }
 
     /**
