@@ -20,7 +20,7 @@ class DashboardController extends Controller
 {
     public function masterData()
     {
-        return Inertia::render('Admin/MasterData/Index', [
+        return Inertia::render('MasterData/Index', [
            'tables' => [
                 ['name' => 'Manufacturer', 'label' => 'Makes', 'data' => Manufacturer::all()],
                 ['name' => 'CarModel', 'label' => 'Models', 'data' => CarModel::all()],
