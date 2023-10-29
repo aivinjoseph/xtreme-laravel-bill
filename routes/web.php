@@ -37,6 +37,9 @@ Route::post('/finance-application', [FinanceApplicationController::class, 'store
 
 Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
 
+Route::get('/test-booking', [TestBookingController::class, 'create'])->name('test-booking.create');
+Route::post('/test-booking', [TestBookingController::class, 'store'])->name('test-booking.store');
+
 Route::get('/payment-calculator', function () {
     return Inertia::render('PaymentCalculator/Index');
 })->name('payment-calculator');
@@ -57,8 +60,6 @@ Route::get('/terms', function () {
     return Inertia::render('TermsOfService');
 })->name('terms-of-service');
 
-Route::get('/test-booking/create', [TestBookingController::class, 'create'])->name('test-booking.create');
-Route::post('/test-booking', [TestBookingController::class, 'store'])->name('test-booking.store');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
@@ -73,7 +74,7 @@ Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_sessi
     Route::delete('/master-data/{id}', [DashboardController::class, 'destroy'])->name('master-data.destroy');
 
     Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
-    Route::post('/test-booking', [TestBookingController::class, 'index'])->name('test-booking.index');
+    Route::get('/test-booking', [TestBookingController::class, 'index'])->name('test-booking.index');
 
     Route::get('/finance-application', [FinanceApplicationController::class, 'index'])->name('finance-application.index');
     Route::get('/finance-application/{financeApplication}', [FinanceApplicationController::class, 'show'])->name('finance-application.show');

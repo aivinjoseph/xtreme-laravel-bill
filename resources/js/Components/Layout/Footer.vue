@@ -52,7 +52,7 @@ import { info } from '../../info.js';
           </h2>
           <ul class="font-sans space-y-2 mb-10">
             <li>
-              <a href="/test-booking/create" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
+              <a href="/test-booking" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Book Test Drive
               </a>
             </li>

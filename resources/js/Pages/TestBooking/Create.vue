@@ -88,9 +88,9 @@ const submit = () => {
                     <InputError class="mt-2" :message="form.errors.message" />
                 </div>
     
-                <div class="lg:col-start-2 flex items-center justify-end mt-4">
-                    <PrimaryButton class="w-full" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                        Book
+                <div class="lg:col-start-2 flex items-center justify-end mt-2">
+                    <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                        Book Test
                     </PrimaryButton>
                 </div>
             </form>

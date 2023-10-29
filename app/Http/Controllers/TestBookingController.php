@@ -9,6 +9,12 @@ use Inertia\Inertia;
 
 class TestBookingController extends Controller
 {
+    public function index() {
+        return Inertia::render('TestBooking/Index', [
+            'bookings' => TestBooking::latest()->paginate(10)
+        ]);
+    }
+
     public function create()
     {
         return Inertia::render('TestBooking/Create');
