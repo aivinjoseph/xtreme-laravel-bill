@@ -52,18 +52,18 @@ import { info } from '../../info.js';
           </h2>
           <ul class="font-sans space-y-2 mb-10">
             <li>
-              <a href="/test-drive" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
-                Test drive
+              <a href="/test-booking/create" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
+                Book Test Drive
               </a>
             </li>
             <li>
               <a href="/payment-calculator" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
-                Payment calculator
+                Payment Calculator
               </a>
             </li>
             <li>
               <a href="/appointment/create" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
-                Book appointment
+                Book Appointment
               </a>
             </li>
             <li>
