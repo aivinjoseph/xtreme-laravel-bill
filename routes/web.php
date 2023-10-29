@@ -76,4 +76,5 @@ Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_sessi
     Route::post('/test-booking', [TestBookingController::class, 'index'])->name('test-booking.index');
 
     Route::get('/finance-application', [FinanceApplicationController::class, 'index'])->name('finance-application.index');
+    Route::get('/finance-application/{financeApplication}', [FinanceApplicationController::class, 'show'])->name('finance-application.show');
 });

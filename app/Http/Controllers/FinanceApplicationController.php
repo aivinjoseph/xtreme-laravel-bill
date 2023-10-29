@@ -14,7 +14,9 @@ class FinanceApplicationController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('FinanceApplication/Index', [
+            'applications' => FinanceApplication::paginate(10)
+        ]);
     }
 
     /**
@@ -40,7 +42,9 @@ class FinanceApplicationController extends Controller
      */
     public function show(FinanceApplication $financeApplication)
     {
-        //
+        return Inertia::render('FinanceApplication/Show', [
+            'application' => $financeApplication
+        ]);
     }
 
     /**
