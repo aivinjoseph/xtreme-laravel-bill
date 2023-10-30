@@ -1,6 +1,8 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ImageGallery from '@/Components/ImageGallery.vue';
+import { Link } from '@inertiajs/vue3';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 
 const props = defineProps({
     car: {
@@ -33,7 +35,7 @@ const data = [
         <section class="max-w-7xl mx-auto p-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="col-span-1 md:col-span-2">
-                    <div class="flex justify-between items-end pb-2">
+                    <div class="flex justify-between items-end pb-0">
                         <div>
                             <div class="text-2xl font-bold text-gray-800">{{ car.name }}</div>
                             <div class="text-gray-500">{{ car.model }}</div>
@@ -42,7 +44,7 @@ const data = [
                             ${{ car.price }}
                         </div>
                     </div>
-                    <ImageGallery :images="car.images" />
+                    <ImageGallery :images="car.images" :availability="car.availability"/>
                     <div class="">
                         <div class="mt-4">
                             <h2 class="text-xl font-bold text-gray-800">Features</h2>
@@ -56,9 +58,12 @@ const data = [
                         </div>
                     </div>
                 </div>
-                <div class="col-span-1 bg-gray-100 rounded-lg p-4">
-                    <div class="text-xl font-bold text-gray-800">Car Details</div>
-                    <div class="mt-4">
+                <div class="col-span-1 p-4">
+                    <Link :href="`/test-booking?car_id=${car.id}`">
+                        <PrimaryButton class="w-full h-12">Book a Test Drive</PrimaryButton>
+                    </Link>
+                    <!-- <div class="text-xl font-bold text-gray-800">Car Details</div> -->
+                    <div class="mt-4 bg-gray-100 rounded-lg p-4">
                         <div class="grid grid-cols-2 gap-4">
                             <div v-for="item in data" :key="item.name">
                                 <div class="font-bold text-gray-700">{{ item.name }}</div>

@@ -9,7 +9,8 @@ const props = defineProps({
     images: {
         type: Array,
         required: true
-    }
+    },
+    availability: String
 })
 
 const hasNext = computed(() => {
@@ -67,7 +68,10 @@ const prev = () => {
     </Modal>
     <div>
         <div class="container grid grid-cols-1 md:grid-cols-3 gap-2 mx-auto py-4">
-            <div v-for="(image, index) in images" :key="image" class="md:first:col-span-3" @click="openModal(index)">
+            <div v-for="(image, index) in images" :key="image" class="relative md:first:col-span-3" @click="openModal(index)">
+                <div v-if="index == 0" class="absolute capitalize font-semibold text-gray-100 rounded px-4 py-2" :class="{'bg-green-500': availability == 'available', 'bg-orange-500': availability == 'upcoming', 'bg-red-500': availability == 'sold'}">
+                    {{ availability }}
+                </div>
                 <img class="rounded cursor-pointer h-full object-cover object-center" :src="image" alt="image">
             </div>
         </div>
