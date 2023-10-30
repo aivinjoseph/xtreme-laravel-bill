@@ -26,7 +26,7 @@ class StoreTestBookingRequest extends FormRequest
             'phone_number' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email'],
             'date' => ['required', 'date'],
-            'car_id' => ['nullable', 'integer', 'exists:cars,id'],
+            'car_id' => ['required', 'integer', 'exists:cars,id'],
             'message' => ['nullable', 'string', 'max:255'],
         ];
     }

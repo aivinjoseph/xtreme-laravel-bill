@@ -70,7 +70,7 @@ const calculate = () => {
 </script>
 
 <template>
-    <AppLayout>
+    <AppLayout title="Payment Calculator">
         <div class="max-w-7xl mx-auto px-4 lg:px-16 py-8">
             <h1 class="text-2xl font-bold">Payment Calculator</h1>
             <form class="mt-4 grid grid-cols-1 lg:grid-cols-4 gap-4">

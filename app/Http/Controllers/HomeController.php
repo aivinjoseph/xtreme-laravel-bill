@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Manufacturer;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class HomeController extends Controller
@@ -14,7 +13,8 @@ class HomeController extends Controller
         return Inertia::render('Welcome', [
             'featuredCars' => Car::featured()->latest()->limit(3)->get(),
             'upcomingCars' => Car::upcoming()->latest()->limit(3)->get(),
-            'brands' => Manufacturer::withCount('cars')->orderBy('cars_count', 'desc')->get(),
+            'brands' => Manufacturer::withCount('cars')->orderBy('cars_count', 'desc')
+                ->limit(5)->get(),
             'stats' => [
                 'cars' => Car::count(),
                 'sold' => Car::sold()->count(),

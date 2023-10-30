@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTestBookingRequest;
+use App\Models\Car;
 use App\Models\TestBooking;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -17,7 +18,10 @@ class TestBookingController extends Controller
 
     public function create()
     {
-        return Inertia::render('TestBooking/Create');
+        return Inertia::render('TestBooking/Create', [
+            'car_id' => request('car_id'),
+            'cars' => Car::available()->get()
+        ]);
     }
 
     public function store(StoreTestBookingRequest $request)

@@ -80,7 +80,7 @@ const reset = () => {
                         <h2 class="text-2xl font-bold">{{ cars.total }}</h2>
                         <p class="text-gray-500">Cars Available</p>
                     </div>
-                    <PrimaryButton><Link href="/cars/create">Add new car</Link></PrimaryButton>
+                    <PrimaryButton v-if="$page.props.auth.user"><Link href="/cars/create">Add new car</Link></PrimaryButton>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <FeaturedItem v-for="car in cars.data" :key="car.id" :car="car" />

@@ -7,12 +7,18 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import TextArea from '@/Components/TextArea.vue';
 
+const props = defineProps({
+    cars: Array,
+    car_id: String
+});
+
 const form = useForm({
     name: '',
     email: '',
     phone_number: '',
     date: '',
     message: '',
+    car_id: props.car_id
 });
 
 const submit = () => {
@@ -25,6 +31,13 @@ const submit = () => {
         <div class="mx-auto w-full lg:max-w-4xl p-4 lg:p-8">  
             <h1 class="text-2xl font-bold mb-8">Book a test</h1>
             <form @submit.prevent="submit" class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div>
+                    <InputLabel for="name" value="Vehicle" />
+                    <select class="w-full" v-model="form.car_id">
+                        <option value="" disabled>Select Car</option>
+                        <option :value="`${car.id}`" v-for="car in cars" :key="car.id">{{ car.name }}</option>
+                    </select>
+                </div>
                 <div>
                     <InputLabel for="name" value="Name" />
                     <TextInput
