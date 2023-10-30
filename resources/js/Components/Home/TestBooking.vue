@@ -26,7 +26,7 @@
                                 </p>
                                 <!-- Buttons -->
                                 <div class="flex items-center gap-4 mt-8">
-                                    <a href="/test-booking/create" class="inline-block w-full text-center text-base font-medium text-white bg-gray-800 dark:bg-gray-900 py-4 px-10 hover:bg-gray-700 dark:hover:bg-gray-1000 md:w-44 tw-accessibility transition-all duration-300">
+                                    <a href="/test-booking" class="inline-block w-full text-center text-base font-medium text-white bg-gray-800 dark:bg-gray-900 py-4 px-10 hover:bg-gray-700 dark:hover:bg-gray-1000 md:w-44 tw-accessibility transition-all duration-300">
                                         Get Started
                                     </a>
                                     <p class="hidden md:block font-sans text-sm text-gray-500 dark:text-gray-400">

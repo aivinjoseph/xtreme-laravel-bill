@@ -38,6 +38,7 @@ const logout = () => {
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-6">
+      <Link href="/dashboard" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Dashboard</Link>
       <Link href="/" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Home</Link>
       <Link href="/inventory" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Inventory</Link>
       <div class="relative group hover:cursor-pointer">
@@ -78,6 +79,7 @@ const logout = () => {
       <div class="mt-6 flow-root">
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6">
+            <Link @click="showMobileMenu = false" href="/dashboard" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Dashboard</Link>
             <Link @click="showMobileMenu = false" href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Home</Link>
             <Link @click="showMobileMenu = false" href="/Inventory" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Inventory</Link>
             <Link @click="showMobileMenu = false" href="/finance-application" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Finance Application</Link>

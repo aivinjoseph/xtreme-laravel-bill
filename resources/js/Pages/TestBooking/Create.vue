@@ -66,7 +66,7 @@ const submit = () => {
                 </div>
     
                 <div>
-                    <InputLabel for="phone_number" value="Phone_number" />
+                    <InputLabel for="phone_number" value="Phone Number" />
                     <TextInput
                         id="phone_number"
                         v-model="form.phone_number"

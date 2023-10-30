@@ -19,6 +19,10 @@
             label: 'Email',
         },
         {
+            key: 'phone_number',
+            label: 'Phone',
+        },
+        {
             key: 'date',
             label: 'Date',
         },
