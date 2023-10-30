@@ -1,6 +1,9 @@
 <script setup>
 import { computed, ref } from 'vue';
 import Modal from '@/Components/Modal.vue';
+import CloseIcon from '@/Components/Icons/close.vue';
+import PrevIcon from '@/Components/Icons/prev.vue';
+import NextIcon from '@/Components/Icons/next.vue';
 
 const props = defineProps({
     images: {
@@ -45,14 +48,20 @@ const prev = () => {
     <Modal max-width="6xl" :show="showModal" @close="closeModal">
         <div class="container relative">
             <div class="flex justify-end absolute top-4 right-6">
-                <button @click="closeModal" class="font-bold text-lg z-10 bg-red-800 text-white rounded py-2 px-4">X</button>
+                <button @click="closeModal" class="font-bold text-lg z-10 bg-red-800 rounded text-white p-2">
+                    <CloseIcon class="w-10 h-10 text-white"/>
+                </button>
             </div>
             <div class="absolute right-6 top-0 h-full flex items-center">
-                <button v-if="hasNext" class="bg-orange-500 text-white py-2 px-4 rounded text-2xl font-bold" @click="next">&gt;</button>
+                <button v-if="hasNext" class="bg-orange-500 text-white p-2 rounded text-2xl font-bold" @click="next">
+                    <NextIcon class="w-10 h-10"/>
+                </button>
             </div>
             <img class="rounded w-full h-[calc(100vh-50px)]" :src="images[imageIndex]" alt="image">
             <div class="absolute top-0 left-6 h-full flex items-center">
-                <button v-if="hasPrev" class="bg-orange-500 text-white py-2 px-4 rounded text-2xl font-bold" @click="prev">&lt;</button>
+                <button v-if="hasPrev" class="bg-orange-500 text-white rounded text-2xl font-bold p-2" @click="prev">
+                    <PrevIcon class="w-10 h-10" />
+                </button>
             </div>
         </div>
     </Modal>
