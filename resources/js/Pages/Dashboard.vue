@@ -1,10 +1,10 @@
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
+import AdminLayout from '@/Layouts/AdminLayout.vue';
 import SideMenu from '@/Components/Layout/SideMenu.vue';
 </script>
 
 <template>
-    <AppLayout title="Dashboard">
+    <AdminLayout title="Dashboard">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Dashboard
@@ -13,8 +13,7 @@ import SideMenu from '@/Components/Layout/SideMenu.vue';
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <SideMenu />
             </div>
         </div>
-    </AppLayout>
+    </AdminLayout>
 </template>

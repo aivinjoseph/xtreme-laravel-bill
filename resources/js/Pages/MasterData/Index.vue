@@ -2,7 +2,7 @@
     import { ref } from 'vue';
     import { useForm } from '@inertiajs/vue3';
     import Modal from '@/Components/Modal.vue';
-    import AppLayout from '@/Layouts/AppLayout.vue';
+    import AdminLayout from '@/Layouts/AdminLayout.vue';
     import PrimaryButton from '@/Components/PrimaryButton.vue';
     import InputError from '@/Components/InputError.vue';
     import InputLabel from '@/Components/InputLabel.vue';
@@ -66,7 +66,7 @@
 </script>
 
 <template>
-    <AppLayout title="Master Data">
+    <AdminLayout title="Master Data">
         <Modal :show="showModal"  @close="closeModal">
             <div class="p-4">
                 <div class="flex justify-between">
@@ -122,5 +122,5 @@
                 </div>
             </div>
         </div>
-    </AppLayout>
+    </AdminLayout>
 </template>

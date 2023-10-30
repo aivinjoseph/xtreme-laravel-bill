@@ -1,5 +1,5 @@
 <script setup>
-    import AppLayout from '@/Layouts/AppLayout.vue';
+    import AdminLayout from '@/Layouts/AdminLayout.vue';
     import Pagination from '@/Components/Pagination.vue';
 
     defineProps({
@@ -30,7 +30,7 @@
 </script>
 
 <template>
-    <AppLayout title="Bookings">
+    <AdminLayout title="Bookings">
         <div class="max-w-7xl mx-auto p-8">
             <h1 class="text-2xl font-bold">Test Bookings List</h1>
             <table class="border-collapse table-auto w-full text-sm mt-4">
@@ -49,5 +49,5 @@
                 <Pagination :links="bookings.links" />
             </div>
         </div>
-    </AppLayout>
+    </AdminLayout>
 </template>

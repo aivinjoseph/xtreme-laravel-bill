@@ -1,5 +1,5 @@
 <script setup>
-    import AppLayout from '@/Layouts/AppLayout.vue';
+    import AdminLayout from '@/Layouts/AdminLayout.vue';
     import Pagination from '@/Components/Pagination.vue';
     import { router } from '@inertiajs/vue3';
 
@@ -35,7 +35,7 @@
 </script>
 
 <template>
-    <AppLayout title="Finance Applications">
+    <AdminLayout title="Finance Applications">
         <div class="max-w-7xl mx-auto p-8">
             <h1 class="text-2xl font-bold">Finance Applications List</h1>
             <table class="border-collapse table-auto w-full text-sm mt-4">
@@ -54,5 +54,5 @@
                 <Pagination :links="applications.links" />
             </div>
         </div>
-    </AppLayout>
+    </AdminLayout>
 </template>
