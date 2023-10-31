@@ -15,7 +15,7 @@ const data = [
     { name: 'Make', value: props.car.make },
     { name: 'Model', value: props.car.model },
     { name: 'Year', value: props.car.year },
-    { name: 'Mileage', value: props.car.mileage },
+    { name: 'Mileage', value: props.car.mileage + ' ' + props.car.mileage_unit },
     { name: 'Fuel Type', value: props.car.fuel },
     { name: 'Engine', value: props.car.engine },
     { name: 'Transmission', value: props.car.transmission },

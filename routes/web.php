@@ -23,14 +23,8 @@ use Inertia\Inertia;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 Route::get('/inventory', [CarController::class, 'inventory'])->name('cars.inventory');
-Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
-Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create')->middleware('auth');
 Route::get('/inventory/{car}', [CarController::class, 'show'])->name('cars.show');
-Route::get('/cars/{car}/edit', [CarController::class, 'edit'])->name('cars.edit')->middleware('auth');
-Route::put('/cars/{car}/update', [CarController::class, 'update'])->name('cars.update')->middleware('auth');
-Route::patch('/cars/{car}/featured', [CarController::class, 'toggleFeatured'])->name('cars.featured')->middleware('auth');
 
 Route::get('/finance-application', [FinanceApplicationController::class, 'create'])->name('finance-application.create');
 Route::post('/finance-application', [FinanceApplicationController::class, 'store'])->name('finance-application.store');
@@ -68,6 +62,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 });
 
 Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
+    Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
+    Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
+    Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
+    Route::get('/cars/{car}/edit', [CarController::class, 'edit'])->name('cars.edit');
+    Route::put('/cars/{car}/update', [CarController::class, 'update'])->name('cars.update');
+    Route::patch('/cars/{car}/featured', [CarController::class, 'toggleFeatured'])->name('cars.featured');
+
     Route::get('/master-data', [DashboardController::class, 'masterData'])->name('master-data');
     Route::post('/master-data', [DashboardController::class, 'store'])->name('master-data.store');
     Route::put('/master-data/{id}', [DashboardController::class, 'update'])->name('master-data.update');

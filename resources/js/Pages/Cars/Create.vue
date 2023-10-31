@@ -206,7 +206,7 @@ const onImageUpdate = (images) => {
                                 <option value="mi">Miles</option>
                                 <option value="km">Km</option>
                             </select>
-                            <InputError class="mt-2" :message="form.errors.availability" />
+                            <InputError class="mt-2" :message="form.errors.mileage_unit" />
                         </div>
                     </div>
 
