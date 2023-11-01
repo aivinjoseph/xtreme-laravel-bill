@@ -45,6 +45,7 @@ class StoreCarRequest extends FormRequest
             'year' => 'required|integer|min:1970|max:' . (date('Y') + 1),
             'files' => 'array',
             'files.*' => 'required|image|max:10240',
+            'featured_image_index' => 'required|numeric'
         ];
     }
 }

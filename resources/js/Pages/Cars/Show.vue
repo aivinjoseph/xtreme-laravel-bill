@@ -44,7 +44,7 @@ const data = [
                             ${{ car.price }}
                         </div>
                     </div>
-                    <ImageGallery :images="car.images" :availability="car.availability"/>
+                    <ImageGallery :images="car.images" :availability="car.availability" :featured-image-index="car.featured_image_index"/>
                     <div class="">
                         <div class="mt-4">
                             <h2 class="text-xl font-bold text-gray-800">Features</h2>

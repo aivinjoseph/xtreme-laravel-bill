@@ -49,6 +49,7 @@ const form = useForm({
     seats: '',
     features: [],
     availability: '',
+    featured_image_index: 0,
     ...props.car,
     _method: props.car.id ? 'put' : 'post'
 });
@@ -255,9 +256,10 @@ const onImageUpdate = (images) => {
                     </div>
 
                 </div>
+                {{ form.featured_image_index }}
                 <div class="mt-4">
                     <InputLabel for="images" value="Images" />
-                    <FileUpload v-model="form.files" :images="form.images" @on-image-update="onImageUpdate"/>
+                    <FileUpload v-model="form.files" :images="form.images" :featuredImageIndex="form.featured_image_index" @on-image-update="onImageUpdate" @on-featured-image-changed="(i) => form.featured_image_index = i"/>
                     <InputError class="mt-2" :message="form.errors.files" />
                 </div>
                 <div class="flex items-center justify-end mt-4">

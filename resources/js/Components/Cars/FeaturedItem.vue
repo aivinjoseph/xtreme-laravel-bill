@@ -16,7 +16,7 @@
             <div v-if="$page.props.auth.user" class="absolute right-2 top-2">
                 <CarActions :car="car" />
             </div>
-            <img class="object-cover object-center w-full rounded-t h-32 lg:h-36" :src="car.images[0]" alt="Vehicle image" />
+            <img class="object-cover object-center w-full rounded-t h-32 lg:h-36" :src="car.images[car.featured_image_index]" alt="Vehicle image" />
         </div>
         <div class="mt-2 flex items-center gap-4 px-2">
             <div class="leading-tight">

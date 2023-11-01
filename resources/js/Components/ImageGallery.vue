@@ -10,19 +10,35 @@ const props = defineProps({
         type: Array,
         required: true
     },
-    availability: String
-})
-
-const hasNext = computed(() => {
-    return imageIndex.value < props.images.length - 1;
-})
-
-const hasPrev = computed(() => {
-    return imageIndex.value > 0;
+    availability: String,
+    featuredImageIndex: {
+        type: Number,
+        default: 0
+    }
 })
 
 const showModal = ref(false);
 const imageIndex = ref(0);
+
+/////////////// Computed ///////////////
+const sortedImages = computed(() => {
+    let list = [...props.images];
+
+    list[props.featuredImageIndex] = list[0];
+    list[0] = props.images[props.featuredImageIndex];
+
+    return list;
+});
+
+const hasNext = computed(() => {
+    return imageIndex.value < props.images.length - 1;
+});
+
+const hasPrev = computed(() => {
+    return imageIndex.value > 0;
+});
+
+//////////// Methods /////////////////////
 const openModal = (index) => {
     imageIndex.value = index;
     showModal.value = true;
@@ -58,7 +74,7 @@ const prev = () => {
                     <NextIcon class="w-10 h-10"/>
                 </button>
             </div>
-            <img class="rounded w-full h-[calc(100vh-50px)]" :src="images[imageIndex]" alt="image">
+            <img class="rounded w-full h-[calc(100vh-50px)]" :src="sortedImages[imageIndex]" alt="image">
             <div class="absolute top-0 left-6 h-full flex items-center">
                 <button v-if="hasPrev" class="bg-orange-500 text-white rounded text-2xl font-bold p-2" @click="prev">
                     <PrevIcon class="w-10 h-10" />
@@ -68,7 +84,7 @@ const prev = () => {
     </Modal>
     <div>
         <div class="container grid grid-cols-1 md:grid-cols-3 gap-2 mx-auto py-4">
-            <div v-for="(image, index) in images" :key="image" class="relative md:first:col-span-3" @click="openModal(index)">
+            <div v-for="(image, index) in sortedImages" :key="image" class="relative md:first:col-span-3" @click="openModal(index)">
                 <div v-if="index == 0" class="absolute capitalize font-semibold text-gray-100 rounded px-4 py-2" :class="{'bg-green-500': availability == 'available', 'bg-orange-500': availability == 'upcoming', 'bg-red-500': availability == 'sold'}">
                     {{ availability }}
                 </div>
