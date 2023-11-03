@@ -8,6 +8,7 @@
         { name: 'Finance Application', route: 'finance-application.index', icon: 'users' },
         { name: 'Drive Test Bookings', route: 'test-booking.index', icon: 'users' },
         { name: 'Contacts', route: 'contacts.index', icon: 'users' },
+        { name: 'Appraisals', route: 'appraisals.index', icon: 'users' },
     ]
 
     const isUrl = (url, $page) => {

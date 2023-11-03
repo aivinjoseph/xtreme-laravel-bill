@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppraisalController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
@@ -33,6 +34,9 @@ Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.st
 
 Route::get('/test-booking', [TestBookingController::class, 'create'])->name('test-booking.create');
 Route::post('/test-booking', [TestBookingController::class, 'store'])->name('test-booking.store');
+
+Route::get('/appraisals', [AppraisalController::class, 'create'])->name('appraisals.create');
+Route::post('/appraisals', [AppraisalController::class, 'store'])->name('appraisals.store');
 
 Route::get('/payment-calculator', function () {
     return Inertia::render('PaymentCalculator/Index');
@@ -79,4 +83,6 @@ Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_sessi
 
     Route::get('/finance-application', [FinanceApplicationController::class, 'index'])->name('finance-application.index');
     Route::get('/finance-application/{financeApplication}', [FinanceApplicationController::class, 'show'])->name('finance-application.show');
+
+    Route::get('/appraisals', [AppraisalController::class, 'index'])->name('appraisals.index');
 });

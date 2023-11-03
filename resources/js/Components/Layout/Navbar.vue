@@ -41,6 +41,7 @@ const logout = () => {
       <Link href="/dashboard" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Dashboard</Link>
       <Link href="/" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Home</Link>
       <Link href="/inventory" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Inventory</Link>
+      <Link href="/appraisals" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Trade-in Appraisal</Link>
       <div class="relative group hover:cursor-pointer">
         <span class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Financing</span>
         <div class="absolute top-6 w-40 bg-gray-50 shadow p-2 gap-2 z-50 hidden group-hover:flex flex-col">
@@ -49,7 +50,7 @@ const logout = () => {
         </div>
       </div>
       <Link href="/contact-us" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Contact Us</Link>
-      <Link href="/about-us" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">About Us</Link>
+      <!-- <Link href="/about-us" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">About Us</Link> -->
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <form v-if="$page.props.auth.user" @submit.prevent="logout">
@@ -82,6 +83,7 @@ const logout = () => {
             <Link @click="showMobileMenu = false" href="/dashboard" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Dashboard</Link>
             <Link @click="showMobileMenu = false" href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Home</Link>
             <Link @click="showMobileMenu = false" href="/Inventory" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Inventory</Link>
+            <Link @click="showMobileMenu = false" href="/appraisals" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Trade-in Appraisal</Link>
             <Link @click="showMobileMenu = false" href="/finance-application" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Finance Application</Link>
             <Link @click="showMobileMenu = false" href="/payment-calculator" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Payment Calculator</Link>
             <Link @click="showMobileMenu = false" href="/contact-us" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-800 hover:bg-gray-50">Contact Us</Link>
