@@ -15,6 +15,7 @@ use App\Models\Manufacturer;
 use App\Models\TechnicalCondition;
 use App\Models\Transmission;
 use App\Models\Trim;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,6 +25,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@xtrememotorsinc.com',
+            'password' => bcrypt('Khalid@2023'),
+            'email_verified_at' => now(),
+        ]);
+        
         Manufacturer::insert([
             ['name' => 'Audi'],
             ['name' => 'Toyota']
