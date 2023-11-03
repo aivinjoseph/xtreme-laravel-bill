@@ -14,6 +14,7 @@
         @routes
         @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
         @inertiaHead
+        <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
     </head>
     <body class="font-sans antialiased">
         @inertia

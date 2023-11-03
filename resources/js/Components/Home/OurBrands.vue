@@ -14,11 +14,11 @@
         <div class="w-full">
             <!--Section title-->
             <div class="w-full max-w-xl space-y-2 py-6">
-                <h2 class="font-heading font-light text-3xl md:text-4xl text-muted-800 dark:text-white">
+                <h2 class="font-heading font-light text-3xl md:text-4xl text-gray-800 dark:text-white">
                     Our Brands
                 </h2>
                 <!--Subtitle-->
-                <p class="font-sans font-light text-lg text-muted-500 dark:text-muted-400">
+                <p class="font-sans font-light text-lg text-gray-500 dark:text-gray-400">
                     From used Audis to Porches we carry a large collection of premium quality used luxury cars in our inventory.
                 </p>
             </div>
