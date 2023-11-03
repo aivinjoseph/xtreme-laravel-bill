@@ -256,7 +256,7 @@ const onImageUpdate = (images) => {
                     </div>
 
                 </div>
-                {{ form.featured_image_index }}
+
                 <div class="mt-4">
                     <InputLabel for="images" value="Images" />
                     <FileUpload v-model="form.files" :images="form.images" :featuredImageIndex="form.featured_image_index" @on-image-update="onImageUpdate" @on-featured-image-changed="(i) => form.featured_image_index = i"/>
