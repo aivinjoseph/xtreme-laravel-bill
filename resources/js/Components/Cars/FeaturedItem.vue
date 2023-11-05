@@ -56,7 +56,7 @@
                     <span class="block font-sans font-semibold text-muted-800 dark:text-muted-50">
                         {{ car.mileage }}
                         <small class="font-normal text-muted-500 dark:text-muted-400">
-                            mi
+                            {{ car.mileage_unit }}
                         </small>
                     </span>
                     <small class="block font-sans text-muted-500 dark:text-muted-400">

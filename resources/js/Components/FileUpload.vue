@@ -76,7 +76,7 @@
                     class="absolute right-2 left-2 bottom-2 flex items-center justify-center gap-2 bg-gray-200 text-gray-900 rounded p-1"
                     :class="{'bg-green-600 text-white': (index + images.length) == featuredImageIndex}"
                     @click="setAsFeatured(index + images.length)">
-                    <CheckIcon v-if="(index + images.length) == featuredImageIndex" class="w-4 h-4"/> Featured {{ featuredImageIndex }}
+                    <CheckIcon v-if="(index + images.length) == featuredImageIndex" class="w-4 h-4"/> Featured
                 </button>
             </div>
         </div>
