@@ -1,5 +1,5 @@
 <template>
-    <section class="w-full pt-12 pb-32 px-4 bg-white dark:bg-gray-900 overflow-hidden">
+    <section class="w-full pt-12 pb-32 px-4 bg-white overflow-hidden">
         <!--Container-->
         <div class="w-full max-w-7xl mx-auto z-10">
             <!--Content-->
@@ -10,21 +10,21 @@
                 </div>
 
                 <!-- Column -->
-                <div class="max-w-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 md:max-w-2xl md:z-10 md:shadow-xl md:shadow-gray-400/10 dark:md:shadow-gray-800/10 md:absolute md:top-0 md:mt-48 ltablet:w-3/5 ltablet:left-0 ltablet:mt-20 ltablet:ml-20 lg:w-3/5 lg:left-0 lg:mt-20 lg:ml-20 xl:mt-24 xl:ml-12">
+                <div class="max-w-lg bg-white border border-gray-200 md:max-w-2xl md:z-10 md:shadow-xl md:shadow-gray-400/10-800/10 md:absolute md:top-0 md:mt-48 ltablet:w-3/5 ltablet:left-0 ltablet:mt-20 ltablet:ml-20 lg:w-3/5 lg:left-0 lg:mt-20 lg:ml-20 xl:mt-24 xl:ml-12">
                     <!-- Content -->
                     <div class="flex flex-col p-12 md:px-16">
-                        <h2 class="font-heading font-light text-2xl ltablet:text-4xl lg:text-4xl text-gray-800 dark:text-white">
+                        <h2 class="font-heading font-light text-2xl ltablet:text-4xl lg:text-4xl text-gray-800">
                             Book a test drive
                         </h2>
-                        <p class="font-sans text-gray-500 dark:text-gray-400 mt-4">
+                        <p class="font-sans text-gray-500 mt-4">
                             You can take control and explore the car of your dreams firsthand. Discover the thrill of the open road, feel the comfort of the interior, and experience the cutting-edge technology that sets our vehicles apart.
                         </p>
                         <!-- Buttons -->
                         <div class="flex items-center gap-4 mt-8">
-                            <a href="/test-booking" class="inline-block w-full text-center text-base font-medium text-white bg-gray-800 dark:bg-gray-900 py-4 px-10 hover:bg-gray-700 dark:hover:bg-gray-1000 md:w-44 tw-accessibility transition-all duration-300">
+                            <a href="/test-booking" class="inline-block w-full text-center text-base font-medium text-white bg-gray-800 py-4 px-10 hover:bg-gray-700-1000 md:w-44 tw-accessibility transition-all duration-300">
                                 Get Started
                             </a>
-                            <p class="hidden md:block font-sans text-sm text-gray-500 dark:text-gray-400">
+                            <p class="hidden md:block font-sans text-sm text-gray-500">
                                 No credit card required
                             </p>
                         </div>
