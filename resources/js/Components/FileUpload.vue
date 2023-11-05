@@ -10,7 +10,11 @@
             type: Array,
             default: () => []
         },
-        featuredImageIndex: Number
+        featuredImageIndex: Number,
+        multiple: {
+            type: Boolean,
+            default: true
+        }
     });
 
     const featuredImageIndex = ref(props.featuredImageIndex);
@@ -27,6 +31,12 @@
     });
 
     const handleFileUpload = (e) => {
+        if (! props.multiple) {
+            files.value = [e.target.files[0]];
+            emit('update:modelValue', e.target.files[0]);
+            return;
+        }
+
         files.value = [...files.value, ...e.target.files];
         emit('update:modelValue', files.value);
     }
@@ -58,7 +68,7 @@
                 <button v-if="index != featuredImageIndex" type="button" class="absolute right-2 top-2 bg-gray-200 bg-opacity-50 hover:bg-opacity-90 text-red-600 rounded-full p-1" @click="removeImage(index)">
                     <CloseIcon class="w-4 h-4"/>
                 </button>
-                <button type="button" 
+                <button v-if="multiple" type="button" 
                     class="absolute right-2 left-2 bottom-2 flex items-center justify-center gap-2 bg-gray-200 text-gray-900 rounded p-1" 
                     :class="{'bg-green-600 text-white': index == featuredImageIndex}"
                     @click="setAsFeatured(index)">
@@ -72,7 +82,7 @@
                 <button v-if="index + images.length != featuredImageIndex" type="button" class="absolute right-2 top-2 bg-gray-200 bg-opacity-50 hover:bg-opacity-90 text-red-600 rounded-full p-1" @click="removeFile(index)">
                     <CloseIcon class="w-4 h-4"/>
                 </button>
-                <button type="button" 
+                <button v-if="multiple" type="button" 
                     class="absolute right-2 left-2 bottom-2 flex items-center justify-center gap-2 bg-gray-200 text-gray-900 rounded p-1"
                     :class="{'bg-green-600 text-white': (index + images.length) == featuredImageIndex}"
                     @click="setAsFeatured(index + images.length)">
@@ -81,7 +91,7 @@
             </div>
         </div>
         <label class="mt-1 flex items-center px-4 py-2 bg-white text-gray-800 rounded-lg border border-gray-300 cursor-pointer">
-            <input id="images" @input="handleFileUpload" accept="image/jpeg,image/jpg,image/png" type="file" class="hidden" multiple/>
+            <input id="images" @input="handleFileUpload" accept="image/jpeg,image/jpg,image/png" type="file" class="hidden" :multiple="multiple"/>
             <span>Upload Images</span>
         </label>
     </div>

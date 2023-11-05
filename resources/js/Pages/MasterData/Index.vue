@@ -7,6 +7,7 @@
     import InputError from '@/Components/InputError.vue';
     import InputLabel from '@/Components/InputLabel.vue';
     import TextInput from '@/Components/TextInput.vue';
+    import FileUpload from '@/Components/FileUpload.vue';
 
     const props = defineProps({
         tables: {
@@ -14,12 +15,20 @@
             required: true
         }
     })
-
+    
+    const selectedItem = ref(null);
     const selectedTable = ref(props.tables[0]);
     const showModal = ref(false);
-    const form = useForm({ name: '', manufacturer_id: '', table: selectedTable.value.name});
+
+    const form = useForm({ 
+        name: '', 
+        manufacturer_id: '', 
+        table: selectedTable.value.name,
+        logo: null,
+        _method: selectedItem.value ? 'PUT' : 'POST',
+    });
+
     const makes = ref(props.tables.find(table => table.name == 'Manufacturer').data);
-    const selectedItem = ref(null);
 
     const changeTable = (table) => {
         selectedTable.value = table;
@@ -41,7 +50,7 @@
 
     const submit = () => {
         if (selectedItem.value) {
-            form.put(route('master-data.update', selectedItem.value.id), {
+            form.post(route('master-data.update', selectedItem.value.id), {
                 preserveScroll: true,
                 onSuccess: () => location.reload(),
             });
@@ -86,6 +95,11 @@
                         <InputLabel for="name" value="Name" />
                         <TextInput id="name" v-model="form.name" type="text" class="mt-1 block w-full" required autofocus autocomplete="name" />
                         <InputError class="mt-2" :message="form.errors.name" />
+                    </div>
+                    <div v-if="selectedTable.name == 'Manufacturer'" class="mt-4">
+                        <InputLabel for="images" value="Logo" />
+                        <FileUpload v-model="form.logo" :images="[]" :featuredImageIndex="0" :multiple="false" />
+                        <InputError class="mt-2" :message="form.errors.files" />
                     </div>
                 </div>
                 <div class="flex justify-end">

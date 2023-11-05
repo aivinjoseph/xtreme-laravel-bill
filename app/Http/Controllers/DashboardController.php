@@ -88,6 +88,9 @@ class DashboardController extends Controller
             $data['manufacturer_id'] = request()->get('manufacturer_id');
         }
 
+        if (request()->hasFile('logo')) {
+            $data['logo'] = '/storage/' . request()->file('logo')->store('/images', 'public');
+        }
 
         return $data;
     }
