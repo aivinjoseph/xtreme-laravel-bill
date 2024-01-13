@@ -154,6 +154,8 @@ class CarController extends Controller
         if ($request->method() != 'POST') {
             $validated['images'] = array_merge($request->get('images', []), $images);
         }
+
+        $validated['user_id'] = auth()->user()->id;
         
         return $validated;
     }
