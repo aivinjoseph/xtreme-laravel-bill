@@ -6,6 +6,7 @@ import UpcomingCars from "@/Components/Home/UpcomingCars.vue";
 import OurBrands from "@/Components/Home/OurBrands.vue";
 import Testimonials from "@/Components/Home/Testimonials.vue";
 import TestBooking from "@/Components/Home/TestBooking.vue";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
 import { Link } from "@inertiajs/vue3";
 
 const props = defineProps({
@@ -41,31 +42,8 @@ const props = defineProps({
                 <UpcomingCars :cars="upcomingCars" />
     
                 <div class="w-full flex justify-center py-4 mt-4">
-                    <Link href="/inventory" class="
-                          relative
-                          font-sans font-normal
-                          inline-flex
-                          items-center
-                          justify-center
-                          leading-5
-                          no-underline
-                          min-w-[240px]
-                          space-x-1
-                          text-white
-                          bg-gray-800
-                          dark:bg-gray-900
-                          h-14
-                          px-5
-                          py-3
-                          text-base
-                          hover:bg-gray-700
-                          dark:hover:bg-gray-1000
-                          tw-accessibility
-                          transition-all
-                          duration-300
-                          rounded
-                        ">
-                        Explore Inventory
+                    <Link href="/inventory">
+                        <primary-button>Explore Inventory</primary-button>
                     </Link>
                 </div>
     

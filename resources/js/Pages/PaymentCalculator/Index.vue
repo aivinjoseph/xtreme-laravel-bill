@@ -91,7 +91,7 @@ const calculate = () => {
                     <TextInput id="name" v-model="form.downPayment" type="number" class="mt-1 block w-full" required autofocus />
                 </div>
                 <div>
-                    <InputLabel for="name" value="Duration of Loan (Weeks)" />
+                    <InputLabel for="name" value="Duration of Loan (Months)" />
                     <TextInput id="name" v-model="form.loanDuration" type="number" class="mt-1 block w-full" required autofocus />
                 </div>
                 <div>

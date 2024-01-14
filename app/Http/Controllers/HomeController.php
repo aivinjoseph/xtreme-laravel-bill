@@ -16,7 +16,7 @@ class HomeController extends Controller
             'brands' => Manufacturer::withCount('cars')->orderBy('cars_count', 'desc')
                 ->limit(5)->get(),
             'stats' => [
-                'cars' => Car::count(),
+                'cars' => Car::available()->count(),
                 'sold' => Car::sold()->count(),
                 'upcoming' => Car::upcoming()->count(),
             ]
