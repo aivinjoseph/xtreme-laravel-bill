@@ -120,7 +120,6 @@ const onImageUpdate = (images) => {
                         <InputError class="mt-2" :message="form.errors.year" />
                     </div>
                 
-
                     <div>
                         <InputLabel for="body_type" value="Body Type" />
                         <select v-model="form.body_type" class="rounded border-gray-300 w-full mt-1">
@@ -265,6 +264,12 @@ const onImageUpdate = (images) => {
                         <InputError class="mt-2" :message="form.errors.features" />
                     </div>
 
+                </div>
+
+                <div class="mt-4">
+                    <InputLabel for="video_link" value="Video Link" />
+                    <TextInput id="video_link" v-model="form.video_link" type="text" class="mt-1 block w-full" required autofocus autocomplete="video_link" />
+                    <InputError class="mt-2" :message="form.errors.video_link" />
                 </div>
 
                 <div class="mt-4">

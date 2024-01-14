@@ -36,6 +36,7 @@ return new class extends Migration
             $table->json('features');
             $table->integer('year');
             $table->json('images');
+            $table->string('video_link')->nullable();
             $table->integer('featured_image_index')->default(0);
             $table->boolean('featured')->default(false);
             $table->foreignId('user_id')->constrained();

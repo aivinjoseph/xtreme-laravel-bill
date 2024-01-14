@@ -44,6 +44,9 @@ const data = [
                             ${{ car.price }}
                         </div>
                     </div>
+                    <div v-if="car.video_link" class="mt-2">
+                        <iframe class="w-full" height="500px" :src="car.video_link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
                     <ImageGallery :images="car.images" :availability="car.availability" :featured-image-index="car.featured_image_index"/>
                     <div class="">
                         <div class="mt-4">
