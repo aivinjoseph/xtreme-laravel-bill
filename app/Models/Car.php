@@ -15,7 +15,7 @@ class Car extends Model
         'features' => 'array',
     ];
 
-    protected $availability = [
+    const AVAILABILITY = [
         'available' => 'available',
         'sold' => 'sold',
         'upcoming' => 'upcoming',
@@ -94,17 +94,17 @@ class Car extends Model
 
     public function scopeAvailable($query)
     {
-        $query->where('availability', $this->availability['available']);
+        $query->where('availability', self::AVAILABILITY['available']);
     }
 
     public function scopeSold($query)
     {
-        $query->where('availability', $this->availability['sold']);
+        $query->where('availability', self::AVAILABILITY['sold']);
     }
 
     public function scopeUpcoming($query)
     {
-        $query->where('availability', $this->availability['upcoming']);
+        $query->where('availability', self::AVAILABILITY['upcoming']);
     }
 
     public function toggleFeatured()

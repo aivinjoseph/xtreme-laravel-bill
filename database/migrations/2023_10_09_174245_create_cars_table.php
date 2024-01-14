@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->unique();
             $table->string('technical_condition');
             $table->string('ext_color');
             $table->string('int_color');
@@ -31,7 +32,7 @@ return new class extends Migration
             $table->string('mileage_unit');
             $table->integer('price');
             $table->string('engine');
-            $table->integer('seats');
+            $table->string('seats');
             $table->json('features');
             $table->integer('year');
             $table->json('images');
