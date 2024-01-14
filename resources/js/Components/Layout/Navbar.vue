@@ -38,7 +38,7 @@ const logout = () => {
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-6">
-      <Link href="/dashboard" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Dashboard</Link>
+      <Link v-if="$page.props.auth.user" href="/dashboard" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Dashboard</Link>
       <Link href="/" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Home</Link>
       <Link href="/inventory" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Inventory</Link>
       <Link href="/appraisals" class="text-sm font-semibold leading-6 text-gray-800 hover:underline hover:text-gray-600">Trade-in Appraisal</Link>

@@ -47,12 +47,6 @@ const data = [
                     <ImageGallery :images="car.images" :availability="car.availability" :featured-image-index="car.featured_image_index"/>
                     <div class="">
                         <div class="mt-4">
-                            <h2 class="text-xl font-bold text-gray-800">Features</h2>
-                            <div class="mt-2 grid grid-cols-2 md:grid-cols-4 gap-4 text-gray-700 font-semibold">
-                                <span v-for="feature in car.features" :key="feature">✔️ {{ feature }}</span>
-                            </div>
-                        </div>
-                        <div class="mt-4">
                             <h2 class="text-xl font-bold text-gray-800">Description</h2>
                             <div class="mt-2 text-gray-700" v-html="car.description"></div>
                         </div>
@@ -69,6 +63,12 @@ const data = [
                                 <div class="font-bold text-gray-700">{{ item.name }}</div>
                                 <div class="text-gray-500">{{ item.value }}</div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-gray-100 rounded-lg p-4">
+                        <h2 class="text-xl font-bold text-gray-800">Features</h2>
+                        <div class="mt-2 grid grid-cols-2 gap-x-8 gap-y-4 text-gray-700 font-semibold">
+                            <span v-for="feature in car.features" :key="feature"> ✅ {{ feature }}</span>
                         </div>
                     </div>
                 </div>

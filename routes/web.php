@@ -25,7 +25,7 @@ use Inertia\Inertia;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/inventory', [CarController::class, 'inventory'])->name('cars.inventory');
-Route::get('/inventory/{car}', [CarController::class, 'show'])->name('cars.show');
+Route::get('/inventory/{car:slug}', [CarController::class, 'show'])->name('cars.show');
 
 Route::get('/finance-application', [FinanceApplicationController::class, 'create'])->name('finance-application.create');
 Route::post('/finance-application', [FinanceApplicationController::class, 'store'])->name('finance-application.store');

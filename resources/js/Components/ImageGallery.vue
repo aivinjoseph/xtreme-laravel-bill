@@ -4,6 +4,7 @@ import Modal from '@/Components/Modal.vue';
 import CloseIcon from '@/Components/Icons/close.vue';
 import PrevIcon from '@/Components/Icons/prev.vue';
 import NextIcon from '@/Components/Icons/next.vue';
+import AvailabilityBadge from '@/Components/Cars/AvailabilityBadge.vue';
 
 const props = defineProps({
     images: {
@@ -74,7 +75,7 @@ const prev = () => {
                     <NextIcon class="w-10 h-10"/>
                 </button>
             </div>
-            <img class="rounded w-full h-[calc(100vh-50px)]" :src="sortedImages[imageIndex]" alt="image">
+            <img class="rounded w-full h-[calc(100vh-50px)] object-contain object-center" :src="sortedImages[imageIndex]" alt="image">
             <div class="absolute top-0 left-6 h-full flex items-center">
                 <button v-if="hasPrev" class="bg-orange-500 text-white rounded text-2xl font-bold p-2" @click="prev">
                     <PrevIcon class="w-10 h-10" />
@@ -84,11 +85,14 @@ const prev = () => {
     </Modal>
     <div>
         <div class="container grid grid-cols-1 md:grid-cols-3 gap-2 mx-auto py-4">
-            <div v-for="(image, index) in sortedImages" :key="image" class="relative md:first:col-span-3" @click="openModal(index)">
-                <div v-if="index == 0" class="absolute capitalize font-semibold text-gray-100 rounded px-4 py-2" :class="{'bg-green-500': availability == 'available', 'bg-orange-500': availability == 'upcoming', 'bg-red-500': availability == 'sold'}">
-                    {{ availability }}
+            <div v-for="(image, index) in sortedImages.slice(0, 7)" :key="image" class="relative md:first:col-span-3 md:first:w-full" @click="openModal(index)">
+                <div v-if="index == 0 && availability">
+                    <availability-badge :availability="availability" />
                 </div>
-                <img class="rounded cursor-pointer h-full object-cover object-center" :src="image" alt="image">
+                <img class="w-full max-h-screen rounded cursor-pointer object-cover object-center" :src="image" alt="image">
+                <div class="cursor-pointer rounded absolute top-0 w-full h-full bg-gray-900 opacity-50 flex justify-center items-center" v-if="index == sortedImages.slice(0, 7).length-1">
+                    <span class="text-4xl text-white opacity-100">+{{ sortedImages.length - 7 }}</span>
+                </div>
             </div>
         </div>
     </div>
