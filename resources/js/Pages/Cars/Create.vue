@@ -7,6 +7,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import RichTextEditor from '@/Components/RichTextEditor.vue';
 import FileUpload from '@/Components/FileUpload.vue';
+import { computed } from 'vue';
 const props = defineProps({
     models: Array,
     makes: Array,
@@ -54,6 +55,15 @@ const form = useForm({
     _method: props.car.id ? 'put' : 'post'
 });
 
+const makeModels = computed(() => {
+    if (!form.make) {
+        return [];
+    }
+
+    const make = props.makes.find(make => make.name == form.make);
+    return props.models.filter(model => model.manufacturer_id == make.id);
+});
+
 const submit = () => {
     if (props.car && props.car.id) {
         form.post(route('cars.update', props.car.id));
@@ -99,7 +109,7 @@ const onImageUpdate = (images) => {
                         <InputLabel for="model" value="Model" />
                         <select v-model="form.model" class="rounded border-gray-300 w-full mt-1">
                             <option value="">Select Model</option>
-                            <option v-for="model in models" :key="model.id" :value="model.name">{{ model.name }}</option>
+                            <option v-for="model in makeModels" :key="model.id" :value="model.name">{{ model.name }}</option>
                         </select>
                         <InputError class="mt-2" :message="form.errors.model" />
                     </div>

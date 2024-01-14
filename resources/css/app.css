@@ -13,7 +13,7 @@
 }
 
 :root {
-    --slider-connect-bg: rgb(81, 85, 92);
-    --slider-tooltip-bg: rgb(81, 85, 92);
-    --slider-handle-ring-color: rgb(81, 85, 92);
+    --slider-connect-bg: rgb(164, 35, 35);
+    --slider-tooltip-bg: rgb(164, 35, 35);
+    --slider-handle-ring-color: rgb(164, 35, 35);
 }
