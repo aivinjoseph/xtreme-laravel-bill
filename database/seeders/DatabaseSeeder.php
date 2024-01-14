@@ -32,83 +32,83 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
         
-        Manufacturer::insert([
-            ['name' => 'Audi'],
-            ['name' => 'Toyota']
-        ]);
+        // Manufacturer::insert([
+        //     ['name' => 'Audi'],
+        //     ['name' => 'Toyota']
+        // ]);
 
-        CarModel::insert([
-            ['name' => 'A4', 'manufacturer_id' => 1],
-            ['name' => 'A6', 'manufacturer_id' => 1],
-            ['name' => 'A8', 'manufacturer_id' => 1],
-            ['name' => 'Corolla', 'manufacturer_id' => 2],
-            ['name' => 'Camry', 'manufacturer_id' => 2],
-            ['name' => 'RAV4', 'manufacturer_id' => 2],
-        ]);
+        // CarModel::insert([
+        //     ['name' => 'A4', 'manufacturer_id' => 1],
+        //     ['name' => 'A6', 'manufacturer_id' => 1],
+        //     ['name' => 'A8', 'manufacturer_id' => 1],
+        //     ['name' => 'Corolla', 'manufacturer_id' => 2],
+        //     ['name' => 'Camry', 'manufacturer_id' => 2],
+        //     ['name' => 'RAV4', 'manufacturer_id' => 2],
+        // ]);
 
-        BodyType::insert([
-            ['name' => 'Sedan'],
-            ['name' => 'SUV'],
-            ['name' => 'Coupe'],
-            ['name' => 'Hatchback'],
-            ['name' => 'Wagon'],
-            ['name' => 'Convertible'],
-            ['name' => 'Van'],
-            ['name' => 'Minivan'],
-            ['name' => 'Pickup'],
-        ]);
+        // BodyType::insert([
+        //     ['name' => 'Sedan'],
+        //     ['name' => 'SUV'],
+        //     ['name' => 'Coupe'],
+        //     ['name' => 'Hatchback'],
+        //     ['name' => 'Wagon'],
+        //     ['name' => 'Convertible'],
+        //     ['name' => 'Van'],
+        //     ['name' => 'Minivan'],
+        //     ['name' => 'Pickup'],
+        // ]);
 
-        Transmission::insert([
-            ['name' => 'Automatic'],
-            ['name' => 'Manual'],
-            ['name' => 'CVT'],
-        ]);
+        // Transmission::insert([
+        //     ['name' => 'Automatic'],
+        //     ['name' => 'Manual'],
+        //     ['name' => 'CVT'],
+        // ]);
 
-        Door::insert([
-            ['name' => '2'],
-            ['name' => '3'],
-            ['name' => '4'],
-            ['name' => '5'],
-        ]);
+        // Door::insert([
+        //     ['name' => '2'],
+        //     ['name' => '3'],
+        //     ['name' => '4'],
+        //     ['name' => '5'],
+        // ]);
 
-        Fuel::insert([
-            ['name' => 'Gasoline'],
-            ['name' => 'Diesel'],
-            ['name' => 'Electric'],
-            ['name' => 'Hybrid'],
-        ]);
+        // Fuel::insert([
+        //     ['name' => 'Gasoline'],
+        //     ['name' => 'Diesel'],
+        //     ['name' => 'Electric'],
+        //     ['name' => 'Hybrid'],
+        // ]);
 
-        TechnicalCondition::insert([
-            ['name' => 'New'],
-            ['name' => 'Used'],
-        ]);
+        // TechnicalCondition::insert([
+        //     ['name' => 'New'],
+        //     ['name' => 'Used'],
+        // ]);
 
-        Drive::insert([
-            ['name' => 'AWD'],
-            ['name' => 'FWD'],
-            ['name' => 'RWD'],
-        ]);
+        // Drive::insert([
+        //     ['name' => 'AWD'],
+        //     ['name' => 'FWD'],
+        //     ['name' => 'RWD'],
+        // ]);
 
-        Color::insert([
-            ['name' => 'Black'],
-            ['name' => 'White'],
-            ['name' => 'Silver'],
-            ['name' => 'Gray'],
-            ['name' => 'Red'],
-            ['name' => 'Blue'],
-            ['name' => 'Brown'],
-            ['name' => 'Green'],
-            ['name' => 'Yellow'],
-            ['name' => 'Orange'],
-            ['name' => 'Purple'],
-            ['name' => 'Pink'],
-        ]);
+        // Color::insert([
+        //     ['name' => 'Black'],
+        //     ['name' => 'White'],
+        //     ['name' => 'Silver'],
+        //     ['name' => 'Gray'],
+        //     ['name' => 'Red'],
+        //     ['name' => 'Blue'],
+        //     ['name' => 'Brown'],
+        //     ['name' => 'Green'],
+        //     ['name' => 'Yellow'],
+        //     ['name' => 'Orange'],
+        //     ['name' => 'Purple'],
+        //     ['name' => 'Pink'],
+        // ]);
 
-        Feature::insert([
-            ['name' => 'Advance Key'],
-            ['name' => 'Active Cruise Control'],
-            ['name' => 'Bluetooth']
-        ]);
+        // Feature::insert([
+        //     ['name' => 'Advance Key'],
+        //     ['name' => 'Active Cruise Control'],
+        //     ['name' => 'Bluetooth']
+        // ]);
 
         Trim::insert([
             ['name' => 'Premium'],
