@@ -35,7 +35,9 @@ class CarController extends Controller
     public function inventory(Request $request)
     {
         return Inertia::render('Cars/Inventory', [
-            'cars' => Car::search($request->except('page'))->latest()->paginate(24)->withQueryString(),
+            'cars' => Car::search($request->except('page'))
+                ->orderBy('availability', 'asc')
+                ->latest()->paginate(24)->withQueryString(),
             'models' => CarModel::all(),
             'makes' => Manufacturer::all(),
             'colors' => Color::all(),

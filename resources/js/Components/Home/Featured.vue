@@ -21,7 +21,7 @@
                 These are our featured vehicles. Treat deals that we feel deserve a little more attention than the rest.
             </p>
         </div>
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <FeaturedItem v-for="car in cars" :key="car.id" :car="car" />
         </div>
     </div>
