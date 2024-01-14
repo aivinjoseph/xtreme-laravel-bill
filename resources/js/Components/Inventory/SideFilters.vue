@@ -108,16 +108,6 @@
             </select>
         </div>
 
-        <div>
-            <InputLabel for="availability" value="Availability" />
-            <select v-model="form.availability" class="rounded border-gray-300 w-full mt-1">
-                <option value="">Select Availability</option>
-                <option value="available">Available</option>
-                <option value="sold">Sold</option>
-                <option value="upcoming">Upcoming</option>
-            </select>
-        </div>
-
         <div class="flex gap-4">
             <div class="w-full">
                 <InputLabel for="name" value="Seats" />
