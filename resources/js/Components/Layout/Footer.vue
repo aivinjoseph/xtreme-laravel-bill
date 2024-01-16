@@ -1,18 +1,14 @@
 <script setup>
 import Wheel from '@/Components/Footer/Wheel.vue';
+import CarAnimation from '@/Components/Footer/CarAnimation.vue';
 import { info } from '../../info.js';
 </script>
 <template>
-  <footer class="group relative text-gray-100 body-font overflow-hidden bg-red-800 dark:bg-muted-1000">
-    <div class="absolute top-2 left-2 w-16 h-16 md:w-56 md:h-56 z-10 text-gray-300 animate-wheel">
-      <Wheel />
-    </div>
-
-    <div class="absolute bottom-4 -right-20 w-16 h-16 md:w-56 md:h-56 z-10 text-muted-400/20 animate-wheel">
-      <Wheel />
-    </div>
-
+  <footer class="group relative text-gray-100 body-font overflow-hidden bg-red-800 dark:bg-muted-1000">   
     <div class="relative w-full max-w-7xl mx-auto px-5 py-8 pt-16 z-20">
+      <div class="absolute top-4">
+        <CarAnimation />
+      </div>
       <div class="grid grid-cols-2 md:grid-cols-5 justify-center">
         <div class="md:col-start-2 w-full px-4">
           <h2 class="font-sans font-medium text-gray-100 tracking-widest text-sm uppercase mb-4">
