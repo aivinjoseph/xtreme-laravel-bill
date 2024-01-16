@@ -9,7 +9,8 @@ import SliderItem from "@/Components/Home/SliderItem.vue";
 import { ref } from "vue";
 
 const props = defineProps({
-    stats: Object
+    stats: Object,
+    homeImages: Array,
 });
 
 const modules = ref([Autoplay, Pagination, Navigation]);
@@ -41,20 +42,18 @@ const onSlideChange = () => {
             <Highlights :stats="stats" />
         </div>
 
-        <swiper :spaceBetween="0" :centeredSlides="true" :autoplay="{
-            delay: 2500,
-            disableOnInteraction: false,
-        }" :pagination="{
-    clickable: true,
-}" :navigation="false" :modules="modules" class="mySwiper">
-            <swiper-slide>
-                <SliderItem :index="0" image="/img/bg/2.png" />
-            </swiper-slide>
-            <swiper-slide>
-                <SliderItem :index="1" image="/img/bg/4.png" />
-            </swiper-slide>
-            <swiper-slide>
-                <SliderItem :index="2" image="/img/bg/1.jpeg" />
+        <swiper :spaceBetween="0" :centeredSlides="true" 
+            :autoplay="{
+                delay: 2500,
+                disableOnInteraction: false
+            }" 
+            :pagination="{
+                clickable: true
+            }" 
+            :navigation="false" :modules="modules" class="mySwiper">
+
+            <swiper-slide v-for="image in homeImages" :key="image">
+                <SliderItem :index="0" :image="image" />
             </swiper-slide>
         </swiper>
         <!--Slider-->

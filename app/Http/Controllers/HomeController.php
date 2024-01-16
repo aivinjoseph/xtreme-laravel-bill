@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Manufacturer;
+use App\Models\Setting;
 use Inertia\Inertia;
 
 class HomeController extends Controller
@@ -19,7 +20,8 @@ class HomeController extends Controller
                 'cars' => Car::available()->count(),
                 'sold' => Car::sold()->count(),
                 'upcoming' => Car::upcoming()->count(),
-            ]
+            ],
+            'homeImages' => json_decode(Setting::homeImages()->first()->value),
         ]);
     }
 }

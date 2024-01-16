@@ -9,6 +9,7 @@
         { name: 'Drive Test Bookings', route: 'test-booking.index', icon: 'users' },
         { name: 'Contacts', route: 'contacts.index', icon: 'users' },
         { name: 'Appraisals', route: 'appraisals.index', icon: 'users' },
+        { name: 'Settings', route: 'settings.index', icon: 'users' },
     ]
 
     const isUrl = (url, $page) => {

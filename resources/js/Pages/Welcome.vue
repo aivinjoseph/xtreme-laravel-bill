@@ -22,7 +22,8 @@ const props = defineProps({
         type: Array,
         required: true,
     },
-    stats: Object
+    stats: Object,
+    homeImages: Array,
 });
 
 </script>
@@ -31,7 +32,7 @@ const props = defineProps({
     <AppLayout title="Home">
         <div class="w-full min-h-screen mx-auto bg-white dark:bg-muted-900">
             <!--Hero-->
-            <Hero :stats="stats"/>
+            <Hero :stats="stats" :home-images="homeImages"/>
             <div class="container mt-8 max-w-7xl mx-auto px-4 lg:px-12">
                 <div class="mt-8"></div>
 

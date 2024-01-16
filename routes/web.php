@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FinanceApplicationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestBookingController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -85,4 +86,6 @@ Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_sessi
     Route::get('/finance-application/{financeApplication}', [FinanceApplicationController::class, 'show'])->name('finance-application.show');
 
     Route::get('/appraisals', [AppraisalController::class, 'index'])->name('appraisals.index');
+    Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+    Route::post('/settings', [SettingController::class, 'store'])->name('settings.store');
 });
