@@ -50,6 +50,7 @@
 
     const submit = () => {
         if (selectedItem.value) {
+            form._method = 'PUT';
             form.post(route('master-data.update', selectedItem.value.id), {
                 preserveScroll: true,
                 onSuccess: () => location.reload(),
