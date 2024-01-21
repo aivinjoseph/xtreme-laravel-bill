@@ -268,7 +268,7 @@ const onImageUpdate = (images) => {
 
                 <div class="mt-4">
                     <InputLabel for="video_link" value="Video Link" />
-                    <TextInput id="video_link" v-model="form.video_link" type="text" class="mt-1 block w-full" required autofocus autocomplete="video_link" />
+                    <TextInput id="video_link" v-model="form.video_link" type="text" class="mt-1 block w-full" autofocus autocomplete="video_link" />
                     <InputError class="mt-2" :message="form.errors.video_link" />
                 </div>
 
