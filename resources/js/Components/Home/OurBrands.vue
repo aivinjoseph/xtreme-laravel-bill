@@ -27,7 +27,7 @@
             <div class="py-4 grid grid-cols-2 lg:grid-cols-5 gap-4">
                 <Link class="flex flex-col items-center justify-center bg-gray-100 rounded p-4 hover:shadow hover:bg-gray-50" v-for="brand in brands" :key="brand.id" :href="`/inventory?make=${brand.name}`">
                     <span class="flex justify-center">
-                        <img :src="brand.logo" class="w-24 h-24 object-cover object-center" />
+                        <img :src="brand.logo" class="w-24 h-24 object-contain object-center" />
                     </span>
                     <h2 class="mt-1 text-gray-800 font-semibold">{{ brand.name }}</h2>
                     <span class="mt-1 text-gray-500 text-sm">{{ brand.cars_count }} vehicles available</span>

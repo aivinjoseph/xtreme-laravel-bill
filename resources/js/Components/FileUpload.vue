@@ -78,7 +78,7 @@
 
             <!-- New uploaded files -->
             <div class="relative" v-for="file, index in fileUrls" :key="file.name">
-                <img :src="file" class="w-36 h-36 rounded object-cover object-center">
+                <img :src="file" class="w-36 h-36 rounded object-contain object-center">
                 <button v-if="index + images.length != featuredImageIndex" type="button" class="absolute right-2 top-2 bg-gray-200 bg-opacity-50 hover:bg-opacity-90 text-red-600 rounded-full p-1" @click="removeFile(index)">
                     <CloseIcon class="w-4 h-4"/>
                 </button>
