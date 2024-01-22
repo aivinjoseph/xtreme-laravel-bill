@@ -57,10 +57,15 @@ const form = useForm({
 
 const makeModels = computed(() => {
     if (!form.make) {
-        return [];
+        return props.models;
     }
 
     const make = props.makes.find(make => make.name == form.make);
+
+    if (!make) {
+        return props.models;
+    }
+
     return props.models.filter(model => model.manufacturer_id == make.id);
 });
 
