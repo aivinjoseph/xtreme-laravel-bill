@@ -7,7 +7,7 @@ import { info } from '../../info.js';
   <footer class="group relative text-gray-100 body-font overflow-hidden bg-red-800 dark:bg-muted-1000">   
     <div class="relative w-full max-w-7xl mx-auto px-5 py-8 pt-16 z-20">
       <div class="absolute top-4">
-        <CarAnimation />
+        <Wheel />
       </div>
       <div class="grid grid-cols-2 md:grid-cols-5 justify-center">
         <div class="md:col-start-2 w-full px-4">
@@ -80,6 +80,11 @@ import { info } from '../../info.js';
             <li>
               <a :href="`tel:${info.phone}`" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 {{ info.phone }}
+              </a>
+            </li>
+            <li>
+              <a :href="`mailto:${info.email}`" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
+                {{ info.email }}
               </a>
             </li>
             <li>
