@@ -19,20 +19,17 @@ const services = [
             <div>
                 <h2 class="text-xl font-semibold text-gray-900 mt-4">Our Mission</h2>
                 <p class="mt-2 text-sm text-gray-500">
-                    Our mission is to provide our customers with a hassle-free car buying experience. We are committed to providing our customers with the best possible service and support. We strive to provide our customers with the best quality used cars at the best possible prices. We are committed to providing our customers with the best possible service and support. We strive to provide our customers with the best quality used cars at the best possible prices.
-                </p>
+                    At Xtreme Motors Inc, our mission is to provide our customers with reliable and affordable used cars that suit their needs and preferences. We serve the Mississauga community and beyond with quality vehicles and excellent service. We use innovative technology, transparent pricing, and flexible financing to make car buying easy and hassle-free.                </p>
             </div>
             <div>
                 <h2 class="text-xl font-semibold text-gray-900 mt-4">Our Vision</h2>
                 <p class="mt-2 text-sm text-gray-500">
-                    Our vision is to be the best used car dealership service provider in Toronto, Ontario. We are committed to providing our customers with the best possible service and support. We strive to provide our customers with the best quality used cars at the best possible prices. We are committed to providing our customers with the best possible service and support. We strive to provide our customers with the best quality used cars at the best possible prices.
-                </p>
+                    To become the leading used car dealer in Canada by offering reliable and affordable vehicles, exceptional service, and innovative solutions.                </p>
             </div>
             <div>
                 <h2 class="text-xl font-semibold text-gray-900 mt-4">Our Values</h2>
                 <p class="mt-2 text-sm text-gray-500">
-                    We are committed to providing our customers with the best possible service and support. We strive to provide our customers with the best quality used cars at the best possible prices. We are committed to providing our customers with the best possible service and support. We strive to provide our customers with the best quality used cars at the best possible prices.
-                </p>
+                    Our values are the core beliefs that guide how we operate and interact with the world. At Xtreme Motors Inc, we value reliability, affordability, quality, service, and innovation. These values reflect our commitment to deliver what we promise, offer competitive prices and flexible financing, select and inspect our vehicles carefully, treat our customers and employees with respect and professionalism, and embrace new technology and solutions. By living these values, we aim to provide our customers with reliable and affordable vehicles and exceptional service.                </p>
             </div>
             <div>
                 <!-- Why Choose Us -->
