@@ -23,7 +23,7 @@
             </Link>
         </div>
         <div class="mt-2 flex justify-between gap-4 px-2">
-            <Link :href="`/inventory/${car.slug}`" class="font-semibold hover:underline">
+            <Link :href="`/inventory/${car.slug}`" class="font-semibold hover:underline whitespace-nowrap overflow-ellipsis overflow-hidden">
                 {{ car.name }}
             </Link>
             <div class="">
