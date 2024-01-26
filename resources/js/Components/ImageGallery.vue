@@ -18,6 +18,8 @@ const props = defineProps({
     }
 })
 
+const VISIBLE_IMAGES_COUNT = 7;
+
 const showModal = ref(false);
 const imageIndex = ref(0);
 
@@ -37,6 +39,10 @@ const hasNext = computed(() => {
 
 const hasPrev = computed(() => {
     return imageIndex.value > 0;
+});
+
+const canShowOverlay = computed(() => {
+    return sortedImages.value.length - VISIBLE_IMAGES_COUNT > 0
 });
 
 //////////// Methods /////////////////////
@@ -59,6 +65,10 @@ const prev = () => {
     if (imageIndex.value > 0) {
         imageIndex.value--;
     }
+}
+
+const isLastIndex = (index) => {
+    return index == sortedImages.value.slice(0, VISIBLE_IMAGES_COUNT).length - 1;
 }
 
 </script>
@@ -85,13 +95,13 @@ const prev = () => {
     </Modal>
     <div>
         <div class="container grid grid-cols-1 md:grid-cols-3 gap-2 mx-auto py-4">
-            <div v-for="(image, index) in sortedImages.slice(0, 7)" :key="image" class="relative md:first:col-span-3 md:first:w-full" @click="openModal(index)">
+            <div v-for="(image, index) in sortedImages.slice(0, VISIBLE_IMAGES_COUNT)" :key="image" class="relative md:first:col-span-3 md:first:w-full" @click="openModal(index)">
                 <div v-if="index == 0 && availability">
                     <availability-badge :availability="availability" />
                 </div>
                 <img class="w-full max-h-screen rounded cursor-pointer object-cover object-center" :src="image" alt="image">
-                <div class="cursor-pointer rounded absolute top-0 w-full h-full bg-gray-900 opacity-50 flex justify-center items-center" v-if="index == sortedImages.slice(0, 7).length-1">
-                    <span class="text-4xl text-white opacity-100">+{{ sortedImages.length - 7 }}</span>
+                <div class="cursor-pointer rounded absolute top-0 w-full h-full bg-gray-900 opacity-50 flex justify-center items-center" v-if="isLastIndex(index) && canShowOverlay">
+                    <span class="text-4xl text-white opacity-100">+{{ sortedImages.length - VISIBLE_IMAGES_COUNT }}</span>
                 </div>
             </div>
         </div>
