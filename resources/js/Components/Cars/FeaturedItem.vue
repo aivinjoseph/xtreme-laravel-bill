@@ -19,7 +19,7 @@
             </div>
             <availability-badge :availability="car.availability" />
             <Link :href="`/inventory/${car.slug}`">
-                <img class="object-cover object-center w-full rounded-t h-32 lg:h-36" :src="car.images[car.featured_image_index]" alt="Vehicle image" />
+                <img loading="lazy" class="object-cover object-center w-full rounded-t h-32 lg:h-36" :src="car.images[car.featured_image_index]" alt="Vehicle image" />
             </Link>
         </div>
         <div class="mt-2 flex justify-between gap-4 px-2">
