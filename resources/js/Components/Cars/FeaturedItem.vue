@@ -32,8 +32,8 @@
                 </span>
             </div>
         </div>
-        <div class="my-2 px-1 flex items-end justify-around gap-2 divide-gray-200">
-            <div class="flex flex-col items-center justify-end">
+        <div class="my-2 px-1 h-full flex items-end justify-around gap-2 divide-gray-200">
+            <div class="flex flex-col items-center justify-end text-center">
                 <span class="text-sm font-semibold">
                     {{ car.engine }}
                 </span>
@@ -41,7 +41,7 @@
                     Engine
                 </small>
             </div>
-            <div class="flex flex-col items-center justify-end">
+            <div class="flex flex-col items-center justify-end text-center">
                 <span class="text-sm font-semibold">
                     {{ car.body_type }}
                 </span>
@@ -49,7 +49,7 @@
                     Body Type
                 </small>
             </div>
-            <div class="flex flex-col items-center justify-end">
+            <div class="flex flex-col items-center justify-end text-center">
                 <span class="text-sm font-semibold">
                     {{ car.mileage }}
                     <small>
