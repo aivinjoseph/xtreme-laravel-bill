@@ -82,7 +82,7 @@ const logout = () => {
           <div class="space-y-2 py-6">
             <Link @click="showMobileMenu = false" href="/dashboard" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Dashboard</Link>
             <Link @click="showMobileMenu = false" href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Home</Link>
-            <Link @click="showMobileMenu = false" href="/Inventory" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Inventory</Link>
+            <Link @click="showMobileMenu = false" href="/inventory" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Inventory</Link>
             <Link @click="showMobileMenu = false" href="/appraisals" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Trade-in Appraisal</Link>
             <Link @click="showMobileMenu = false" href="/finance-application" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Finance Application</Link>
             <Link @click="showMobileMenu = false" href="/payment-calculator" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Payment Calculator</Link>

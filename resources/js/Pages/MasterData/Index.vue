@@ -1,5 +1,5 @@
 <script setup>
-    import { ref } from 'vue';
+    import { computed, ref } from 'vue';
     import { useForm } from '@inertiajs/vue3';
     import Modal from '@/Components/Modal.vue';
     import AdminLayout from '@/Layouts/AdminLayout.vue';
@@ -26,9 +26,18 @@
         table: selectedTable.value.name,
         logo: null,
         _method: selectedItem.value ? 'PUT' : 'POST',
+        search: '',
     });
 
     const makes = ref(props.tables.find(table => table.name == 'Manufacturer').data);
+
+    const searchedData = computed(() => {
+        if (form.search) {
+            return selectedTable.value.data.filter(item => item.name.toLowerCase().includes(form.search.toLowerCase()));
+        }
+
+        return selectedTable.value.data;
+    });
 
     const changeTable = (table) => {
         selectedTable.value = table;
@@ -109,20 +118,21 @@
             </div>
         </Modal>
         <div class="py-12 max-w-7xl mx-auto ">
-            <div class="flex px-4 lg:px-8">
-                <div class="w-2/4 md:w-1/4 shadow rounded flex flex-col">
+            <div class="flex flex-col md:flex-row px-4 lg:px-8">
+                <div class="w-full md:w-1/4 shadow rounded flex flex-col">
                     <div class="bg-gray-800 p-4 border-b text-gray-100 rounded-t border-gray-100">
                         <h3 class="text-xl font-semibold">Master Data</h3>
                     </div>
                     <button class="w-full py-2 px-4 rounded hover:bg-gray-100 border-b border-gray-100 text-left" :class="{'bg-gray-100 font-bold': table.name == selectedTable.name}" v-for="table in tables" :key="table.name" @click="changeTable(table)">{{ table.label }}</button>
                 </div>
-                <div class="px-4 w-full">
-                    <div class="flex justify-between">
+                <div class="px-4 py-4 md:py-0 w-full">
+                    <div class="flex flex-col md:flex-row gap-2 justify-between md:items-end">
                         <h3 class="text-xl font-semibold">{{ selectedTable.label }}</h3>
+                        <TextInput v-model="form.search" type="text" class="mt-1 block w-full md:w-1/4" placeholder="Search" />
                         <PrimaryButton @click="showModal = true">Add New</PrimaryButton>
                     </div>
                     <div class="flex gap-4 flex-wrap mt-4">
-                        <div v-for="data in selectedTable.data" :key="data.id" class="border border-gray-100 bg-gray-50 shadow-sm rounded p-4">
+                        <div v-for="data in searchedData" :key="data.id" class="border border-gray-100 bg-gray-50 shadow-sm rounded p-4">
                             <div class="font-bold text-gray-800 text-center">{{ data.name }}</div>
                             <div class="mt-4 flex gap-8">
                                 <button @click="edit(data)" class="text-sm text-green-700 font-semibold">
