@@ -27,6 +27,7 @@ class Car extends Model
         'images' => 'array',
         'features' => 'array',
     ];
+    protected $appends = ['can_book'];
 
     const AVAILABILITY = [
         'available' => 'available',
@@ -123,5 +124,10 @@ class Car extends Model
     public function toggleFeatured()
     {
         $this->update(['featured' => !$this->featured]);        
+    }
+
+    public function getCanBookAttribute()
+    {
+        return $this->availability == self::AVAILABILITY['available'];
     }
 }

@@ -52,8 +52,8 @@ const onSlideChange = () => {
             }" 
             :navigation="false" :modules="modules" class="mySwiper">
 
-            <swiper-slide v-for="image in homeImages" :key="image">
-                <SliderItem :index="0" :image="image" />
+            <swiper-slide v-for="(image, i) in homeImages" :key="image">
+                <SliderItem :index="i" :image="image" />
             </swiper-slide>
         </swiper>
         <!--Slider-->

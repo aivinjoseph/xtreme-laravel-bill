@@ -16,7 +16,7 @@
             ? 'lg:animate-kenburns bg-center lg:bg-left-top'
             : ''"
         :style="`background-image: url(${image});`">
-    </div>
+     </div>
 </template>
 
 <style>

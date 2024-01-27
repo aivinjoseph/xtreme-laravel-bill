@@ -56,7 +56,7 @@ const data = [
                     </div>
                 </div>
                 <div class="col-span-1 p-4">
-                    <Link :href="`/test-booking?car_id=${car.id}`">
+                    <Link v-if="car.can_book" :href="`/test-booking?car_id=${car.id}`">
                         <PrimaryButton class="w-full h-12">Book a Test Drive</PrimaryButton>
                     </Link>
                     <!-- <div class="text-xl font-bold text-gray-800">Car Details</div> -->

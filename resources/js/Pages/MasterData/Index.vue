@@ -120,10 +120,10 @@
         <div class="py-12 max-w-7xl mx-auto ">
             <div class="flex flex-col md:flex-row px-4 lg:px-8">
                 <div class="w-full md:w-1/4 shadow rounded flex flex-col">
-                    <div class="bg-gray-800 p-4 border-b text-gray-100 rounded-t border-gray-100">
+                    <div class="bg-red-800 p-4 border-b text-gray-100 rounded-t border-gray-100">
                         <h3 class="text-xl font-semibold">Master Data</h3>
                     </div>
-                    <button class="w-full py-2 px-4 rounded hover:bg-gray-100 border-b border-gray-100 text-left" :class="{'bg-gray-100 font-bold': table.name == selectedTable.name}" v-for="table in tables" :key="table.name" @click="changeTable(table)">{{ table.label }}</button>
+                    <button class="w-full py-2 px-4 rounded hover:bg-gray-100 border-b border-gray-100 text-left" :class="{'bg-gray-100 text-red-800 font-bold': table.name == selectedTable.name}" v-for="table in tables" :key="table.name" @click="changeTable(table)">{{ table.label }}</button>
                 </div>
                 <div class="px-4 py-4 md:py-0 w-full">
                     <div class="flex flex-col md:flex-row gap-2 justify-between md:items-end">
