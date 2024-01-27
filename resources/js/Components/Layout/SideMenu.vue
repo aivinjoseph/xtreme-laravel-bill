@@ -10,6 +10,7 @@
         { name: 'Contacts', route: 'contacts.index', icon: 'users' },
         { name: 'Appraisals', route: 'appraisals.index', icon: 'users' },
         { name: 'Settings', route: 'settings.index', icon: 'users' },
+        { name: 'Faqs', route: 'faqs.adminIndex', icon: 'users' },
     ]
 
     const isUrl = (url, $page) => {

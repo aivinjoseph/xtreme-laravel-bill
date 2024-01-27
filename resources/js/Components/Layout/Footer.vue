@@ -29,16 +29,11 @@ import { info } from '../../info.js';
               <a href="/inventory?availability=upcoming" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Upcoming Cars
               </a>
+            </li>
             <li>
               <a href="/finance-application" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Finance Application
               </a>
-            </li>
-            <li>
-              <a href="/payment-calculator" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
-                Payment Calculator
-              </a>
-            </li>
             </li>
           </ul>
         </div>
@@ -55,11 +50,6 @@ import { info } from '../../info.js';
             <li>
               <a href="/payment-calculator" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
                 Payment Calculator
-              </a>
-            </li>
-            <li>
-              <a href="/appointment/create" class="text-sm underline-offset-4 text-gray-300 hover:text-white hover:underline dark:text-muted-400 dark:hover:text-gray-100">
-                Book Appointment
               </a>
             </li>
             <li>

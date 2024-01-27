@@ -4,6 +4,7 @@ use App\Http\Controllers\AppraisalController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FinanceApplicationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingController;
@@ -59,6 +60,7 @@ Route::get('/terms', function () {
     return Inertia::render('TermsOfService');
 })->name('terms-of-service');
 
+Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
@@ -88,4 +90,11 @@ Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_sessi
     Route::get('/appraisals', [AppraisalController::class, 'index'])->name('appraisals.index');
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::post('/settings', [SettingController::class, 'store'])->name('settings.store');
+
+    Route::get('/faqs', [FaqController::class, 'adminIndex'])->name('faqs.adminIndex');
+    Route::post('/faqs', [FaqController::class, 'store'])->name('faqs.store');
+    Route::get('/faqs/create', [FaqController::class, 'create'])->name('faqs.create');
+    Route::get('/faqs/{faq}/edit', [FaqController::class, 'edit'])->name('faqs.edit');
+    Route::put('/faqs/{faq}', [FaqController::class, 'update'])->name('faqs.update');
+    Route::delete('/faqs/{faq}', [FaqController::class, 'destroy'])->name('faqs.destroy');
 });
