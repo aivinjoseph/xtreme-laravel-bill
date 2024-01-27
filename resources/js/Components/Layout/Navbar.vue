@@ -38,7 +38,7 @@ const logout = () => {
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-6">
-      <Link v-if="$page.props.auth.user" href="/dashboard" class="text-sm font-semibold leading-6 text-red-800 hover:underline hover:text-red-600">Dashboard</Link>
+      <Link v-if="$page.props.auth.user" href="/admin/dashboard" class="text-sm font-semibold leading-6 text-red-800 hover:underline hover:text-red-600">Dashboard</Link>
       <Link href="/" class="text-sm font-semibold leading-6 text-red-800 hover:underline hover:text-red-600">Home</Link>
       <Link href="/inventory" class="text-sm font-semibold leading-6 text-red-800 hover:underline hover:text-red-600">Inventory</Link>
       <Link href="/appraisals" class="text-sm font-semibold leading-6 text-red-800 hover:underline hover:text-red-600">Trade-in Appraisal</Link>
@@ -80,7 +80,7 @@ const logout = () => {
       <div class="mt-6 flow-root">
         <div class="-my-6 divide-y divide-red-500/10">
           <div class="space-y-2 py-6">
-            <Link @click="showMobileMenu = false" href="/dashboard" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Dashboard</Link>
+            <Link @click="showMobileMenu = false" href="/admin/dashboard" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Dashboard</Link>
             <Link @click="showMobileMenu = false" href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Home</Link>
             <Link @click="showMobileMenu = false" href="/inventory" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Inventory</Link>
             <Link @click="showMobileMenu = false" href="/appraisals" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Trade-in Appraisal</Link>

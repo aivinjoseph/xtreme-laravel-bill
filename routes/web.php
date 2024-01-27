@@ -62,13 +62,8 @@ Route::get('/terms', function () {
 
 Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
 
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-});
-
 Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
     Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
     Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');

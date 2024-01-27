@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BodyType;
+use App\Models\Car;
 use App\Models\CarModel;
 use App\Models\Color;
 use App\Models\Door;
@@ -18,6 +19,16 @@ use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
+    public function index()
+    {
+        return Inertia::render('Dashboard', [
+            'available_cars' => Car::available()->count(),
+            'total_cars' => Car::count(),
+            'sold_cars' => Car::sold()->count(),
+            'revenue' => Car::query()->sum('price')
+        ]);
+    }
+
     public function masterData()
     {
         return Inertia::render('MasterData/Index', [
