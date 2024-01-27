@@ -34,12 +34,12 @@ const props = defineProps({
             <!--Hero-->
             <Hero :stats="stats" :home-images="homeImages"/>
             <div class="container mt-8 max-w-7xl mx-auto px-4 lg:px-12">
-                <div class="mt-8"></div>
+                <div class="mt-12"></div>
 
                 <!--Featured-->
                 <Featured :cars="featuredCars" />
     
-                <div class="mt-8"></div>
+                <div class="mt-12"></div>
                 <UpcomingCars :cars="upcomingCars" />
     
                 <div class="w-full flex justify-center py-4 mt-4">

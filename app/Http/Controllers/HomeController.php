@@ -12,10 +12,10 @@ class HomeController extends Controller
     public function index()
     {
         return Inertia::render('Welcome', [
-            'featuredCars' => Car::featured()->latest()->limit(4)->get(),
-            'upcomingCars' => Car::upcoming()->latest()->limit(4)->get(),
+            'featuredCars' => Car::featured()->latest()->limit(8)->get(),
+            'upcomingCars' => Car::upcoming()->latest()->limit(8)->get(),
             'brands' => Manufacturer::withCount('cars')->orderBy('cars_count', 'desc')
-                ->limit(5)->get(),
+                ->limit(10)->get(),
             'stats' => [
                 'cars' => Car::available()->count(),
                 'sold' => Car::sold()->count(),

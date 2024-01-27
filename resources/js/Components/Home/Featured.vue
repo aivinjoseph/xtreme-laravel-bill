@@ -12,7 +12,7 @@
     <div class="container">
         <div class="w-full text-left space-y-2">
             <div class="flex justify-between items-end">
-                <h2 class="font-heading font-light text-2xl md:text-3xl text-gray-800 dark:text-white">
+                <h2 class="font-heading font-light text-3xl md:text-4xl text-gray-800">
                     Featured Vehicles
                 </h2>
                 <a href="/inventory?featured=1" class="text-blue-500">View All</a>
