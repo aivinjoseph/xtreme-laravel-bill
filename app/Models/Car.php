@@ -26,6 +26,7 @@ class Car extends Model
     protected $casts = [
         'images' => 'array',
         'features' => 'array',
+        'featured' => 'boolean'
     ];
     protected $appends = ['can_book'];
 
