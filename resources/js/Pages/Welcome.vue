@@ -7,6 +7,7 @@ import OurBrands from "@/Components/Home/OurBrands.vue";
 import Testimonials from "@/Components/Home/Testimonials.vue";
 import TestBooking from "@/Components/Home/TestBooking.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
+import Barcode from "@/Components/Home/Barcode.vue";
 import { Link } from "@inertiajs/vue3";
 
 const props = defineProps({
@@ -34,6 +35,7 @@ const props = defineProps({
             <!--Hero-->
             <Hero :stats="stats" :home-images="homeImages"/>
             <div class="container mt-8 max-w-7xl mx-auto px-4 lg:px-12">
+                <Barcode />
                 <div class="mt-12"></div>
 
                 <!--Featured-->
@@ -58,6 +60,7 @@ const props = defineProps({
     
                 <!--CTA-->
                 <TestBooking />
+
             </div>  
         </div>
     </AppLayout>
