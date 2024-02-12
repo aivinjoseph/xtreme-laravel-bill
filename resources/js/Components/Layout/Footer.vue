@@ -1,6 +1,6 @@
 <script setup>
 import Wheel from '@/Components/Footer/Wheel.vue';
-import CarAnimation from '@/Components/Footer/CarAnimation.vue';
+import SocialLinks from '@/Components/Footer/SocialLinks.vue';
 import { info } from '../../info.js';
 </script>
 <template>
@@ -118,7 +118,7 @@ import { info } from '../../info.js';
       <div class="w-full max-w-7xl mx-auto px-5 py-6 flex justify-around items-center sm:flex-row flex-col">
         <p class="text-sm text-muted-400 sm:ml-6 sm:mt-0 mt-4">
           © {{ new Date().getFullYear() }} {{ info.name }} — All Rights Reserved.
-        </p>
+        </p><SocialLinks />
         <span class="flex gap-3 sm:mt-0 mt-4 justify-center text-sm">
           <a href="/terms" class="text-muted-400 hover:text-primary-500 hover:underline">
             Terms of Use & Disclaimer
