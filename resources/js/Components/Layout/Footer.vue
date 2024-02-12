@@ -9,8 +9,8 @@ import { info } from '../../info.js';
       <div class="absolute top-4">
         <Wheel />
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-5 justify-center">
-        <div class="md:col-start-2 w-full px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 justify-center">
+        <div class="w-full px-4">
           <h2 class="font-sans font-medium text-gray-100 tracking-widest text-sm uppercase mb-4">
             Buy vehicles
           </h2>
@@ -88,6 +88,28 @@ import { info } from '../../info.js';
               </a>
             </li>
 
+          </ul>
+        </div>
+        <div class="w-full px-4">
+          <h2 class="font-sans font-medium text-gray-100 tracking-widest text-sm uppercase mb-4">
+            Working Hours
+          </h2>
+          <ul class="font-sans space-y-2 mb-10">
+            <li>
+              <span class="text-sm underline-offset-4 text-gray-300 dark:text-muted-400">
+                Mon - Fri: 9:00 AM - 6:00 PM
+              </span>
+            </li>
+            <li>
+              <span class="text-sm underline-offset-4 text-gray-300 dark:text-muted-400">
+                Sat: 10:30 AM - 3:00 PM
+              </span>
+            </li>
+            <li>
+              <span class="text-sm underline-offset-4 text-gray-300 dark:text-muted-400">
+                Sun: By Appointment Only
+              </span>
+            </li>
           </ul>
         </div>
       </div>
