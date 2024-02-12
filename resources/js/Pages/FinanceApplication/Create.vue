@@ -25,9 +25,14 @@ const submit = () => {
     <AppLayout title="Apply for Finance">
         <div class="max-w-7xl mx-auto p-4 md:px-8 mt-4">
             <h1 class="text-2xl font-bold text-gray-800">Finance Application</h1>
-            <p class="text-gray-500">Please fill out the information below and one of our representatives will contact you regarding your credit application request.</p>
-            <form @submit.prevent="submit" class="mt-4">
-               <ApplicantInfo :form="form" />
+            <p class="text-gray-500 mt-2">Please scan below barcode.</p>
+            <div class="mt-1">
+                <img class="w-36 h-36" src="/img/finance-application-qr.png" alt="Finance Application" />
+            </div>
+            <p class="text-gray-500 mt-8">Or fill out the information below.</p>
+            <iframe src="https://virtualdesk.pro/quickApp?vendor=VND-79853" class="w-full mt-2" height="800px"></iframe>
+            <form v-if="1==2" @submit.prevent="submit" class="mt-2">
+               <ApplicantInfo :form="form"/>
                <div class="mt-8"></div>
 
                <ApplicantAddress :form="form" />

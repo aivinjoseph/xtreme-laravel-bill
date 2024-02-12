@@ -10,9 +10,9 @@
                 </div>
 
                 <!-- Column -->
-                <div class="max-w-lg bg-white border border-gray-200 md:max-w-2xl md:z-10 md:shadow-xl md:shadow-gray-400/10-800/10 md:absolute md:top-0 md:mt-48 ltablet:w-3/5 ltablet:left-0 ltablet:mt-20 ltablet:ml-20 lg:w-3/5 lg:left-0 lg:mt-20 lg:ml-20 xl:mt-24 xl:ml-12">
+                <div class="max-w-lg bg-white border border-gray-200 md:max-w-2xl md:z-10 md:shadow-xl md:shadow-gray-400/10-800/10 md:absolute md:top-0 md:mt-48 lg:w-3/6 lg:left-0 lg:mt-20 lg:ml-20 xl:mt-24 xl:ml-12">
                     <!-- Content -->
-                    <div class="flex flex-col p-12 md:px-16">
+                    <div class="flex flex-col p-12">
                         <h2 class="font-heading font-light text-2xl ltablet:text-4xl lg:text-4xl text-gray-800">
                             Book a test drive
                         </h2>
