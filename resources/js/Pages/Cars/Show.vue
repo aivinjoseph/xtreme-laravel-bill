@@ -3,6 +3,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import ImageGallery from '@/Components/ImageGallery.vue';
 import { Link } from '@inertiajs/vue3';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import PrintInfo from '@/Components/Cars/PrintInfo.vue';
 
 const props = defineProps({
     car: {
@@ -10,6 +11,8 @@ const props = defineProps({
         default: () => { }
     }
 })
+
+const print = () => window.print();
 
 const data = [
     { name: 'Make', value: props.car.make },
@@ -32,7 +35,8 @@ const data = [
 
 <template>
     <AppLayout :title="car.name">
-        <section class="max-w-7xl mx-auto p-8">
+        <PrintInfo class="hidden print:block" :data="data" :car="car"/>
+        <section class="max-w-7xl mx-auto p-8 print:hidden">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex justify-between items-end pb-0">
@@ -75,6 +79,10 @@ const data = [
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="mt-8 flex justify-end">
+                <PrimaryButton @click="print">Print Window Sticker</PrimaryButton>
             </div>
         </section>
     </AppLayout>

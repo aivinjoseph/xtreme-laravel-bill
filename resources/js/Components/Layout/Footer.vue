@@ -4,7 +4,7 @@ import SocialLinks from '@/Components/Footer/SocialLinks.vue';
 import { info } from '../../info.js';
 </script>
 <template>
-  <footer class="group relative text-gray-100 body-font overflow-hidden bg-red-800 dark:bg-muted-1000">   
+  <footer class="print:hidden group relative text-gray-100 body-font overflow-hidden bg-red-800 dark:bg-muted-1000">   
     <div class="relative w-full max-w-7xl mx-auto px-5 py-8 pt-16 z-20">
       <div class="absolute top-4">
         <Wheel />

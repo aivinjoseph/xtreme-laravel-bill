@@ -19,7 +19,7 @@ const logout = () => {
 </script>
 
 <template>
-  <nav class="bg-gray-50 mx-auto flex w-full items-center justify-between p-6 lg:px-8" aria-label="Global">
+  <nav class="bg-gray-50 mx-auto flex w-full items-center justify-between p-6 lg:px-8 print:hidden" aria-label="Global">
     <div class="flex lg:flex-1">
       <a href="/" class="-m-1.5 p-1.5">
         <span class="sr-only">Xtreme Motors Inc</span>
@@ -63,7 +63,7 @@ const logout = () => {
   <div class="lg:hidden" role="dialog" aria-modal="true">
     <!-- Background backdrop, show/hide based on slide-over state. -->
     <div class="fixed inset-0" :class="showMobileMenu ? 'z-10' : '-z-10'"></div>
-    <div :class="showMobileMenu ? 'right-0 z-10' : '-right-full -z-10'"
+    <div :class="showMobileMenu ? 'right-0 z-50' : '-right-full -z-10'"
     class="fixed inset-y-0 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-red-900/10">
       <div class="flex items-center justify-between">
         <Link href="#" class="-m-1.5 p-1.5">
