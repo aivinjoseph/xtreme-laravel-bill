@@ -1,9 +1,11 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ImageGallery from '@/Components/ImageGallery.vue';
-import { Link } from '@inertiajs/vue3';
+import { Link, router } from '@inertiajs/vue3';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import PrintInfo from '@/Components/Cars/PrintInfo.vue';
+import { onMounted } from 'vue';
+import axios from 'axios';
 
 const props = defineProps({
     car: {
@@ -11,8 +13,6 @@ const props = defineProps({
         default: () => { }
     }
 })
-
-const print = () => window.print();
 
 const data = [
     { name: 'Make', value: props.car.make },
@@ -31,6 +31,9 @@ const data = [
     { name: 'Trim', value: props.car.trim },
     { name: 'Drive', value: props.car.drive },
 ]
+
+const print = () => window.print();
+
 </script>
 
 <template>

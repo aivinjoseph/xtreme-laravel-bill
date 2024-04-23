@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\BidSubmitted;
 use App\Models\Car;
 use App\Http\Requests\StoreCarRequest;
 use App\Http\Requests\UpdateCarRequest;
+use App\Jobs\SubmitBid;
 use App\Models\BodyType;
 use App\Models\CarModel;
 use App\Models\Color;
@@ -160,5 +162,11 @@ class CarController extends Controller
         $validated['user_id'] = auth()->user()->id;
         
         return $validated;
+    }
+
+    function bid(Car $car) {
+        BidSubmitted::dispatch($car);
+
+        return $car;
     }
 }

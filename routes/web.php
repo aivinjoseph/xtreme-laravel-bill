@@ -28,6 +28,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/inventory', [CarController::class, 'inventory'])->name('cars.inventory');
 Route::get('/inventory/{car:slug}', [CarController::class, 'show'])->name('cars.show');
+Route::post('/inventory/{car}/biddings', [CarController::class, 'bid'])->name('cars.bid');
 
 Route::get('/finance-application', [FinanceApplicationController::class, 'create'])->name('finance-application.create');
 Route::post('/finance-application', [FinanceApplicationController::class, 'store'])->name('finance-application.store');
