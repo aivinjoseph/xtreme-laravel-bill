@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::table('cars', function (Blueprint $table) {
             $table->string('carfax_link')->nullable();
-            $table->double('city_fuel_consumption')->nullable();
-            $table->double('highway_fuel_consumption')->nullable();
+            $table->string('city_fuel_consumption')->nullable();
+            $table->string('highway_fuel_consumption')->nullable();
             $table->string('vin')->nullable();
         });
     }

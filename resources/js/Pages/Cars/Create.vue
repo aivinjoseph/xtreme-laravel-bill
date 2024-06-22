@@ -265,12 +265,12 @@ const onImageUpdate = (images) => {
                     </div>
                     <div>
                         <InputLabel for="city_fuel_consumption" value="City Fuel Consumption/100km" />
-                        <TextInput id="city_fuel_consumption" v-model="form.city_fuel_consumption" type="number" class="mt-1 block w-full" required autofocus autocomplete="city_fuel_consumption" />
+                        <TextInput id="city_fuel_consumption" v-model="form.city_fuel_consumption" type="text" class="mt-1 block w-full" required autofocus autocomplete="city_fuel_consumption" />
                         <InputError class="mt-2" :message="form.errors.city_fuel_consumption" />
                     </div>
                     <div>
                         <InputLabel for="highway_fuel_consumption" value="Highway Fuel Consumption/100km" />
-                        <TextInput id="highway_fuel_consumption" v-model="form.highway_fuel_consumption" type="number" class="mt-1 block w-full" required autofocus autocomplete="highway_fuel_consumption" />
+                        <TextInput id="highway_fuel_consumption" v-model="form.highway_fuel_consumption" type="text" class="mt-1 block w-full" required autofocus autocomplete="highway_fuel_consumption" />
                         <InputError class="mt-2" :message="form.errors.highway_fuel_consumption" />
                     </div>
                     <div class="col-span-3">

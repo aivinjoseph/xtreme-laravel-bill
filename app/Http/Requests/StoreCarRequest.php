@@ -48,8 +48,8 @@ class StoreCarRequest extends FormRequest
             'featured_image_index' => 'required|numeric',
             'video_link' => 'nullable|string|url',
             'carfax_link' => 'nullable|string|url',
-            'city_fuel_consumption' => 'nullable|numeric',
-            'highway_fuel_consumption' => 'nullable|numeric',
+            'city_fuel_consumption' => 'nullable|string',
+            'highway_fuel_consumption' => 'nullable|string',
             'vin' => 'nullable',
         ];
     }
