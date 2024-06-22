@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('cars', function (Blueprint $table) {
+            $table->string('carfax_link')->nullable();
+            $table->double('city_fuel_consumption')->nullable();
+            $table->double('highway_fuel_consumption')->nullable();
+            $table->string('vin')->nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('cars', function (Blueprint $table) {
+            //
+        });
+    }
+};

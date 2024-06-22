@@ -1,11 +1,9 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ImageGallery from '@/Components/ImageGallery.vue';
-import { Link, router } from '@inertiajs/vue3';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import PrintInfo from '@/Components/Cars/PrintInfo.vue';
-import { onMounted } from 'vue';
-import axios from 'axios';
+import { Link } from '@inertiajs/vue3';
 
 const props = defineProps({
     car: {
@@ -30,6 +28,8 @@ const data = [
     { name: 'Seats', value: props.car.seats },
     { name: 'Trim', value: props.car.trim },
     { name: 'Drive', value: props.car.drive },
+    { name: 'City Fuel Consumption', value: props.car.city_fuel_consumption + '/100 km'},
+    { name: 'Highway Fuel Consumption', value: props.car.highway_fuel_consumption + '/100 km'},
 ]
 
 const print = () => window.print();
@@ -68,7 +68,16 @@ const print = () => window.print();
                     </Link>
                     <!-- <div class="text-xl font-bold text-gray-800">Car Details</div> -->
                     <div class="mt-4 bg-gray-100 rounded-lg p-4">
-                        <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <a target="_blank" :href="car.carfax_link">
+                                <img src="https://dealer.carfax.ca/Images/Shared/CFC-Logo.svg" alt="">
+                            </a>
+                        </div>
+                        <div class="mt-4">
+                            <div class="font-bold text-gray-700">VIN #</div>
+                            <div class="text-gray-500">{{ car.vin }}</div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mt-2">
                             <div v-for="item in data" :key="item.name">
                                 <div class="font-bold text-gray-700">{{ item.name }}</div>
                                 <div class="text-gray-500">{{ item.value }}</div>

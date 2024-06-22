@@ -258,6 +258,26 @@ const onImageUpdate = (images) => {
                         <InputError class="mt-2" :message="form.errors.trim" />
                     </div>
 
+                    <div>
+                        <InputLabel for="vin" value="VIN Number" />
+                        <TextInput id="vin" v-model="form.vin" type="text" class="mt-1 block w-full" required autofocus autocomplete="vin" />
+                        <InputError class="mt-2" :message="form.errors.vin" />
+                    </div>
+                    <div>
+                        <InputLabel for="city_fuel_consumption" value="City Fuel Consumption/100km" />
+                        <TextInput id="city_fuel_consumption" v-model="form.city_fuel_consumption" type="number" class="mt-1 block w-full" required autofocus autocomplete="city_fuel_consumption" />
+                        <InputError class="mt-2" :message="form.errors.city_fuel_consumption" />
+                    </div>
+                    <div>
+                        <InputLabel for="highway_fuel_consumption" value="Highway Fuel Consumption/100km" />
+                        <TextInput id="highway_fuel_consumption" v-model="form.highway_fuel_consumption" type="number" class="mt-1 block w-full" required autofocus autocomplete="highway_fuel_consumption" />
+                        <InputError class="mt-2" :message="form.errors.highway_fuel_consumption" />
+                    </div>
+                    <div class="col-span-3">
+                        <InputLabel for="carfax_link" value="CARFAX Link" />
+                        <TextInput id="carfax_link" v-model="form.carfax_link" type="text" class="mt-1 block w-full" required autofocus autocomplete="carfax_link" />
+                        <InputError class="mt-2" :message="form.errors.carfax_link" />
+                    </div>
                     <div class="lg:col-span-3">
                         <InputLabel for="features" value="Features" />
                         <div class="flex gap-2 flex-wrap">
