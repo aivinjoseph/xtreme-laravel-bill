@@ -15,6 +15,12 @@
         form.patch(route('cars.featured', props.car.id));
     };
 
+    const archive = () => {
+        if(! confirm("Are you sure you want to archive this car?")) return;
+        const form = useForm({});
+        form.delete(route('cars.destroy', props.car.id));
+    };
+
 </script>
 
 <template>
@@ -27,6 +33,7 @@
                 <Link class="flex p-2 hover:bg-gray-100" :href="route('cars.edit', car.id)">Edit</Link>
                 <button v-if="!car.featured" class="flex p-2 hover:bg-gray-100 text-left" @click="setAsFeautered">Set as Featured</button>
                 <button v-if="car.featured" class="flex p-2 hover:bg-gray-100 text-left" @click="setAsFeautered">Remove from Featured</button>
+                <button class="flex p-2 hover:bg-gray-100 text-left" @click="archive">Archive</button>
             </div>
         </template>
     </Dropdown>

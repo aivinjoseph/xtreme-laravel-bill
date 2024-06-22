@@ -71,6 +71,7 @@ Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_sessi
     Route::get('/cars/{car}/edit', [CarController::class, 'edit'])->name('cars.edit');
     Route::put('/cars/{car}/update', [CarController::class, 'update'])->name('cars.update');
     Route::patch('/cars/{car}/featured', [CarController::class, 'toggleFeatured'])->name('cars.featured');
+    Route::delete('/cars/{car}', [CarController::class, 'destroy'])->name('cars.destroy');
 
     Route::get('/master-data', [DashboardController::class, 'masterData'])->name('master-data');
     Route::post('/master-data', [DashboardController::class, 'store'])->name('master-data.store');
