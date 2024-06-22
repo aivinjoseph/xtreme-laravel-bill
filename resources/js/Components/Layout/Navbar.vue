@@ -45,7 +45,7 @@ const logout = () => {
       <div class="relative group hover:cursor-pointer">
         <span class="text-sm font-semibold leading-6 text-red-800 hover:underline hover:text-red-600">Financing</span>
         <div class="absolute top-6 w-40 bg-red-50 shadow p-2 gap-2 z-50 hidden group-hover:flex flex-col">
-          <Link href="/finance-application" class="text-sm font-semibold leading-6 text-red-800 hover:underline hover:text-red-600">Finance Application</Link>
+          <a href="https://www.prioritycarfinancing.ca/credit-application" target="_blank" class="text-sm font-semibold leading-6 text-red-800 hover:underline hover:text-red-600">Finance Application</a>
           <Link href="/payment-calculator" class="text-sm font-semibold leading-6 text-red-800 hover:underline hover:text-red-600">Payment Calculator</Link>
         </div>
       </div>
@@ -84,7 +84,7 @@ const logout = () => {
             <Link @click="showMobileMenu = false" href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Home</Link>
             <Link @click="showMobileMenu = false" href="/inventory" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Inventory</Link>
             <Link @click="showMobileMenu = false" href="/appraisals" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Trade-in Appraisal</Link>
-            <Link @click="showMobileMenu = false" href="/finance-application" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Finance Application</Link>
+            <a @click="showMobileMenu = false" target="_blank" href="https://www.prioritycarfinancing.ca/credit-application/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Finance Application</a>
             <Link @click="showMobileMenu = false" href="/payment-calculator" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Payment Calculator</Link>
             <Link @click="showMobileMenu = false" href="/contact-us" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">Contact Us</Link>
             <Link @click="showMobileMenu = false" href="/about-us" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-red-800 hover:bg-red-50">About Us</Link>
