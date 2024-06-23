@@ -62,7 +62,7 @@
     <div class="container">
         <h2>Trade in Appraisal</h2>
                 
-        <p>{{ $appraisal->message }}</p>
+        <p>{{ $appraisal->description }}</p>
         
         <table>
             <tr>
