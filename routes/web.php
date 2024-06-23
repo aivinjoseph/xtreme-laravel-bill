@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FinanceApplicationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestBookingController;
 use Illuminate\Foundation\Application;
@@ -62,6 +63,7 @@ Route::get('/terms', function () {
 })->name('terms-of-service');
 
 Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
+Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
 
 Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

@@ -6,6 +6,7 @@ import UpcomingCars from "@/Components/Home/UpcomingCars.vue";
 import OurBrands from "@/Components/Home/OurBrands.vue";
 import Testimonials from "@/Components/Home/Testimonials.vue";
 import TestBooking from "@/Components/Home/TestBooking.vue";
+import Newsletter from "@/Components/Home/Newsletter.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import Barcode from "@/Components/Home/Barcode.vue";
 import { Link } from "@inertiajs/vue3";
@@ -62,6 +63,7 @@ const props = defineProps({
                 <TestBooking />
 
             </div>  
+            <Newsletter />
         </div>
     </AppLayout>
 </template>
