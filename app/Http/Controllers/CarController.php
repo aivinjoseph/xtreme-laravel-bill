@@ -87,7 +87,7 @@ class CarController extends Controller
 
         $subscribers = Subscriber::all()->pluck('email')->toArray();
 
-        Mail::to('xtremeinc.86@gmail.com')
+        Mail::to(config('mail.to'))
             ->bcc($subscribers)
             ->send(new CarPosted($car));
 

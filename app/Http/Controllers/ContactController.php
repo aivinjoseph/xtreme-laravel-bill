@@ -35,7 +35,7 @@ class ContactController extends Controller
     {
         $contact = Contact::create($request->validated());
 
-        Mail::to('xtremeinc.86@gmail.com')
+        Mail::to(config('mail.to'))
             ->send(new CustomerContacted($contact));
 
         return redirect()->route('home')->banner('Your message has been sent successfully.');
