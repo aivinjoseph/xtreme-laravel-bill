@@ -36,12 +36,12 @@
             <table class="border-collapse table-auto w-full text-sm mt-4">
                 <thead>
                     <tr>
-                        <th v-for="field in fields" :key="field.key" class="border-b dark:border-slate-600 font-medium p-4 text-left">{{ field.label }}</th>
+                        <th v-for="field in fields" :key="field.key" class="border-b font-medium p-4 text-left">{{ field.label }}</th>
                     </tr>
                 </thead>
-                <tbody class="bg-white dark:bg-slate-800">
+                <tbody class="bg-white">
                     <tr v-for="contact in contacts.data" :key="contact.id">
-                        <td v-for="field in fields" :key="field.key" class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ contact[field.key] }}</td>
+                        <td v-for="field in fields" :key="field.key" class="border-b border-slate-100 p-4 pl-8">{{ contact[field.key] }}</td>
                     </tr>
                 </tbody>
             </table>
