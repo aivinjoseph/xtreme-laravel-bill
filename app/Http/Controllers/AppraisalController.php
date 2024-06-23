@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAppraisalRequest;
+use App\Mail\AppraisalCreated;
 use App\Models\Appraisal;
 use App\Models\CarModel;
 use App\Models\Manufacturer;
 use App\Models\Transmission;
 use App\Models\Trim;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 
 class AppraisalController extends Controller
@@ -41,7 +43,9 @@ class AppraisalController extends Controller
      */
     public function store(StoreAppraisalRequest $request)
     {
-        Appraisal::create($request->validated());
+        $appraisal = Appraisal::create($request->validated());
+
+        Mail::to(config('mail.to'))->send(new AppraisalCreated($appraisal));
 
         return redirect()->route('home')->banner('Your appraisal request has been sent successfully');
     }
