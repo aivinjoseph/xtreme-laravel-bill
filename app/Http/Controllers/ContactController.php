@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContactRequest;
+use App\Mail\CustomerContacted;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -31,7 +33,10 @@ class ContactController extends Controller
      */
     public function store(StoreContactRequest $request)
     {
-        Contact::create($request->validated());
+        $contact = Contact::create($request->validated());
+
+        Mail::to('xtremeinc.86@gmail.com')
+            ->send(new CustomerContacted($contact));
 
         return redirect()->route('home')->banner('Your message has been sent successfully.');
     }
