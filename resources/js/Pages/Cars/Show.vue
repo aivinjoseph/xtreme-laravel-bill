@@ -93,8 +93,14 @@ const print = () => window.print();
                 </div>
             </div>
 
-            <div class="mt-8 flex justify-end">
-                <PrimaryButton @click="print">Print Window Sticker</PrimaryButton>
+            <div class="mt-8 flex flex-col sm:flex-row justify-end gap-3">
+                <PrimaryButton type="button" @click="print">Print Window Sticker</PrimaryButton>
+                <Link :href="route('bill-of-sales.create', { car: car.id })">
+                    <PrimaryButton type="button" class="w-full sm:w-auto">Retail Bill of Sale</PrimaryButton>
+                </Link>
+                <Link :href="route('wholesale-bill-of-sales.create', { car: car.id })">
+                    <PrimaryButton type="button" class="w-full sm:w-auto">Wholesale Bill of Sale</PrimaryButton>
+                </Link>
             </div>
         </section>
     </AppLayout>

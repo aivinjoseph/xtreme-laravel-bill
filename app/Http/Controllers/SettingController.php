@@ -3,20 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Models\Setting;
+use App\Support\BillOfSaleSettings;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class SettingController extends Controller
 {
-    function index()
+    function index(BillOfSaleSettings $billOfSaleSettings)
     {
         return Inertia::render('Settings/Index', [
-            'settings' => Setting::all()
+            'settings' => Setting::all(),
+            'dealerSettings' => $billOfSaleSettings->all(),
         ]);
     }
 
     function store(Request $request)
     {
+        $validated = $request->validate([
+            'dealer' => ['nullable', 'array'],
+            'dealer.name' => ['nullable', 'string', 'max:255'],
+            'dealer.address' => ['nullable', 'string', 'max:255'],
+            'dealer.phone' => ['nullable', 'string', 'max:50'],
+            'dealer.email' => ['nullable', 'email', 'max:255'],
+            'dealer.registration_number' => ['nullable', 'string', 'max:100'],
+            'dealer.hst_registration_number' => ['nullable', 'string', 'max:100'],
+            'dealer.hst_rate' => ['nullable', 'numeric', 'min:0', 'max:1'],
+        ]);
+
+        if (!empty($validated['dealer'])) {
+            app(BillOfSaleSettings::class)->save($validated['dealer']);
+        }
+
         if ($request->hasFile('files') || $request->has('images')) {
             $images = [];
 

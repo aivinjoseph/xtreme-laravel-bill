@@ -21,7 +21,7 @@ class HomeController extends Controller
                 'sold' => Car::sold()->count(),
                 'upcoming' => Car::upcoming()->count(),
             ],
-            'homeImages' => json_decode(Setting::homeImages()->first()->value),
+            'homeImages' => json_decode(Setting::homeImages()->first()?->value ?? '[]'),
         ]);
     }
 }

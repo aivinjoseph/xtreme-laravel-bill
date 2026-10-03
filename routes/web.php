@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppraisalController;
+use App\Http\Controllers\BillOfSaleController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestBookingController;
+use App\Http\Controllers\WholesaleBillOfSaleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -89,6 +91,9 @@ Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_sessi
     Route::get('/appraisals', [AppraisalController::class, 'index'])->name('appraisals.index');
     Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::post('/settings', [SettingController::class, 'store'])->name('settings.store');
+
+    Route::get('/cars/{car}/bill-of-sale', [BillOfSaleController::class, 'create'])->name('bill-of-sales.create');
+    Route::get('/cars/{car}/wholesale-bill-of-sale', [WholesaleBillOfSaleController::class, 'create'])->name('wholesale-bill-of-sales.create');
 
     Route::get('/faqs', [FaqController::class, 'adminIndex'])->name('faqs.adminIndex');
     Route::post('/faqs', [FaqController::class, 'store'])->name('faqs.store');
