@@ -140,6 +140,17 @@ class RetailBillOfSalePdf
         'payment_cheque' => [435.96, 242.88, 441.48, 248.4],
     ];
 
+    /**
+     * Comb fields from the approved PDF. Each field's rectangle is divided by
+     * the original AcroForm MaxLen into its printed character boxes.
+     */
+    private const CHARACTER_BOX_FIELDS = [
+        'vehicle_vin' => [306.228, 648.84, 592.627, 670.56, 17],
+        'vehicle_distance' => [310.08, 621.36, 404.88, 639.6, 6],
+        'trade_vin' => [18.691, 463.92, 231.417, 480.24, 17],
+        'trade_exact_distance' => [21.12, 435.96, 115.92, 452.52, 6],
+    ];
+
     public function render(array $data, Car $car, array $dealer): string
     {
         $template = base_path('Retail Bill of sale supreme.pdf');
@@ -204,8 +215,8 @@ class RetailBillOfSalePdf
         $this->text($pdf, 'vehicle_trim', Arr::get($vehicle, 'trim', $car->trim));
         $this->text($pdf, 'vehicle_colour', Arr::get($vehicle, 'colour', $car->ext_color));
         $this->text($pdf, 'vehicle_stock', Arr::get($vehicle, 'stock_number'));
-        $this->text($pdf, 'vehicle_vin', Arr::get($vehicle, 'vin', $car->vin), 8);
-        $this->text($pdf, 'vehicle_distance', Arr::get($vehicle, 'distance_travelled', $car->mileage));
+        $this->characterBoxText($pdf, 'vehicle_vin', Arr::get($vehicle, 'vin', $car->vin), 8, 'vin');
+        $this->characterBoxText($pdf, 'vehicle_distance', Arr::get($vehicle, 'distance_travelled', $car->mileage), 8, 'digits');
         $this->text($pdf, 'vehicle_true_distance_date', $this->date(Arr::get($vehicle, 'true_distance_date')), 6.5);
         $this->text($pdf, 'vehicle_warranty_date', $this->date(Arr::get($vehicle, 'warranty_in_service_date')), 6.5);
         $this->text($pdf, 'vehicle_delivery_date', $this->date(Arr::get($vehicle, 'delivery_date')), 6.5);
@@ -226,8 +237,8 @@ class RetailBillOfSalePdf
         $this->text($pdf, 'trade_model', Arr::get($trade, 'model'));
         $this->text($pdf, 'trade_trim', Arr::get($trade, 'trim'));
         $this->text($pdf, 'trade_colour', Arr::get($trade, 'colour'));
-        $this->text($pdf, 'trade_vin', Arr::get($trade, 'vin'), 7);
-        $this->text($pdf, 'trade_exact_distance', Arr::get($trade, 'exact_distance'));
+        $this->characterBoxText($pdf, 'trade_vin', Arr::get($trade, 'vin'), 7, 'vin');
+        $this->characterBoxText($pdf, 'trade_exact_distance', Arr::get($trade, 'exact_distance'), 7, 'digits');
         $this->text($pdf, 'trade_hst_value', $this->tradeHstLabel($trade), 6.5);
         $this->text($pdf, 'trade_lien_value', Arr::get($trade, 'lien') ? 'YES' : 'NO', 6.5);
         $this->text($pdf, 'dealer_guaranty_terms', $this->join(
@@ -336,6 +347,43 @@ class RetailBillOfSalePdf
         $pdf->SetTextColor(0, 0, 0);
         $pdf->SetXY($x1 + 1, self::PAGE_HEIGHT - $y2 + 0.5);
         $pdf->Cell($width - 2, $height - 1, $this->fitText($pdf, $value, $width - 2), 0, 0, $align);
+    }
+
+    private function characterBoxText(Fpdi $pdf, string $field, mixed $value, float $fontSize, string $mode): void
+    {
+        if (!isset(self::CHARACTER_BOX_FIELDS[$field])) {
+            return;
+        }
+
+        [$x1, $y1, $x2, $y2, $maxLength] = self::CHARACTER_BOX_FIELDS[$field];
+        $value = $this->plain($value);
+
+        if ($value === '') {
+            return;
+        }
+
+        $value = $mode === 'vin'
+            ? preg_replace('/[^A-Z0-9]/', '', strtoupper($value))
+            : preg_replace('/[^0-9]/', '', $value);
+
+        if ($value === '') {
+            return;
+        }
+
+        $value = substr($value, 0, $maxLength);
+        $slotWidth = ($x2 - $x1) / $maxLength;
+        $slotInset = 1.0;
+        $slotHeight = ($y2 - $y1) - ($slotInset * 2);
+        $top = self::PAGE_HEIGHT - $y2;
+
+        $pdf->SetFont('Helvetica', '', $fontSize);
+        $pdf->SetTextColor(0, 0, 0);
+
+        foreach (str_split($value) as $index => $character) {
+            $slotX = $x1 + ($index * $slotWidth);
+            $pdf->SetXY($slotX + $slotInset, $top + $slotInset);
+            $pdf->Cell($slotWidth - ($slotInset * 2), $slotHeight, $character, 0, 0, 'C');
+        }
     }
 
     private function multiline(Fpdi $pdf, string $field, mixed $value, float $fontSize): void

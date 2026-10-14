@@ -1,11 +1,11 @@
 <script setup>
-import { nextTick, reactive, ref, watch } from 'vue';
+import { nextTick, onBeforeUnmount, reactive, ref, watch } from 'vue';
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
-import WholesaleBillOfSalePrintTemplate from '@/Pages/WholesaleBillOfSale/PrintTemplate.vue';
 import { calculateHst, calculateWholesaleTotals } from './calculations.js';
+import { generateWholesaleBillOfSalePdf } from './pdf.js';
 
 const props = defineProps({
     car: { type: Object, required: true },
@@ -105,6 +105,9 @@ const form = reactive({
 });
 
 const previewMode = ref(false);
+const pdfUrl = ref('');
+const pdfLoading = ref(false);
+const pdfError = ref('');
 const hstEdited = ref(false);
 const financial = form.data.financial;
 const disclosures = form.data.disclosures;
@@ -117,14 +120,65 @@ watch(() => [financial.price, financial.hst, financial.licencing], () => {
     Object.assign(financial, calculateWholesaleTotals(financial));
 }, { immediate: true });
 
+const releasePdf = () => {
+    if (pdfUrl.value) URL.revokeObjectURL(pdfUrl.value);
+    pdfUrl.value = '';
+};
+
+const generatePdf = async () => {
+    pdfLoading.value = true;
+    pdfError.value = '';
+    releasePdf();
+
+    try {
+        const bytes = await generateWholesaleBillOfSalePdf(
+            form.data,
+            route('wholesale-bill-of-sales.template', { car: props.car.id }),
+        );
+        pdfUrl.value = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
+        return true;
+    } catch (error) {
+        pdfError.value = 'The approved Wholesale Bill of Sale PDF could not be generated. Please try again or contact an administrator.';
+        return false;
+    } finally {
+        pdfLoading.value = false;
+    }
+};
+
 const preview = async () => {
     previewMode.value = true;
     await nextTick();
+    await generatePdf();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
-const edit = () => { previewMode.value = false; };
-const print = () => window.print();
+const edit = () => {
+    previewMode.value = false;
+    pdfError.value = '';
+    releasePdf();
+};
+
+const print = async () => {
+    const printWindow = window.open('', '_blank');
+    const generated = pdfUrl.value || await generatePdf();
+
+    if (!generated && !pdfUrl.value) {
+        printWindow?.close();
+        return;
+    }
+
+    if (printWindow) {
+        printWindow.addEventListener('load', () => {
+            window.setTimeout(() => printWindow.print(), 250);
+        }, { once: true });
+        printWindow.location.href = pdfUrl.value;
+        return;
+    }
+
+    window.open(pdfUrl.value, '_blank', 'noopener,noreferrer');
+};
+
+onBeforeUnmount(releasePdf);
 </script>
 
 <template>
@@ -280,9 +334,10 @@ const print = () => window.print();
 
         <section v-else class="wholesale-preview-wrap">
             <div class="preview-toolbar print:hidden"><SecondaryButton type="button" @click="edit">Back to editor</SecondaryButton><PrimaryButton type="button" @click="print">Print Wholesale Bill of Sale</PrimaryButton></div>
-            <WholesaleBillOfSalePrintTemplate :data="form.data" />
+            <div v-if="pdfLoading" class="pdf-status">Generating the approved Wholesale Bill of Sale PDF…</div>
+            <div v-else-if="pdfError" class="pdf-status pdf-error">{{ pdfError }}</div>
+            <iframe v-else :src="pdfUrl" class="wholesale-pdf-preview" title="Wholesale Bill of Sale PDF preview"></iframe>
         </section>
-        <WholesaleBillOfSalePrintTemplate v-if="!previewMode" class="print-only-template" :data="form.data" />
     </AdminLayout>
 </template>
 
@@ -293,10 +348,11 @@ const print = () => window.print();
 .check { @apply flex items-center gap-2 text-sm text-gray-700; }
 .calculated { @apply mt-1 rounded-md bg-gray-50 px-3 py-2 font-semibold text-gray-800 ring-1 ring-gray-200; }
 .preview-toolbar { @apply mx-auto flex max-w-[612pt] justify-end gap-3 px-4 py-6; }
-.print-only-template { display: none; }
+.pdf-status { @apply mx-auto flex min-h-[50vh] max-w-[612pt] items-center justify-center bg-white p-8 text-sm text-gray-600 shadow-sm; }
+.pdf-error { @apply text-red-700; }
+.wholesale-pdf-preview { display: block; width: 612pt; height: 1674pt; max-width: 100%; margin: 0 auto 24px; border: 0; background: white; box-shadow: 0 2px 12px rgb(0 0 0 / 12%); }
 
 @media print {
-    .print-only-template { display: block !important; }
     .wholesale-preview-wrap { display: none !important; }
 }
 </style>

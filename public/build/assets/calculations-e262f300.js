@@ -1,0 +1,1 @@
+const t=e=>Number.isFinite(Number(e))?Number(e):0,c=({price:e,hst:r,licencing:a})=>({price:t(e),hst:t(r),licencing:t(a),total:Number((t(e)+t(r)+t(a)).toFixed(2))}),o=(e,r)=>Number((t(e)*Math.max(0,t(r))).toFixed(2)),n=e=>new Intl.NumberFormat("en-CA",{style:"currency",currency:"CAD"}).format(t(e));export{c as a,o as c,n as f};

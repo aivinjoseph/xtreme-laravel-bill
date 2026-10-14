@@ -95,6 +95,7 @@ Route::prefix('admin')->middleware(['auth:sanctum', config('jetstream.auth_sessi
     Route::get('/cars/{car}/bill-of-sale', [BillOfSaleController::class, 'create'])->name('bill-of-sales.create');
     Route::post('/cars/{car}/bill-of-sale/pdf', [BillOfSaleController::class, 'pdf'])->name('bill-of-sales.pdf');
     Route::get('/cars/{car}/wholesale-bill-of-sale', [WholesaleBillOfSaleController::class, 'create'])->name('wholesale-bill-of-sales.create');
+    Route::get('/cars/{car}/wholesale-bill-of-sale/template', [WholesaleBillOfSaleController::class, 'template'])->name('wholesale-bill-of-sales.template');
 
     Route::get('/faqs', [FaqController::class, 'adminIndex'])->name('faqs.adminIndex');
     Route::post('/faqs', [FaqController::class, 'store'])->name('faqs.store');
