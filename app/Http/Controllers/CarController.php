@@ -17,9 +17,11 @@ use App\Models\Feature;
 use App\Models\Fuel;
 use App\Models\Manufacturer;
 use App\Models\Subscriber;
+use App\Models\Setting;
 use App\Models\TechnicalCondition;
 use App\Models\Transmission;
 use App\Models\Trim;
+use App\Support\BillOfSaleSettings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
@@ -97,11 +99,43 @@ class CarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Car $car)
+    public function show(Car $car, BillOfSaleSettings $billOfSaleSettings)
     {
         return Inertia::render('Cars/Show', [
-            'car' => $car
+            'car' => $car,
+            'dealer' => $billOfSaleSettings->all(),
+            'publicWebsiteUrl' => $this->publicWebsiteUrl(),
+            'publicVehicleUrl' => $this->publicVehicleUrl($car),
         ]);
+    }
+
+    private function publicWebsiteUrl(): ?string
+    {
+        $configuredUrl = Setting::where('key', 'public_website_url')->value('value')
+            ?: config('window_sticker.public_website_url');
+
+        $configuredUrl = is_string($configuredUrl) ? trim($configuredUrl) : '';
+
+        if ($configuredUrl === '' || ! filter_var($configuredUrl, FILTER_VALIDATE_URL)) {
+            return null;
+        }
+
+        $scheme = strtolower((string) parse_url($configuredUrl, PHP_URL_SCHEME));
+
+        return in_array($scheme, ['http', 'https'], true)
+            ? rtrim($configuredUrl, '/')
+            : null;
+    }
+
+    private function publicVehicleUrl(Car $car): ?string
+    {
+        $baseUrl = $this->publicWebsiteUrl();
+
+        if ($baseUrl === null || ! $car->slug) {
+            return null;
+        }
+
+        return $baseUrl . route('cars.show', ['car' => $car], false);
     }
 
     /**

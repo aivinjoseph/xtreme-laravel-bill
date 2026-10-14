@@ -9,13 +9,16 @@
     const props = defineProps({
         settings: Array,
         dealerSettings: Object,
+        publicWebsiteUrl: String,
     });
 
     const homeImages = props.settings.filter((setting) => setting.key === 'home_images')[0];
+    const publicWebsiteSetting = props.settings.find((setting) => setting.key === 'public_website_url');
 
     const form = useForm({
         images: homeImages ? JSON.parse(homeImages.value) : [],
         files: [],
+        public_website_url: publicWebsiteSetting?.value || props.publicWebsiteUrl || '',
         dealer: {
             name: props.dealerSettings?.name || '',
             address: props.dealerSettings?.address || '',
@@ -43,6 +46,16 @@
             </div>
             <div>
                 <primary-button @click="submit" class="mt-4">Save</primary-button>
+            </div>
+
+            <div class="mt-10 border-t pt-6">
+                <h2 class="text-lg font-semibold text-gray-800">Public vehicle website</h2>
+                <p class="mt-1 text-sm text-gray-500">This base URL is used by Window Sticker QR codes, including while the admin is running locally.</p>
+                <div class="mt-4 max-w-2xl">
+                    <InputLabel for="public-website-url" value="Public website URL" />
+                    <input id="public-website-url" v-model="form.public_website_url" type="url" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="https://www.example.com" />
+                    <InputError class="mt-2" :message="form.errors.public_website_url" />
+                </div>
             </div>
 
             <div class="mt-10 border-t pt-6">

@@ -14,6 +14,8 @@ class SettingController extends Controller
         return Inertia::render('Settings/Index', [
             'settings' => Setting::all(),
             'dealerSettings' => $billOfSaleSettings->all(),
+            'publicWebsiteUrl' => Setting::where('key', 'public_website_url')->value('value')
+                ?: config('window_sticker.public_website_url'),
         ]);
     }
 
@@ -28,10 +30,18 @@ class SettingController extends Controller
             'dealer.registration_number' => ['nullable', 'string', 'max:100'],
             'dealer.hst_registration_number' => ['nullable', 'string', 'max:100'],
             'dealer.hst_rate' => ['nullable', 'numeric', 'min:0', 'max:1'],
+            'public_website_url' => ['nullable', 'url:http,https', 'max:255'],
         ]);
 
         if (!empty($validated['dealer'])) {
             app(BillOfSaleSettings::class)->save($validated['dealer']);
+        }
+
+        if (array_key_exists('public_website_url', $validated)) {
+            Setting::updateOrCreate(
+                ['key' => 'public_website_url'],
+                ['value' => (string) ($validated['public_website_url'] ?? '')]
+            );
         }
 
         if ($request->hasFile('files') || $request->has('images')) {

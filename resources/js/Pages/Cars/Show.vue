@@ -1,7 +1,9 @@
 <script setup>
+import { ref } from 'vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ImageGallery from '@/Components/ImageGallery.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import SecondaryButton from '@/Components/SecondaryButton.vue';
 import PrintInfo from '@/Components/Cars/PrintInfo.vue';
 import { Link } from '@inertiajs/vue3';
 
@@ -9,8 +11,22 @@ const props = defineProps({
     car: {
         type: Object,
         default: () => { }
+    },
+    dealer: {
+        type: Object,
+        default: () => ({})
+    },
+    publicWebsiteUrl: {
+        type: String,
+        default: ''
+    },
+    publicVehicleUrl: {
+        type: String,
+        default: ''
     }
 })
+
+const showStickerPreview = ref(false);
 
 const data = [
     { name: 'Make', value: props.car.make },
@@ -32,14 +48,25 @@ const data = [
     { name: 'Highway Fuel Consumption', value: props.car.highway_fuel_consumption + '/100 km'},
 ]
 
-const print = () => window.print();
+const print = () => {
+    showStickerPreview.value = true;
+};
+
+const closeStickerPreview = () => {
+    showStickerPreview.value = false;
+};
 
 </script>
 
 <template>
     <AppLayout :title="car.name">
-        <PrintInfo class="hidden print:block" :data="data" :car="car"/>
-        <section class="max-w-7xl mx-auto p-8 print:hidden">
+        <section v-if="showStickerPreview" class="sticker-preview-screen print:p-0">
+            <div class="sticker-preview-toolbar print:hidden">
+                <SecondaryButton type="button" @click="closeStickerPreview">Back to vehicle</SecondaryButton>
+            </div>
+            <PrintInfo :car="car" :dealer="dealer" :public-website-url="publicWebsiteUrl" :public-vehicle-url="publicVehicleUrl"/>
+        </section>
+        <section v-else class="max-w-7xl mx-auto p-8 print:hidden">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex justify-between items-end pb-0">
@@ -105,3 +132,24 @@ const print = () => window.print();
         </section>
     </AppLayout>
 </template>
+
+<style>
+.sticker-preview-screen {
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background: #f3f4f6;
+}
+
+.sticker-preview-toolbar {
+    width: 7.8in;
+    max-width: 100%;
+    margin: 0 auto 1rem;
+}
+
+@media print {
+    .sticker-preview-screen {
+        min-height: 0;
+        background: #ffffff;
+    }
+}
+</style>
