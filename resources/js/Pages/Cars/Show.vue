@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import ImageGallery from '@/Components/ImageGallery.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import PrintInfo from '@/Components/Cars/PrintInfo.vue';
+import WindowStickerEditor from './WindowStickerEditor.vue';
+import WindowStickerPreview from './WindowStickerPreview.vue';
 import { Link } from '@inertiajs/vue3';
 
 const props = defineProps({
@@ -27,6 +27,12 @@ const props = defineProps({
 })
 
 const showStickerPreview = ref(false);
+const showStickerEditor = ref(false);
+const stickerMode = ref('branded');
+const stickerDealer = reactive({
+    ...props.dealer,
+    address: props.dealer?.address || '',
+});
 
 const data = [
     { name: 'Make', value: props.car.make },
@@ -48,11 +54,23 @@ const data = [
     { name: 'Highway Fuel Consumption', value: props.car.highway_fuel_consumption + '/100 km'},
 ]
 
-const print = () => {
+const openStickerEditor = () => {
+    stickerDealer.address = props.dealer?.address || '';
+    stickerMode.value = 'branded';
+    showStickerEditor.value = true;
+    showStickerPreview.value = false;
+};
+
+const previewSticker = () => {
     showStickerPreview.value = true;
 };
 
-const closeStickerPreview = () => {
+const backToEditor = () => {
+    showStickerPreview.value = false;
+};
+
+const backToVehicle = () => {
+    showStickerEditor.value = false;
     showStickerPreview.value = false;
 };
 
@@ -61,11 +79,23 @@ const closeStickerPreview = () => {
 <template>
     <AppLayout :title="car.name">
         <section v-if="showStickerPreview" class="sticker-preview-screen print:p-0">
-            <div class="sticker-preview-toolbar print:hidden">
-                <SecondaryButton type="button" @click="closeStickerPreview">Back to vehicle</SecondaryButton>
-            </div>
-            <PrintInfo :car="car" :dealer="dealer" :public-website-url="publicWebsiteUrl" :public-vehicle-url="publicVehicleUrl"/>
+            <WindowStickerPreview
+                :car="car"
+                :dealer="stickerDealer"
+                :public-website-url="publicWebsiteUrl"
+                :public-vehicle-url="publicVehicleUrl"
+                v-model:mode="stickerMode"
+                @back="backToEditor"
+            />
         </section>
+        <WindowStickerEditor
+            v-else-if="showStickerEditor"
+            :car="car"
+            :dealer="stickerDealer"
+            v-model:address="stickerDealer.address"
+            @back="backToVehicle"
+            @preview="previewSticker"
+        />
         <section v-else class="max-w-7xl mx-auto p-8 print:hidden">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="col-span-1 md:col-span-2">
@@ -121,7 +151,7 @@ const closeStickerPreview = () => {
             </div>
 
             <div class="mt-8 flex flex-col sm:flex-row justify-end gap-3">
-                <PrimaryButton type="button" @click="print">Print Window Sticker</PrimaryButton>
+                <PrimaryButton type="button" @click="openStickerEditor">Print Window Sticker</PrimaryButton>
                 <Link :href="route('bill-of-sales.create', { car: car.id })">
                     <PrimaryButton type="button" class="w-full sm:w-auto">Retail Bill of Sale</PrimaryButton>
                 </Link>
